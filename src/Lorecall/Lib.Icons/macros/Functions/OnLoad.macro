@@ -6,6 +6,8 @@
 [h: defineFunction("icons.info", "InfoIcon@Lib:Icons")]
 [h: defineFunction("icons.listAdd", "ListAddIcon@Lib:Icons")]
 [h: defineFunction("icons.sendToWindw", "SendToWindowIcon@Lib:Icons")]
+[h: defineFunction("icons.square", "SquareIcon@Lib:Icons")]
+[h: defineFunction("icons.squareSolid", "SquareSolidIcon@Lib:Icons")]
 [h: defineFunction("icons.sync", "SyncIcon@Lib:Icons")]
 [h: defineFunction("icons.trash", "TrashIcon@Lib:Icons")]
 [h: defineFunction("icons.view", "ViewIcon@Lib:Icons")]
