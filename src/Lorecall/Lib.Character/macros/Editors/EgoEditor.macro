@@ -1,0 +1,56 @@
+[h:tokenId=currentToken()]
+[h:cognition=getProperty("Cognition")]
+[h:intuition=getProperty("Intuition")]
+[h:reflect=getProperty("Reflex")]
+[h:savvy=getProperty("Savvy")]
+[h:somatics=getProperty("Somatics")]
+[h:willpower=getProperty("Willpower")]
+
+[h:cognitionLabelField="cognitionLabel|Cognition|0|label|span=true"]
+[h:cognitionTextField=strformat("assignedCognition|%{cognition}|0|text|span=true width=32")]
+
+[h:intuitionLabelField="intuitionLabel|Intuition|0|label|span=true"]
+[h:intuitionTextField=strformat("assignedIntuition|%{intuition}|0|text|span=true width=32")]
+
+[h:reflexLabelField="reflexLabel|Reflex|0|label|span=true"]
+[h:reflexTextField=strformat("assignedReflex|%{reflex}|0|text|span=true width=32")]
+
+[h:savvyLabelField="savvyLabel|Savvy|0|label|span=true"]
+[h:savvyTextField=strformat("assignedSavvy|%{savvy}|0|text|span=true width=32")]
+
+[h:somaticsLabelField="somaticsLabel|Somatics|0|label|span=true"]
+[h:somaticsTextField=strformat("assignedSomatics|%{somatics}|0|text|span=true width=32")]
+
+[h:willpowerLabelField="willpowerLabel|Willpower|0|label|span=true"]
+[h:willpowerTextField=strformat("assignedWillpower|%{willpower}|0|text|span=true width=32")]
+
+
+[h:abort(
+  input(
+    cognitionLabelField,
+    cognitionTextField,
+    
+    intuitionLabelField,
+    intuitionTextField,
+
+    reflexLabelField,
+    reflexTextField,
+
+    savvyLabelField,
+    savvyTextField,
+
+    somaticsLabelField,
+    somaticsTextField,
+
+    willpowerLabelField,
+    willpowerTextField
+  )
+)]
+[h:setProperty("Cognition", assignedCognition, tokenId)]
+[h:setProperty("Intuition", assignedIntuition, tokenId)]
+[h:setProperty("Reflex", assignedReflex, tokenId)]
+[h:setProperty("Savvy", assignedSavvy, tokenId)]
+[h:setProperty("Somatics", assignedSomatics, tokenId)]
+[h:setProperty("Willpower", assignedWillpower, tokenId)]
+
+[macro("Refresh@this"): token.name]

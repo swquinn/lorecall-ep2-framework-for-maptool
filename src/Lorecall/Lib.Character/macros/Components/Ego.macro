@@ -1,5 +1,5 @@
 [h:tokenId=currentToken()]
-[h:editEgoLink=macroLinkText("EditEgo@Lib:Character", "all", "", tokenId)]
+[h:editEgoLink=macroLinkText("EgoEditor@Lib:Character", "all", "", tokenId)]
 
 <section class="cs-ego">
   <label class="section-header">

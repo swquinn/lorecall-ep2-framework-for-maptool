@@ -3,90 +3,90 @@
 <section class="cs-aptitudes">
   <div class="aptitude cognition">
     [h:cognitionScore=getProperty("Cognition")]
-    [h:cognitionModifier=character.getAptitudeCheck(cognitionScore)]
+    [h:cognitionCheck=character.getAptitudeCheck(cognitionScore)]
     <span>
-      [h:cogCheckArgs=strformat("skill=Cognition; value=%{cognitionModifier}")]
+      [h:cogCheckArgs=strformat("skill=Cognition; value=%{cognitionCheck}")]
       [r:macroLink("Cognition", "RollAptitudeCheck@Lib:Character", "all", cogCheckArgs, tokenId)]
     </span>
     <span class="aptitude-check">
-      [r:if(cognitionModifier>=0,strformat("%{cognitionModifier}"), cognitionModifier)]
+      [r:if(cognitionCheck>=0,strformat("%{cognitionCheck}"), cognitionCheck)]
     </span>
-    <span>
+    <span class="token-property">
       [r:macroLink(string(cognitionScore),"SimplePropertyEditor@Lib:Character", "", "Cognition", tokenId)]
     </span>
   </div>
   
   <div class="aptitude intuition">
     [h:intuitionScore=getProperty("Intuition")]
-    [h:intuitionModifier=character.getAptitudeCheck(intuitionScore)]
+    [h:intuitionCheck=character.getAptitudeCheck(intuitionScore)]
     <span>
-      [h:intCheckArgs=strformat("skill=Intuition; value=%{intuitionModifier}")]
+      [h:intCheckArgs=strformat("skill=Intuition; value=%{intuitionCheck}")]
       [r:macroLink("Intuition", "RollAptitudeCheck@Lib:Character", "all", intCheckArgs, tokenId)]
     </span>
     <span class="aptitude-check">
-      [r:if(intuitionModifier>=0,strformat("%{intuitionModifier}"), intuitionModifier)]
+      [r:if(intuitionCheck>=0,strformat("%{intuitionCheck}"), intuitionCheck)]
     </span>
-    <span>
+    <span class="token-property">
       [r:macroLink(string(intuitionScore),"SimplePropertyEditor@Lib:Character", "", "Intuition", tokenId)]
     </span>
   </div>
 
   <div class="aptitude reflex">
     [h:reflexScore=getProperty("Reflex")]
-    [h:reflexModifier=character.getAptitudeCheck(reflexScore)]
+    [h:reflexCheck=character.getAptitudeCheck(reflexScore)]
     <span>
-      [h:conCheckArgs=strformat("skill=Reflex; value=%{reflexModifier}")]
+      [h:conCheckArgs=strformat("skill=Reflex; value=%{reflexCheck}")]
       [r:macroLink("Reflex", "RollAptitudeCheck@Lib:Character", "all", conCheckArgs, tokenId)]
     </span>
     <span class="aptitude-check">
-      [r:if(reflexModifier>=0,strformat("%{reflexModifier}"), reflexModifier)]
+      [r:if(reflexCheck>=0,strformat("%{reflexCheck}"), reflexCheck)]
     </span>
-    <span>
+    <span class="token-property">
       [r:macroLink(string(reflexScore),"SimplePropertyEditor@Lib:Character", "", "Reflex", tokenId)]
     </span>
   </div>
 
   <div class="aptitude savvy">
     [h:savvyScore=getProperty("Savvy")]
-    [h:savvyModifier=character.getAptitudeCheck(savvyScore)]
+    [h:savvyCheck=character.getAptitudeCheck(savvyScore)]
     <span>
-      [h:intCheckArgs=strformat("skill=Savvy; value=%{savvyModifier}")]
+      [h:intCheckArgs=strformat("skill=Savvy; value=%{savvyCheck}")]
       [r:macroLink("Savvy", "RollAptitudeCheck@Lib:Character", "all", intCheckArgs, tokenId)]
     </span>
     <span class="aptitude-check">
-      [r:if(savvyModifier>=0,strformat("%{savvyModifier}"), savvyModifier)]
+      [r:if(savvyCheck>=0,strformat("%{savvyCheck}"), savvyCheck)]
     </span>
-    <span>
+    <span class="token-property">
       [r:macroLink(string(savvyScore),"SimplePropertyEditor@Lib:Character", "", "Savvy", tokenId)]
     </span>
   </div>
 
   <div class="aptitude somatics">
     [h:somaticsScore=getProperty("Somatics")]
-    [h:somaticsModifier=character.getAptitudeCheck(somaticsScore)]
+    [h:somaticsCheck=character.getAptitudeCheck(somaticsScore)]
     <span>
-      [h:wisCheckArgs=strformat("skill=Somatics; value=%{somaticsModifier}")]
+      [h:wisCheckArgs=strformat("skill=Somatics; value=%{somaticsCheck}")]
       [r:macroLink("Somatics", "RollAptitudeCheck@Lib:Character", "all", wisCheckArgs, tokenId)]
     </span>
     <span class="aptitude-check">
-      [r:if(somaticsModifier>=0,strformat("%{somaticsModifier}"), somaticsModifier)]
+      [r:if(somaticsCheck>=0,strformat("%{somaticsCheck}"), somaticsCheck)]
     </span>
-    <span>
+    <span class="token-property">
       [r:macroLink(string(somaticsScore),"SimplePropertyEditor@Lib:Character", "", "Somatics", tokenId)]
     </span>
   </div>
 
   <div class="aptitude willpower">
     [h:willpowerScore=getProperty("Willpower")]
-    [h:willpowerModifier=character.getAptitudeCheck(willpowerScore)]
+    [h:willpowerCheck=character.getAptitudeCheck(willpowerScore)]
     <span>
-      [h:chaCheckArgs=strformat("skill=Willpower; value=%{willpowerModifier}")]
+      [h:chaCheckArgs=strformat("skill=Willpower; value=%{willpowerCheck}")]
       [r:macroLink("Willpower", "RollAptitudeCheck@Lib:Character", "all", chaCheckArgs, tokenId)]
     </span>
     <span class="aptitude-check">
-      [r:if(willpowerModifier>=0,strformat("%{willpowerModifier}"), willpowerModifier)]
+      [r:if(willpowerCheck>=0,strformat("%{willpowerCheck}"), willpowerCheck)]
     </span>
-    <span>
+    <span class="token-property">
       [r:macroLink(string(willpowerScore),"SimplePropertyEditor@Lib:Character", "", "Willpower", tokenId)]
     </span>
   </div>
