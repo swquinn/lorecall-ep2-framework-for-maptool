@@ -29,9 +29,9 @@
   [h:args=""]
   [h:args=setStrProp(args, "skill", skillName)]
   [h:args=setStrProp(args, "value", totalRank)]
-  [h:abilityCheckRollLink=macroLinkText("RollAbilityCheck@Lib:Character", "all", args, tokenId)]
+  [h:skillCheckRollLink=macroLinkText("RollSkillCheck@Lib:Character", "all", args, tokenId)]
 
-  <a class="label" href="[r:abilityCheckRollLink]">
+  <a class="label" href="[r:skillCheckRollLink]">
     [r:skillName]
     <span class="related-ability">
       ([r:substring(skillAptitude, 0, 3)])
