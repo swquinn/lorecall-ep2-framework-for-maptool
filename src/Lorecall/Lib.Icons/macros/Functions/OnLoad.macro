@@ -3,6 +3,7 @@
 [h: defineFunction("icons.cog", "CogIcon@Lib:Icons")]
 [h: defineFunction("icons.cross", "CrossIcon@Lib:Icons")]
 [h: defineFunction("icons.edit", "EditIcon@Lib:Icons")]
+[h: defineFunction("icons.eyeSolid", "EyeSolidIcon@Lib:Icons")]
 [h: defineFunction("icons.info", "InfoIcon@Lib:Icons")]
 [h: defineFunction("icons.listAdd", "ListAddIcon@Lib:Icons")]
 [h: defineFunction("icons.plusSquare", "PlusSquareIcon@Lib:Icons")]
