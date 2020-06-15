@@ -23,17 +23,28 @@ html * {
   color: #000;
 }
 
-a { color: #5755d9; outline: none; text-decoration: none; }
+a { color: #612d7f; outline: none; text-decoration: none; }
 a:focus, a:hover, a:active, a.active {
-  color: #302ecd;
+  color: #612d7f;
   text-decoration: none;
 }
-a:visited { color: #807fe2; }
+a:visited { color: #612d7f; }
 
 div { margin: 0px; padding: 0px; }
+
+label,
+label *,
+label *:hover,
+label *:focus,
+label *:active,
+label *:visited {
+  color: #000;
+}
+
 h1, h2, h3, h4, h5, h6 { margin: 0px; padding: 0px; }
 section { margin: 0px; padding: 0px; }
 ul, li { margin: 0px; padding: 0px; }
+
 
 table {
   border: 0px solid #000;

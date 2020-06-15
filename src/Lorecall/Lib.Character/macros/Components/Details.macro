@@ -1,13 +1,13 @@
 [h:tokenId=currentToken()]
 
-[h:backgroundEditLink=""]
-[h:careerEditLink=""]
-[h:factionEditLink=""]
-[h:identityEditLink=""]
-[h:interestEditLink=""]
-[h:languagesEditLink=""]
-[h:museEditLink=""]
-[h:rezEditLink=""]
+[h:backgroundEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Background",tokenId)]
+[h:careerEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Career",tokenId)]
+[h:factionEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Faction",tokenId)]
+[h:identityEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Identity",tokenId)]
+[h:interestEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Interest",tokenId)]
+[h:languagesEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Languages",tokenId)]
+[h:museEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Muse",tokenId)]
+[h:rezEditLink=macroLinkText("SimplePropertyEditor@Lib:Character","none","Rez",tokenId)]
 
 <section class="cs-details">
   <div class="token-property-container background">
@@ -30,7 +30,7 @@
   </div>
   <div class="token-property-container interest">
     <span class="token-property">
-      [h:interestText=character.getPropertyWithDefault("interest", "(No Interest)")]
+      [h:interestText=character.getPropertyWithDefault("Interest", "(No Interest)")]
       <a href="[r:interestEditLink]">[r:interestText]</a>
     </span>
     <label>
@@ -39,7 +39,7 @@
   </div>
   <div class="token-property-container identity">
     <span class="token-property">
-      [h:identityText=character.getPropertyWithDefault("identity", "(Gender/Sex/Age)")]
+      [h:identityText=character.getPropertyWithDefault("Identity", "(Gender/Sex/Age)")]
       <a href="[r:identityEditLink]">[r:identityText]</a>
     </span>
     <label>
@@ -48,7 +48,7 @@
   </div>
   <div class="token-property-container muse">
     <span class="token-property">
-      [h:museText=character.getPropertyWithDefault("muse", "(No Muse)")]
+      [h:museText=character.getPropertyWithDefault("Muse", "(No Muse)")]
       <a href="[r:museEditLink]">[r:museText]</a>
     </span>
     <label>
@@ -57,7 +57,7 @@
   </div>
   <div class="token-property-container faction">
     <span class="token-property">
-      [h:factionText=character.getPropertyWithDefault("faction", "(Unaligned)")]
+      [h:factionText=character.getPropertyWithDefault("Faction", "(Unaligned)")]
       <a href="[r:factionEditLink]">[r:factionText]</a>
     </span>
     <label>
@@ -66,7 +66,7 @@
   </div>
   <div class="token-property-container lang">
     <span class="token-property">
-      [h:languagesText=character.getPropertyWithDefault("languages", "(Languages)")]
+      [h:languagesText=character.getPropertyWithDefault("Languages", "(Languages)")]
       <a href="[r:languagesEditLink]">[r:languagesText]</a>
     </span>
     <label>
@@ -75,7 +75,7 @@
   </div>
   <div class="token-property-container rez">
     <span class="token-property">
-      [h:rezText=character.getPropertyWithDefault("rez", "0")]
+      [h:rezText=character.getPropertyWithDefault("Rez", "0")]
       <a href="[r:rezEditLink]">[r:rezText]</a>
     </span>
     <label>
