@@ -1,0 +1,14 @@
+[h:tokenId=currentToken()]
+
+<section class="cs-combat">
+  <label class="section-header">COMBAT</label>
+  <div class="layout ep2-border">
+    [macro("Initiative@Lib:Character"): tokenId]
+    [macro("Damage@Lib:Character"): tokenId]
+    [macro("Wounds@Lib:Character"): tokenId]
+
+    [macro("Armor@Lib:Character"): tokenId]
+    [macro("Stress@Lib:Character"): tokenId]
+    [macro("Trauma@Lib:Character"): tokenId]
+  </div>
+</section>

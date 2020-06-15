@@ -1,0 +1,507 @@
+.clearfix:after {
+  content: "";
+  display: inline-block;
+  clear: both;
+}
+
+a.interaction {}
+a.interaction:active {}
+a.interaction:hover {}
+
+a.edit {}
+a.edit {}
+a.edit {}
+
+.btn-primary {
+  box-shadow:inset 0px 34px 0px -15px #b54b3a;
+  background-color:#a73f2d;
+  border:1px solid #241d13;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:12px;
+  font-weight:bold;
+  padding:9px 23px;
+  text-decoration:none;
+  text-shadow:0px -1px 0px #7a2a1d;
+}
+.btn-primary:hover {
+  background-color:#b34332;
+}
+.btn-primary:active {
+  position:relative;
+  top:1px;
+}
+
+.token-property-container {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.token-property {}
+
+body.character-sheet {
+  background-color: #ffffff;
+}
+body.character-sheet header {
+  background-color: #eee;
+  margin-bottom: 10px;
+  padding: 0px;
+
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+body.character-sheet header .icon { width: 1rem; }
+
+body.character-sheet h1 {
+  font-size: 1.25rem;
+  display: inline-block;
+  padding: 5px;
+}
+body.character-sheet nav {
+  display: flex;
+  line-height: 2rem;
+}
+body.character-sheet nav .header-tab {
+  background-color:#a73f2d;
+  cursor:pointer;
+  color:#ffffff;
+  line-height: 2rem;
+  padding: 0 .25rem;
+}
+body.character-sheet nav .header-tab.hidden { display: none; }
+body.character-sheet nav .header-tab .icon {
+  display: inline-block;
+  margin: auto;
+  line-height: 2rem;
+  top: 7px;
+}
+body.character-sheet nav .header-tab:hover {
+  background-color:#b34332;
+}
+body.character-sheet nav .header-tab.active {
+  background-color: #666;
+}
+
+
+body.character-sheet label,
+body.character-sheet label * {
+  color: #000;
+  font-size: 0.55rem;
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  border: 1px solid red;
+  margin: 0px auto;
+  min-width: 715px;
+  max-width: 715px;
+
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cs-header"
+    "cs-body";
+}
+
+section label.section-header {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #43838f;
+  text-align: right;
+}
+section label.section-header .edit-action { position: relative; top: -2px; }
+
+section.cs-header {
+  grid-area: cs-header;
+
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cs-name  cs-details";
+}
+
+section.cs-body {
+  grid-area: cs-body;
+  margin-top: 10px;
+
+  display: grid;
+  align-items: start;
+  grid-column-gap: 0.25rem;
+  grid-row-gap: 0.4rem;
+  grid-template-columns: 350px auto;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cs-ego         cs-combat"
+    "cs-morph       cs-combat"
+    "cs-skills      ."
+    "cs-reputation  .";
+}
+
+section.cs-aptitudes {
+  grid-area: cs-aptitudes;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  background-color: #e6e6e6;
+  padding: 5px 5px;
+  margin: 3px 0px;
+}
+section.cs-aptitudes .aptitude {
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px 2px;
+  min-width: 50px;
+}
+section.cs-aptitudes .aptitude .aptitude-check {
+  font-size: 1.5rem;
+}
+
+section.cs-attacks {}
+section.cs-attacks .layout {}
+section.cs-attacks table.attacks {
+  table-layout: fixed;
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0.15rem;
+}
+section.cs-attacks table.attacks col.name-column { width: 9em; }
+section.cs-attacks table.attacks col.attack-column { width: 3.75em; }
+section.cs-attacks table.attacks col.damage-column { }
+section.cs-attacks table.attacks col.action-column { width: 3.5em; }
+section.cs-attacks table.attacks th, 
+section.cs-attacks table.attacks td {
+  text-align: left;
+}
+section.cs-attacks table.attacks th {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+section.cs-attacks table.attacks td {
+  background-color: #e6e6e6; 
+  line-height: 0.85rem;
+}
+section.cs-attacks table.attacks td * { font-size: 0.58rem; }
+section.cs-attacks table.attacks td.name-column {
+  padding-left: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+section.cs-attacks table.attacks td.attack-mod-column {
+  width: 1em;
+  text-align: center;
+}
+section.cs-attacks table.attacks td.damage-column {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+section.cs-attacks table.attacks td.action-column {
+  display: flex;
+  align-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  background-color: transparent;
+  text-align: center;
+  vertical-align: top;
+}
+section.cs-attacks table.attacks td.action-column .action {
+  flex: none;
+  color: #000;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+
+section.cs-combat {
+  grid-area: cs-combat;
+}
+
+section.cs-details {
+  grid-area: cs-details;
+
+  border: 1px solid black;
+  padding: 5px;
+
+  display: grid;
+  grid-row-gap: 0.4rem;
+  grid-template-columns: 30% 30% 30% 10%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "background career  interest ."
+    "identity   muse    faction  ."
+    "lang       lang    rez      rez";
+}
+section.cs-details .background { grid-area: background; }
+section.cs-details .career { grid-area: career; }
+section.cs-details .interest { grid-area: interest; }
+section.cs-details .identity { grid-area: identity; }
+section.cs-details .faction { grid-area: faction; }
+section.cs-details .muse { grid-area: muse; }
+section.cs-details .lang { grid-area: lang; }
+section.cs-details .rez { grid-area: rez; }
+
+section.cs-ego {
+  grid-area: cs-ego;
+  align-self: stretch;
+}
+section.cs-ego .layout {
+  display: grid;
+  align-items: stretch;
+  grid-row-gap: 0.4rem;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "cs-aptitudes"
+    "cs-ego-stability";
+}
+
+section.cs-initiative {
+  grid-area: cs-initiative;
+  display: flex;
+
+  border: 1px solid black;
+  flex-direction: column;
+}
+section.cs-initiative .token-property { 
+  font-size: 1.15rem;
+  flex: 1 0 auto;
+
+  margin-top: 5px;
+  text-align: center;
+}
+section.cs-initiative label { text-align: center; }
+
+section.cs-ego-stability {
+  grid-area: cs-ego-stability;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  padding: 5px 5px;
+  margin: 3px 0px;
+}
+section.cs-ego-stability .lucidity,
+section.cs-ego-stability .insanity,
+section.cs-ego-stability .trauma-threshold {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+
+  border: 1px solid #000;
+  flex: 1 0 auto;
+  margin: 2px 5px;
+  min-width: 90px;
+}
+section.cs-ego-stability label {
+  text-align: center;
+}
+section.cs-ego-stability .token-property { 
+  font-size: 1.15rem;
+  flex: 1 0 auto;
+
+  margin-top: 5px;
+  text-align: center;
+}
+
+section.cs-morph {
+  grid-area: cs-morph;
+}
+
+section.cs-morph-durability {
+  grid-area: cs-morph-durability;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  padding: 5px 5px;
+  margin: 3px 0px;
+}
+section.cs-morph-durability .durability,
+section.cs-morph-durability .death-rating,
+section.cs-morph-durability .wound-threshold {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+
+  border: 1px solid #000;
+  flex: 1 0 auto;
+  margin: 2px 5px;
+  min-width: 90px;
+}
+section.cs-morph-durability label {
+  text-align: center;
+}
+section.cs-morph-durability .token-property { 
+  font-size: 1.15rem;
+  flex: 1 0 auto;
+
+  margin-top: 5px;
+  text-align: center;
+}
+
+section.cs-morph-pools {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+section.cs-morph-pools .morph-pool {
+  background-color: #fff;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px 2px;
+  min-width: 75px;
+}
+section.cs-morph-pools .morph-pool .current-pool {
+  font-size: 1.25rem;
+}
+section.cs-morph-pools .morph-pool .associated-checks {
+  font-size: 0.55rem;
+}
+
+section.cs-name {
+  grid-area: cs-name;
+
+  border: 1px solid black;
+  border-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  background-color: #eee;
+  margin: 0.7rem 0rem;
+}
+
+section.cs-reputation {
+  grid-area: cs-reputation;
+  border: 1px red dashed;
+}
+section.cs-reputation .layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-self: center;
+  padding: 2px 2px;
+  margin: 3px 0px;
+}
+section.cs-reputation .faction-reputation {
+  min-width: 110px;
+}
+
+section.cs-skills {
+  grid-area: cs-skills;
+}
+
+section.cs-stress {
+  grid-area: cs-stress;
+}
+section.cs-stress .stress-and-lucidity,
+section.cs-stress .insanity {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+
+  border: 1px solid #000;
+  flex: 1 0 auto;
+  margin: 2px 0px;
+}
+section.cs-stress .stress-and-lucidity label,
+section.cs-stress .insanity label {
+  text-align: center;
+}
+section.cs-stress .edit-stress {
+  position: relative;
+  display: block;
+  float: right;
+
+  margin: -5px 0px 0px auto;
+  padding: 0px;
+  top: 5px;
+  right: 2px;
+}
+section.cs-stress .token-property { 
+  font-size: 1.15rem;
+  flex: 1 0 auto;
+
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+section.cs-trauma {
+  grid-area: cs-trauma;
+}
+section.cs-trauma .traumas {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+
+  border: 1px solid #000;
+  flex: 1 0 auto;
+  margin: 2px 0px;
+}
+section.cs-trauma .traumas label {
+  text-align: center;
+}
+section.cs-trauma .edit-trauma {
+  position: relative;
+  display: block;
+  float: right;
+
+  margin: -5px 0px 0px auto;
+  padding: 0px;
+  top: 5px;
+  right: 2px;
+}
+section.cs-trauma .token-property { 
+  font-size: 1.15rem;
+  flex: 1 0 auto;
+
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+.ep2-border {
+  border: 1px solid #000;
+  border-top-width: 5px;
+  border-bottom-width: 5px;
+  border-right-width: 0px;
+  padding: 2px;
+}

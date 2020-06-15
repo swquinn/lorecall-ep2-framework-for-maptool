@@ -1,0 +1,22 @@
+[h:tokenId=currentToken()]
+
+[h:durability=character.getDurability()]
+[h:deathRating=character.getDeathRating()]
+[h:woundThreshold=character.getWoundThreshold()]
+
+<section class="cs-morph-durability">
+  <div class="durability">
+    <span class="token-property">[r:durability]</span>
+    <label>DURABILITY</label>
+  </div>
+
+  <div class="death-rating">
+    <span class="token-property">[r:deathRating]</span>
+    <label>DEATH RATING</label>
+  </div>
+
+  <div class="wound-threshold">
+    <span class="token-property">[r:woundThreshold]</span>
+    <label>WOUND THRESHOLD</label>
+  </div>
+</section>

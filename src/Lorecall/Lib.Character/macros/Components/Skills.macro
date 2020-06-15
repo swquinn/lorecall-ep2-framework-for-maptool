@@ -1,0 +1,30 @@
+[h:tokenId=currentToken()]
+
+[h:addSkillLink=macroLinkText("SkillsEditor@this", "","",tokenId)]
+<section class="cs-skills">
+  <label class="section-header">
+    SKILLS
+    <a class="action" href="[r:addSkillLink]">
+      <i class="icon">[r:icons.plusSquare()]</i>
+    </a>
+  </label>
+  <div class="layout ep2-border">
+    [macro("Skill@this"): "Athletics"]
+    [macro("Skill@this"): "Deceive"]
+    [macro("Skill@this"): "Fray"]
+    [macro("Skill@this"): "Free Fall"]
+    [macro("Skill@this"): "Guns"]
+    [macro("Skill@this"): "Infiltrate"]
+    [macro("Skill@this"): "Infosec"]
+    [macro("Skill@this"): "Interface"]
+    [macro("Skill@this"): "Kinesics"]
+    [macro("Skill@this"): "Melee"]
+    [macro("Skill@this"): "Perceive"]
+    [macro("Skill@this"): "Persuade"]
+    [macro("Skill@this"): "Program"]
+    [macro("Skill@this"): "Provoke"]
+    [macro("Skill@this"): "Psi"]
+    [macro("Skill@this"): "Research"]
+    [macro("Skill@this"): "Survival"]
+  </div>
+</section>

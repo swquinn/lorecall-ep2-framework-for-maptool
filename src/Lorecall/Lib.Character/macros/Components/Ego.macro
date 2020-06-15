@@ -1,0 +1,15 @@
+[h:tokenId=currentToken()]
+[h:editEgoLink=macroLinkText("EditEgo@Lib:Character", "all", "", tokenId)]
+
+<section class="cs-ego">
+  <label class="section-header">
+    APTITUDES & DERIVED STATS
+    <a class="action edit-action" href="[r:editEgoLink]">
+      <i class="icon">[r:icons.edit()]</i>
+    </a>
+  </label>
+  <div class="layout ep2-border">
+    [macro("Aptitudes@Lib:Character"): tokenId]
+    [macro("EgoStability@Lib:Character"): tokenId]
+  </div>
+</section>

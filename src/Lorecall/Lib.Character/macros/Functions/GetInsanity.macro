@@ -1,0 +1,5 @@
+[h:lucidity=character.getLucidity()]
+
+[h:lucidity=if(isNumber(lucidity), lucidity, 1)]
+[h:insanity=(lucidity * 2))]
+[h:macro.return=insanity]

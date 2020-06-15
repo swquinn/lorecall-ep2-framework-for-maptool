@@ -1,0 +1,6 @@
+[h:gear=getProperty("Gear")]
+
+[if(json.length(gear)<1), CODE: {
+  [h:get='{}']
+};{}]
+[h:macro.return=gear]

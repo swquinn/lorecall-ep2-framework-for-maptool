@@ -1,0 +1,26 @@
+[h:tokenId=currentToken()]
+[h:features=character.getFeatures(tokenId)]
+
+<section class="cs-features">
+  <label>
+    [r:macroLink("FEATURES & EGO TRAITS", "FeaturesEditor@this", "","",tokenId)]
+  </label>
+  <div class="layout ep2-border">
+    <ul>
+      [foreach(feature, features, "", ","), CODE: {
+      [h:featureName=json.get(feature, "label")]
+      [h:featurePath=strformat("%{featureName}@TOKEN")]
+
+      [h:announceAction=macroLinkText(featurePath, "all", "", tokenId)]
+      <li>
+          <div class="feature">
+          <a class="feature-label" href="[r:announceAction]">[r:featureName]</a>
+          <a class="edit-feature">
+              <i class="icon">[r:icons.edit()]</i>
+          </a>
+          </div>
+      </li>    
+      }]
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+[h:faction=arg(0)]
+
+[h:factionReputation=json.set("{}",
+  "faction", faction,
+  "reputation", 50,
+  "minorFavors", 1,
+  "moderateFavors", 1,
+  "majorFavors", 1
+)]
+[h:macro.return=factionReputation]

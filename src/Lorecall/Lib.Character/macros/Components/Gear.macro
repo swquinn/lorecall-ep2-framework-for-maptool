@@ -1,0 +1,23 @@
+[h:tokenId=currentToken()]
+[h:gear=character.getGear(tokenId)]
+
+<section class="cs-gear">
+  <label>GEAR</label>
+  <div class="layout ep2-border">
+    <ul>
+      [foreach(item, gear, "", ","), CODE: {
+        [h:itemName=json.get(item, "label")]
+
+        [h:announceAction=macroLinkText("", "all", "", tokenId)]
+        <li>
+          <div class="item">
+            <a class="item-label" href="[r:announceAction]">[r:itemName]</a>
+            <a it="edit-item" class="action">
+              <i class="icon">[r:icons.edit()]</i>
+            </a>
+          </div>
+        </li>    
+      }]
+    </ul>
+  </div>
+</section>

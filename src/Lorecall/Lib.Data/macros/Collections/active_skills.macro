@@ -1,0 +1,115 @@
+[h:schema='{
+  "fields": [
+    { "fieldName": "uuid" },
+    { "fieldName": "name" },
+    { "fieldName": "aptitude" },
+    { "fieldName": "type" }
+  ]
+}']
+
+[h:documents='[
+  {
+    "uuid": "0bf206aa-c537-41f8-babe-52a725131168",
+    "name": "Athletics",
+    "aptitude": "Somatics",
+    "type": "Physical"
+  },
+  {
+    "uuid": "26e0b76a-5a77-4862-9a46-aa48eefdd59f",
+    "name": "Deceive",
+    "aptitude": "Savvy",
+    "type": "Social"
+  },
+  {
+    "uuid": "24141015-9a2c-42c0-9932-27f096260c8c",
+    "name": "Fray",
+    "aptitude": "Reflex",
+    "type": "Combat"
+  },
+  {
+    "uuid": "70bba7be-dcfd-4666-b32c-86511df6fa74",
+    "name": "Free Fall",
+    "aptitude": "Somatics",
+    "type": "Physical"
+  },
+  {
+    "uuid": "4c67b98f-ef40-4ed5-8fb5-2d2722b33cb0",
+    "name": "Guns",
+    "aptitude": "Reflex",
+    "type": "Combat"
+  },
+  {
+    "uuid": "8cb24411-0795-4ac9-9b94-cc5c863cf8b6",
+    "name": "Infiltrate",
+    "aptitude": "Reflex",
+    "type": "Physical"
+  },
+  {
+    "uuid": "41f5948e-2454-4212-bbbb-07c7f842b3e2",
+    "name": "Infosec",
+    "aptitude": "Cognition",
+    "type": "Technical"
+  },
+  {
+    "uuid": "36dc27b9-2adf-4ff8-80c2-4231cb6ffc89",
+    "name": "Interface",
+    "aptitude": "Cognition",
+    "type": "Technical"
+  },
+  {
+    "uuid": "5c0775a3-04d3-4ced-8337-a2edf721e6c7",
+    "name": "Kinesics",
+    "aptitude": "Savvy",
+    "type": "Social"
+  },
+  {
+    "uuid": "f4ef0590-ffc9-48a4-9809-02d3d2a92ab3",
+    "name": "Melee",
+    "aptitude": "Somatics",
+    "type": "Combat"
+  },
+  {
+    "uuid": "dffec4a8-d212-452b-9401-f15975e6b8b0",
+    "name": "Perceive",
+    "aptitude": "Intuition",
+    "type": "Mental"
+  },
+  {
+    "uuid": "cb9f69ad-b99e-4424-aa11-1c66f96b1764",
+    "name": "Persuade",
+    "aptitude": "Savvy",
+    "type": "Mental"
+  },
+  {
+    "uuid": "440c1e5a-56d0-48be-b568-f4a2a9ec8580",
+    "name": "Program",
+    "aptitude": "Cognition",
+    "type": "Technical"
+  },
+  {
+    "uuid": "fa6f25b5-7f07-49ab-9bd9-5f2081636e6b",
+    "name": "Provoke",
+    "aptitude": "Savvy",
+    "type": "Social"
+  },
+  {
+    "uuid": "c3c95d08-2b9b-46e8-b9e9-c30866e5203a",
+    "name": "Psi",
+    "aptitude": "Willpower",
+    "type": "Mental + Psi"
+  },
+  {
+    "uuid": "b86b5c8d-320f-4344-ac04-132eb1f84eed",
+    "name": "Research",
+    "aptitude": "Intuition",
+    "type": "Technical"
+  },
+  {
+    "uuid": "4e339b72-1bd0-4a8d-af62-5593525abdc0",
+    "name": "Survival",
+    "aptitude": "Intuition",
+    "type": "Mental"
+  }
+]']
+[h:collection=json.set("{}", "schema", schema, "data", documents)]
+[h:macro.return=collection]

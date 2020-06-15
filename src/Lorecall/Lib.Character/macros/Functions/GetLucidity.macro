@@ -1,0 +1,5 @@
+[h:willpowerScore=getProperty("Willpower")]
+
+[h:willpowerScore=if(isNumber(willpowerScore), willpowerScore, 1)]
+[h:lucidity=(willpowerScore * 2))]
+[h:macro.return=lucidity]

@@ -1,0 +1,27 @@
+[h:tokenId=currentToken()]
+[h:refreshAction=macroLinkText("Character@TOKEN","","",tokenId)]
+
+[h:title=strformat("Character Sheet - %{token.name}")]
+[dialog5(title,"width=750; height=800; temporary=1; input=0; closebutton=0;"): {
+  <html>
+    <head>
+      [macro("Style@Lib:Module"): "lorecall.css"]
+      [macro("Style@Lib:Module"): "ep2.css"]
+      <title>[r:title]</title>
+    </head>
+    <body class="character-sheet">
+      [macro("CharacterSheetHeader@Lib:Character"): tokenId]
+      <main>
+        <section class="cs-header">
+          [macro("Name@Lib:Character"): tokenId]
+          [macro("Details@Lib:Character"): tokenId]
+        </section>
+        <section class="cs-body">
+          [macro("Ego@Lib:Character"): tokenId]
+          [macro("Reputation@this"): tokenId]
+          [macro("Skills@this"): tokenId]
+        </section>
+      </main>
+    </body>
+  </html>
+} ]

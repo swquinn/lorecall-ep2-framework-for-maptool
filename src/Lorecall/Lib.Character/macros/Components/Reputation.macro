@@ -1,0 +1,14 @@
+<section class="cs-reputation">
+  <label>REPUTATION</label>
+  <div class="layout ep2-border">
+    [macro("FactionReputation@this"): "@-rep"]
+    [macro("FactionReputation@this"): "c-rep"]
+    [macro("FactionReputation@this"): "f-rep"]
+    [macro("FactionReputation@this"): "g-rep"]
+    [macro("FactionReputation@this"): "i-rep"]
+    [macro("FactionReputation@this"): "r-rep"]
+    [macro("FactionReputation@this"): "x-rep"]
+    <span>3 min/week; 1 mod/week; 1 maj/story</span>
+  </div>
+</section>
+

@@ -1,0 +1,5 @@
+[h:aptitude=arg(0)]
+
+[h:aptitude=if(isNumber(aptitude), aptitude, 10)]
+[h:aptitudeModifier=(aptitude * 3))]
+[h:macro.return=aptitudeModifier]

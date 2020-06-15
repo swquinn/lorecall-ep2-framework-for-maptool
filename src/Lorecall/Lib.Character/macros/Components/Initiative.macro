@@ -1,0 +1,12 @@
+[h:intuitionScore=getProperty("Intuition")]
+[h:reflexScore=getProperty("Reflex")]
+
+[h:initiative=ceil((intuitionScore + reflexScore) / 5)]
+<section class="cs-initiative">
+  <span class="token-property">
+    [r:if(initiative>=0, strformat("+%{initiative}"), initiative)]
+  </span>
+  <label>
+    [r:macroLink("INIT", "RollInitiative@this", "all", initiative, currentToken())]
+  </label>
+</section>

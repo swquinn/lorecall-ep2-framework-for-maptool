@@ -1,0 +1,45 @@
+[h:tokenId=currentToken()]
+
+[h:playerEditLink=""]
+
+<section class="cs-morph-pools">
+  <div class="morph-pool insight">
+    [h:currentInsightPool=0]
+    [h:maxInsightPool=0]
+    <span>
+      [r:macroLink("INSIGHT", "UsePool@Lib:Character", "all", "Insight", tokenId)]
+    </span>
+    <span class="current-pool">[r:currentInsightPool] / [r:maxInsightPool]</span>
+    <span class="associated-checks">(Cog, Int)</span>
+  </div>
+
+  <div class="morph-pool moxie">
+    [h:currentMoxiePool=0]
+    [h:maxMoxiePool=0]
+    <span>
+      [r:macroLink("MOXIE", "usePool@Lib:Character", "all", "Moxie", tokenId)]
+    </span>
+    <span class="current-pool">[r:currentMoxiePool] / [r:maxMoxiePool]</span>
+    <span class="associated-checks">(Sav, Wil, Rep)</span>
+  </div>
+
+  <div class="morph-pool vigor">
+    [h:currentVigorPool=0]
+    [h:maxVigorPool=0]
+    <span>
+      [r:macroLink("VIGOR", "usePool@Lib:Character", "all", "Vigor", tokenId)]
+    </span>
+    <span class="current-pool">[r:currentVigorPool] / [r:maxVigorPool]</span>
+    <span class="associated-checks">(Ref, Som)</span>
+  </div>
+
+  <div class="morph-pool flex">
+    [h:currentFlexPool=0]
+    [h:maxFlexPool=0]
+    <span>
+      [r:macroLink("FLEX", "usePool@Lib:Character", "all", "Flex", tokenId)]
+    </span>
+    <span class="current-pool">[r:currentFlexPool] / [r:maxFlexPool]</span>
+    <span class="associated-checks">&nbsp;</span>
+  </div>
+</section>

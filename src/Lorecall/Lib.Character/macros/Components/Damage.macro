@@ -1,0 +1,16 @@
+[h:damage=getProperty("Damage")]
+[h:durability=character.getDurability()]
+
+[h:editDamageLink=macroLinkText("DamageEditor@this", "", "", currentToken())]
+<section class="cs-damage">
+  <div class="damage-and-durability">
+    <div class="clearfix">
+      <a href="[r:editDamageLink]" class="edit-damage">
+        <i class="icon">[r:icons.edit()]</i>
+      </a>
+    </div>
+
+    <span class="token-property">[r:damage] / [r:durability]</span>
+    <label>DAMAGE</label>
+  </div>
+</section>

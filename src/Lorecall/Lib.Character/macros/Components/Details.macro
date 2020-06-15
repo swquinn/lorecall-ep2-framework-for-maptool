@@ -1,0 +1,85 @@
+[h:tokenId=currentToken()]
+
+[h:backgroundEditLink=""]
+[h:careerEditLink=""]
+[h:factionEditLink=""]
+[h:identityEditLink=""]
+[h:interestEditLink=""]
+[h:languagesEditLink=""]
+[h:museEditLink=""]
+[h:rezEditLink=""]
+
+<section class="cs-details">
+  <div class="token-property-container background">
+    <span class="token-property">
+      [h:backgroundText=character.getPropertyWithDefault("Background", "(No Background)")]
+      <a href="[r:backgroundEditLink]">[r:backgroundText]</a>
+    </span>
+    <label>
+      <a href="[r:backgroundEditLink]">BACKGROUND</a>
+    </label>
+  </div>
+  <div class="token-property-container career">
+    <span class="token-property">
+      [h:careerText=character.getPropertyWithDefault("Career", "(No Career)")]
+      <a href="[r:careerEditLink]">[r:careerText]</a>
+    </span>
+    <label>
+      <a href="[r:careerEditLink]">CAREER</a>
+    </label>
+  </div>
+  <div class="token-property-container interest">
+    <span class="token-property">
+      [h:interestText=character.getPropertyWithDefault("interest", "(No Interest)")]
+      <a href="[r:interestEditLink]">[r:interestText]</a>
+    </span>
+    <label>
+      <a href="[r:interestEditLink]">INTEREST</a>
+    </label>
+  </div>
+  <div class="token-property-container identity">
+    <span class="token-property">
+      [h:identityText=character.getPropertyWithDefault("identity", "(Gender/Sex/Age)")]
+      <a href="[r:identityEditLink]">[r:identityText]</a>
+    </span>
+    <label>
+      <a href="[r:identityEditLink]">GENDER / SEX / AGE</a>
+    </label>
+  </div>
+  <div class="token-property-container muse">
+    <span class="token-property">
+      [h:museText=character.getPropertyWithDefault("muse", "(No Muse)")]
+      <a href="[r:museEditLink]">[r:museText]</a>
+    </span>
+    <label>
+      <a href="[r:museEditLink]">MUSE</a>
+    </label>
+  </div>
+  <div class="token-property-container faction">
+    <span class="token-property">
+      [h:factionText=character.getPropertyWithDefault("faction", "(Unaligned)")]
+      <a href="[r:factionEditLink]">[r:factionText]</a>
+    </span>
+    <label>
+      <a href="[r:factionEditLink]">FACTION</a>
+    </label>
+  </div>
+  <div class="token-property-container lang">
+    <span class="token-property">
+      [h:languagesText=character.getPropertyWithDefault("languages", "(Languages)")]
+      <a href="[r:languagesEditLink]">[r:languagesText]</a>
+    </span>
+    <label>
+      <a href="[r:languagesEditLink]">LANGUAGES</a>
+    </label>
+  </div>
+  <div class="token-property-container rez">
+    <span class="token-property">
+      [h:rezText=character.getPropertyWithDefault("rez", "0")]
+      <a href="[r:rezEditLink]">[r:rezText]</a>
+    </span>
+    <label>
+      <a href="[r:rezEditLink]">REZ POINTS (SPENT/UNSPENT)</a>
+    </label>
+  </div>
+</section>

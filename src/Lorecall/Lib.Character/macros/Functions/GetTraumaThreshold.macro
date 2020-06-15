@@ -1,0 +1,5 @@
+[h:lucidity=character.getLucidity()]
+
+[h:lucidity=if(isNumber(lucidity), lucidity, 1)]
+[h:traumaThreshold=ceil(lucidity / 5)]
+[h:macro.return=traumaThreshold]

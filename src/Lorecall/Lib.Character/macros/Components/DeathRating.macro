@@ -1,0 +1,8 @@
+[h:deathRating=0]
+
+<section class="cs-deathrating">
+  <div class="deathrating">
+    <span class="token-property">[r:deathRating]</span>
+    <label>DEATH RATING</label>
+  </div>
+</section>

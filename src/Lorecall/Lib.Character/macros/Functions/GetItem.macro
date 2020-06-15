@@ -1,0 +1,13 @@
+[h:itemId=arg(0)]
+[h:gear=getProperty("Gear")]
+
+[h:theItem=json.set("{}",
+  "id", "",
+  "name", "",
+  "description", ""
+)]
+[if(json.length(gear)>0), CODE: {
+  [h:item=json.get(gear, itemId)]
+  [h:theItem=if(json.isEmpty(item), theItem, item)]
+};{}]
+[h:macro.return=theItem]

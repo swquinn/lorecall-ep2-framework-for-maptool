@@ -1,0 +1,23 @@
+[h:tokenId=currentToken()]
+
+[h:playerEditLink=""]
+
+<section class="cs-name">
+  <div class="token-property-container name">
+    <span class="token-property">
+      [r:macroLink(token.name, "Focus@this", "", tokenId, tokenId)]
+    </span>
+    <label>
+      [r:macroLink("CHARACTER NAME","NameEditor@this", "", "", tokenId)]
+    </label>
+  </div>
+  <div class="token-property-container player">
+    <span class="token-property">
+      [h:playerText=getOwners()]
+      <a href="[r:playerEditLink]">[r:playerText]&nbsp;</a>
+    </span>
+    <label>
+      <a href="[r:playerEditLink]">PLAYER NAME</a>
+    </label>
+  </div>
+</section>

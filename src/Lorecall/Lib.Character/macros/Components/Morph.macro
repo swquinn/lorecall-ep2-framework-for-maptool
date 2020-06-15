@@ -1,0 +1,19 @@
+[h:tokenId=currentToken()]
+[h:editMorphLink=macroLinkText("EditMorph@Lib:Character", "all", "", tokenId)]
+
+<section class="cs-morph">
+  <label class="section-header">
+    MORPH
+    <a class="action edit-action" href="[r:editMorphLink]">
+      <i class="icon">[r:icons.edit()]</i>
+    </a>
+  </label>
+  <div class="layout ep2-border">
+    [macro("Pools@Lib:Character"): tokenId]
+    [macro("MorphDurability@Lib:Character"): tokenId]
+    [macro("MorphMovement@Lib:Character"): tokenId]
+    [macro("MorphWare@Lib:Character"): tokenId]
+    [macro("MorphTraits@Lib:Character"): tokenId]
+    [macro("MorphNotes@Lib:Character"): tokenId]
+  </div>
+</section>

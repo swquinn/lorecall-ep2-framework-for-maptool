@@ -1,0 +1,18 @@
+[h:lucidity=character.getLucidity()]
+[h:insanity=character.getInsanity()]
+[h:traumaThreshold=character.getTraumaThreshold()]
+
+<section class="cs-ego-stability">
+  <div class="lucidity">
+    <span class="token-property">[r:lucidity]</span>
+    <label>LUCIDITY</label>
+  </div>
+  <div class="insanity">
+    <span class="token-property">[r:insanity]</span>
+    <label>INSANITY</label>
+  </div>
+  <div class="trauma-threshold">
+    <span class="token-property">[r:traumaThreshold]</span>
+    <label>TRAUMA THRESHOLD</label>
+  </div>
+</section>

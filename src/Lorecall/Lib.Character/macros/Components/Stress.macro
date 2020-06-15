@@ -1,0 +1,17 @@
+[h:stress=getProperty("Stress")]
+[h:lucidity=character.getLucidity()]
+[h:insanity=character.getInsanity()]
+
+[h:editStressLink=macroLinkText("StressEditor@this", "", "", currentToken())]
+<section class="cs-stress">
+  <div class="stress-and-lucidity">
+    <div class="clearfix">
+      <a href="[r:editStressLink]" class="edit-stress">
+        <i class="icon">[r:icons.edit()]</i>
+      </a>
+    </div>
+
+    <span class="token-property">[r:stress] / [r:lucidity]</span>
+    <label>STRESS</label>
+  </div>
+</section>

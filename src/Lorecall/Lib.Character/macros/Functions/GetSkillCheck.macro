@@ -1,0 +1,6 @@
+[h:skill=arg(0)]
+
+[h:skillRanks=0]
+[h:aptitudeScore=0]
+[h:skillCheck=(skillRanks + aptitudeScore)]
+[h:macro.return=skillCheck]
