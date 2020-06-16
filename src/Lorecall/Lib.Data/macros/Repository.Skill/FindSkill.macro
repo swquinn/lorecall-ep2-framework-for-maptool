@@ -1,6 +1,9 @@
 [h:skillName=arg(0)]
 [h:allSkills=data.collection("active_skills")]
-[h:skill=json.get(
-  json.path.read(allSkills, "[?(@.name=='"+skillName+"')]"), 0
-)]
+[h:matchingSkills=json.path.read(allSkills, "[?(@.name=='"+skillName+"')]")]
+
+[h:skill='{}']
+[if(json.length(matchingSkills) > 0), CODE: {
+  [h:skill=json.get(matchingSkills, 0)]
+};{}]
 [h:macro.return=skill]
