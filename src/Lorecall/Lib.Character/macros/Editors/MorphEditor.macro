@@ -8,7 +8,7 @@
 <html>
   <head>
     [macro("Style@Lib:Module"): "lorecall.css"]
-    [macro("Style@Lib:Module"): "dnd5e.css"]
+    [macro("Style@Lib:Module"): "ep2.css"]
     <title>[r:title]</title>
   </head>
   <body class="attacks-editor property-editor">
