@@ -50,6 +50,13 @@ label * {
   color: #484848;
 }
 
+a.icon-edit-property {
+  position: relative;
+  display: inline-block;
+  color: #000;
+  top: -2px;
+}
+
 body.character-sheet {
   background-color: #ffffff;
 }
@@ -364,6 +371,63 @@ section.cs-morph-durability .token-property {
   text-align: center;
 }
 
+section.cs-morph-movement {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  margin: 2px 2px 5px;
+}
+section.cs-morph-movement label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+section.cs-morph-movement .morph-movement {
+  display: inline-block;
+  flex: 1 0;
+  font-size: 0.65rem;
+  padding: 2px 5px;
+  background-color: #e6e6e6;
+}
+
+section.cs-morph-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  margin: 2px 2px 5px;
+}
+section.cs-morph-name label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+section.cs-morph-name .morph-name {
+  display: inline-block;
+  flex: 1 0;
+  font-size: 0.65rem;
+  padding: 2px 5px;
+  background-color: #e6e6e6;
+}
+
+section.cs-morph-notes {
+  margin: 2px 2px 5px;
+}
+section.cs-morph-notes label {
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+section.cs-morph-notes .morph-notes {
+  font-size: 0.65rem;
+  padding: 2px 5px;
+  background-color: #e6e6e6;
+  min-height: 50px;
+}
+
 section.cs-morph-pools {
   display: flex;
   align-items: center;
@@ -381,7 +445,7 @@ section.cs-morph-pools .morph-pool {
   min-width: 75px;
 }
 section.cs-morph-pools .morph-pool .current-pool {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
 }
 section.cs-morph-pools .morph-pool .associated-checks {
   font-size: 0.55rem;

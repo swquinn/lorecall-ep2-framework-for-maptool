@@ -1,0 +1,20 @@
+[h:tokenId=currentToken()]
+[h:morph=getProperty("Morph", tokenId)]
+
+[if(json.length(morph) < 1), CODE: {
+  [h:morph='{
+    "name": "",
+    "durability": "",
+    "deathRating": "",
+    "woundThreshold": "",
+    "insight": "",
+    "moxie": "",
+    "vigor": "",
+    "flex": "",
+    "mp": "",
+    "movement": "",
+    "notes": ""
+  }']
+  [h:setProperty("Morph", morph)]
+};{}]
+[h:macro.return=morph]

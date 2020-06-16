@@ -1,0 +1,61 @@
+[h:tokenId=currentToken()]
+[h:morph=character.getMorph()]
+
+[h:editInsightLink=macroLinkText("SimplePropertyEditor@Lib:Character", "", "Insight", tokenId)]
+[h:editMoxieLink=macroLinkText("SimplePropertyEditor@Lib:Character", "", "Moxie", tokenId)]
+[h:editVigorLink=macroLinkText("SimplePropertyEditor@Lib:Character", "", "Vigor", tokenId)]
+[h:editFlexLink=macroLinkText("SimplePropertyEditor@Lib:Character", "", "Flex", tokenId)]
+
+<section class="cs-morph-pools">
+  <div class="morph-pool insight">
+    [h:currentInsight=getProperty("Insight")]
+    [h:insightPool=json.get(morph, "insight")]
+    <div class="morph-pool-header">
+      <span>[r:macroLink("INSIGHT", "SpendPool@Lib:Character", "all", "Insight", tokenId)]</span>
+      <a href="[r:editInsightLink]" class="icon-edit-property">
+        <i class="icon">[r:icons.edit()]</i>
+      </a>
+    </div>
+    <span class="current-pool">[r:currentInsight] / [r:insightPool]</span>
+    <span class="associated-checks">(Cog, Int)</span>
+  </div>
+
+  <div class="morph-pool moxie">
+    [h:currentMoxie=getProperty("Moxie")]
+    [h:moxiePool=json.get(morph, "moxie")]
+    <div class="morph-pool-header">
+      <span>[r:macroLink("MOXIE", "SpendPool@Lib:Character", "all", "Moxie", tokenId)]</span>
+      <a href="[r:editMoxieLink]" class="icon-edit-property">
+        <i class="icon">[r:icons.edit()]</i>
+      </a>
+    </div>
+    <span class="current-pool">[r:currentMoxie] / [r:moxiePool]</span>
+    <span class="associated-checks">(Sav, Wil, Rep)</span>
+  </div>
+
+  <div class="morph-pool vigor">
+    [h:currentVigor=getProperty("Vigor")]
+    [h:vigorPool=json.get(morph, "vigor")]
+    <div class="morph-pool-header">
+      <span>[r:macroLink("VIGOR", "SpendPool@Lib:Character", "all", "Vigor", tokenId)]</span>
+      <a href="[r:editVigorLink]" class="icon-edit-property">
+        <i class="icon">[r:icons.edit()]</i>
+      </a>
+    </div>
+    <span class="current-pool">[r:currentVigor] / [r:vigorPool]</span>
+    <span class="associated-checks">(Ref, Som)</span>
+  </div>
+
+  <div class="morph-pool flex">
+    [h:currentFlex=getProperty("Flex")]
+    [h:flexPool=json.get(morph, "flex")]
+    <div class="morph-pool-header">
+      <span>[r:macroLink("FLEX", "SpendPool@Lib:Character", "all", "Flex", tokenId)]</span>
+      <a href="[r:editFlexLink]" class="icon-edit-property">
+        <i class="icon">[r:icons.edit()]</i>
+      </a>
+    </div>
+    <span class="current-pool">[r:currentFlex] / [r:flexPool]+1</span>
+    <span class="associated-checks">&nbsp;</span>
+  </div>
+</section>

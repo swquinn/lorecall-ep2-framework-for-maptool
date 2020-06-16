@@ -1,0 +1,17 @@
+[h:jsonData=macro.args]
+
+[h:tokenId=json.get(jsonData, "tokenId")]
+[h:jsonData=json.remove(jsonData, "tokenId")]
+
+[h:morphName=json.get(jsonData, "name")]
+[assert(morphName!="", "Morph MUST have a name.")]
+
+[h:morph=getProperty("Morph", tokenId)]
+[if(json.length(morph) < 1), CODE: {
+  [h:morph='{}']
+  [h:setProperty("Morph", morph, tokenId)]
+};{}]
+
+[h:morphJson=jsonData]
+[h:setProperty("Morph", morphJson, tokenId)]
+[macro("Refresh@this"): token.name]

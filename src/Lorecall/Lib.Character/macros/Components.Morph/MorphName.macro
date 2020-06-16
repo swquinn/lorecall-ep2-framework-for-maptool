@@ -1,0 +1,8 @@
+[h:tokenId=currentToken()]
+[h:morph=character.getMorph()]
+[h:morphName=json.get(morph, "name")]
+
+<section class="cs-morph-name">
+  <label>Morph Name</label>
+  <div class="morph-name">[r:morphName]</span>
+</section>

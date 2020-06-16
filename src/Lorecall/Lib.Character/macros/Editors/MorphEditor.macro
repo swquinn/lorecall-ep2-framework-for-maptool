@@ -1,0 +1,82 @@
+[h:tokenId=currentToken()]
+[h:morph=character.getMorph()]
+
+[h:title=strformat("Edit Morph - %{token.name}")]
+[h:submitAction=macroLinkText("UpdateMorph@Lib:Character", "none")]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", title)]
+[dialog5(title, "width=450; height=500; temporary=1; input=1; closebutton=0; noframe=0"): {
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "dnd5e.css"]
+    <title>[r:title]</title>
+  </head>
+  <body class="attacks-editor property-editor">
+    <form action="[r:submitAction]">
+      <input id="status" type="hidden" name="status" value="1">
+      <input type="hidden" name="tokenId" value="[r:tokenId]">
+
+      <div>
+        <label>Morph Name</label>
+        <input id="morph-name" name="name" class="editor-field" type="text" required="true" placeholder="Morph name, e.g. Fury" value="[r:json.get(morph, 'name')]"/>
+      </div>
+
+      <div>
+        <label>Morph Cost</label>
+        <input id="morph-cost" name="mp" class="editor-field" type="text" required="true" placeholder="" value="[r:json.get(morph, 'mp')]"/>
+      </div>
+
+      <div>
+        <label>Insight</label>
+        <input id="morph-insight" name="insight" class="editor-field" type="text" required="true" placeholder="" value="[r:json.get(morph, 'insight')]"/>
+      </div>
+
+      <div>
+        <label>Moxie</label>
+        <input id="morph-moxie" name="moxie" class="editor-field" type="text" required="true" placeholder="" value="[r:json.get(morph, 'moxie')]"/>
+      </div>
+
+      <div>
+        <label>Vigor</label>
+        <input id="morph-vigor" name="vigor" class="editor-field" type="number" required="true" placeholder="" value="[r:json.get(morph, 'vigor')]"/>
+      </div>
+
+      <div>
+        <label>Flex</label>
+        <input id="morph-flex" name="flex" class="editor-field" type="number" required="true" placeholder="" value="[r:json.get(morph, 'flex')]"/>
+      </div>
+
+      <div>
+        <label>Durability</label>
+        <input id="morph-durability" name="durability" class="editor-field" type="number" required="true" placeholder="" value="[r:json.get(morph, 'durability')]"/>
+      </div>
+
+      <div>
+        <label>Death Rating</label>
+        <input id="morph-death-rating" name="deathRating" class="editor-field" type="number" required="true" placeholder="" value="[r:json.get(morph, 'deathRating')]"/>
+      </div>
+
+      <div>
+        <label>Wound Threshold</label>
+        <input id="morph-wound-threshold" name="woundThreshold" class="editor-field" type="number" required="true" placeholder="" value="[r:json.get(morph, 'woundThreshold')]"/>
+      </div>
+
+      <div>
+        <label>Movement</label>
+        <input id="morph-movement" name="movement" class="editor-field" type="text" required="true" placeholder="Morph movement, e.g. Walker 4/20, Thurst 8/40" value="[r:json.get(morph, 'movement')]"/>
+      </div>
+
+      <div>
+        <label>Notes</label>
+        <textarea id="morph-notes" name="notes" placeholder="Additional notes about the morph, i.e. traits, ware, etc.">[r:json.get(morph, 'notes')]</textarea>
+      </div>
+
+
+      <hr/>
+
+      <input type="submit" value="Save">
+      <a class="btn" href="[r:cancelAction]">Cancel</a>
+    </form>
+  </body>
+</html>
+}]

@@ -1,5 +1,5 @@
 [h:tokenId=currentToken()]
-[h:editMorphLink=macroLinkText("EditMorph@Lib:Character", "all", "", tokenId)]
+[h:editMorphLink=macroLinkText("MorphEditor@Lib:Character", "none", "", tokenId)]
 
 <section class="cs-morph">
   <label class="section-header">
@@ -9,11 +9,10 @@
     </a>
   </label>
   <div class="layout ep2-border">
-    [macro("Pools@Lib:Character"): tokenId]
-    [macro("MorphDurability@Lib:Character"): tokenId]
+    [macro("MorphName@Lib:Character"): tokenId]
     [macro("MorphMovement@Lib:Character"): tokenId]
-    [macro("MorphWare@Lib:Character"): tokenId]
-    [macro("MorphTraits@Lib:Character"): tokenId]
+    [macro("MorphPools@Lib:Character"): tokenId]
+    [macro("MorphDurability@Lib:Character"): tokenId]
     [macro("MorphNotes@Lib:Character"): tokenId]
   </div>
 </section>

@@ -1,7 +1,6 @@
 macro:
-  label: MorphDurability
-  group: Components
+  label: UpdateMorph
+  group: Actions
   auto_execute: False
-  min_width: 100
   options:
     allow_players_to_edit_macro: False

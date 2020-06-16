@@ -1,1 +1,3 @@
-[h:macro.return=1]
+[h:morph=character.getMorph()]
+[h:woundThreshold=json.get(morph, "woundThreshold")]
+[h:macro.return=woundThreshold]
