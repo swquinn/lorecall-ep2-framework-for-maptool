@@ -1,0 +1,22 @@
+[h:props=macro.args]
+[h:tokenId=getStrProp(props, "tokenId")]
+[h:component=getStrProp(props, "component")]
+
+[h,if(component==""): abort(0)]
+[h:title=strformat("Add Skill - %{token.name}")]
+[dialog5(title, "width=450; height=450; temporary=1; input=1; closebutton=0; noframe=0"): {
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "ep2.css"]
+    [macro("Style@Lib:Module"): "form.css"]
+    <title>[r:title]</title>
+  </head>
+  <body class="skills-editor property-editor">
+    [h:formProps=""]
+    [h:formProps=setStrProp(formProps, "tokenId", tokenId)]
+    [h:formProps=setStrProp(formProps, "dialogTitle", title)]
+    [macro(component+"@this"): formProps]
+  </body>
+</html>
+}]

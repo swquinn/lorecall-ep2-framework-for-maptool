@@ -1,0 +1,106 @@
+[h:skillId=getStrProp(macro.args, "skillId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+[h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
+[h:submitAction=macroLinkText("UpdateSkill@Lib:Character", "none")]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
+
+[h:skill=character.getSkill(skillId)]
+<form action="[r:submitAction]">
+  <input type="hidden" name="skillId" value="[r:json.get(skill, 'id')]" />
+  <input type="hidden" name="tokenId" value="[r:tokenId]" />
+  <input type="hidden" name="category" value="FIELD_SKILL" />
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label for="skill-name">Skill</label>
+        </td>
+        <td class="skill-field">
+          [h:skillField=json.get(skill, "field")]
+          <select id="skill-field" name="field" required=true>
+            <option value="">- Choose Field -</option>
+            <option
+                value="Exotic"
+                [r,if(skillField=="Exotic"): "selected"]>
+              Exotic
+            </option>
+            <option
+                value="Hardware"
+                [r,if(skillField=="Hardware"): "selected"]>
+              Hardware
+            </option>
+            <option
+                value="Know"
+                [r,if(skillField=="Know"): "selected"]>
+              Know
+            </option>
+            <option
+                value="Medicine"
+                [r,if(skillField=="Medicine"): "selected"]>
+              Medicine
+            </option>
+            <option
+                value="Pilot"
+                [r,if(skillField=="Pilot"): "selected"]>
+              Pilot
+            </option>
+          </select>
+          <input id="skill-name" name="name" class="editor-field" type="text" required="true" placeholder="Skill name, e.g. Electronics, Astrobiology, etc." value="[r:json.get(skill, 'name')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="skill-aptitude">Aptitude</label>
+        </td>
+        <td class="skill-field">
+          [h:skillAptitude=json.get(skill, "aptitude")]
+          <select id="skill-aptitude" name="aptitude">
+            <option
+                value="Cognition"
+                [r,if(skillAptitude=="Cognition"): "selected"]>
+              Cognition
+            </option>
+            <option
+                value="Intuition"
+                [r,if(skillAptitude=="Intuition"): "selected"]>
+              Intuition
+            </option>
+            <option
+                value="Reflex"
+                [r,if(skillAptitude=="Reflex"): "selected"]>
+              Reflex
+            </option>
+            <option
+                value="Savvy"
+                [r,if(skillAptitude=="Savvy"): "selected"]>
+              Savvy
+            </option>
+            <option
+                value="Somatics"
+                [r,if(skillAptitude=="Somatics"): "selected"]>
+              Somatics
+            </option>
+            <option
+                value="Willpower"
+                [r,if(skillAptitude=="Willpower"): "selected"]>
+              Willpower
+            </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="skill-ranks">Ranks</label>
+        </td>
+        <td class="skill-field">
+          <input id="skill-ranks" name="ranks" type="number" placeholder="0" value="[r:json.get(skill, 'ranks')]"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <input type="submit" value="Save">
+  <a class="btn" href="[r:cancelAction]">Cancel</a>
+</form>

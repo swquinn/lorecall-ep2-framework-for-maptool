@@ -1,6 +1,9 @@
 [h:tokenId=currentToken()]
 
-[h:addSkillLink=macroLinkText("SkillsEditor@this", "","",tokenId)]
+[h:addSkillArgs=""]
+[h:addSkillArgs=setStrProp(addSkillArgs, "tokenId", tokenId)]
+[h:addSkillArgs=setStrProp(addSkillArgs, "component", "FieldSkillForm")]
+[h:addSkillLink=macroLinkText("AddSkillEditor@this", "", addSkillArgs, tokenId)]
 <section class="cs-skills">
   <label class="section-header">
     SKILLS
@@ -9,22 +12,49 @@
     </a>
   </label>
   <div class="layout ep2-border">
-    [macro("Skill@this"): "Athletics"]
-    [macro("Skill@this"): "Deceive"]
-    [macro("Skill@this"): "Fray"]
-    [macro("Skill@this"): "Free Fall"]
-    [macro("Skill@this"): "Guns"]
-    [macro("Skill@this"): "Infiltrate"]
-    [macro("Skill@this"): "Infosec"]
-    [macro("Skill@this"): "Interface"]
-    [macro("Skill@this"): "Kinesics"]
-    [macro("Skill@this"): "Melee"]
-    [macro("Skill@this"): "Perceive"]
-    [macro("Skill@this"): "Persuade"]
-    [macro("Skill@this"): "Program"]
-    [macro("Skill@this"): "Provoke"]
-    [macro("Skill@this"): "Psi"]
-    [macro("Skill@this"): "Research"]
-    [macro("Skill@this"): "Survival"]
+    <table class="skills">
+      <colgroup>
+        <col class="skill-proficiency-column">
+        <col class="skill-name-column">
+        <col class="skill-aptitude-column">
+        <col class="skill-type-column">
+        <col class="skill-rank-column">
+        <col class="skill-action-column">
+      </colgroup>
+      <thead>
+        <tr>
+          <th></th>
+          <th>SKILL</th>
+          <th>APTITUDE</th>
+          <th>TYPE</th>
+          <th>TOTAL</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        [macro("Skill@this"): "Athletics"]
+        [macro("Skill@this"): "Deceive"]
+        [macro("Skill@this"): "Fray"]
+        [macro("Skill@this"): "Free Fall"]
+        [macro("Skill@this"): "Guns"]
+        [macro("Skill@this"): "Infiltrate"]
+        [macro("Skill@this"): "Infosec"]
+        [macro("Skill@this"): "Interface"]
+        [macro("Skill@this"): "Kinesics"]
+        [macro("Skill@this"): "Melee"]
+        [macro("Skill@this"): "Perceive"]
+        [macro("Skill@this"): "Persuade"]
+        [macro("Skill@this"): "Program"]
+        [macro("Skill@this"): "Provoke"]
+        [macro("Skill@this"): "Psi"]
+        [macro("Skill@this"): "Research"]
+        [macro("Skill@this"): "Survival"]
+
+        [h:fieldSkills=character.getFieldSkills()]
+        [foreach(skillId, fieldSkills, "", ""), CODE: {
+          [macro("FieldSkill@this"): skillId]
+        }]
+      </tbody>
+    </table>
   </div>
 </section>

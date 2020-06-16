@@ -1,14 +1,14 @@
 [h:tokenId=currentToken()]
-[h:skillName=macro.args]
+[h:skillId=macro.args]
 
-[h:skill=data.findSkill(skillName)]
-[h:characterSkill=character.getSkill(skillName)]
-[h:characterSkillProficiency=json.get(characterSkill, "proficiency")]
+[h:characterSkill=character.getSkill(skillId)]
+[h:characterSkillName=json.get(characterSkill, "name")]
+[h:characterSkillField=json.get(characterSkill, "field")]
+[h:characterSkillAptitude=json.get(characterSkill, "aptitude")]
+[h:characterSkillType=json.get(characterSkill, "type")]
 [h:characterSkillRank=json.get(characterSkill, "ranks")]
 
-[h:skillAptitude=json.get(skill, "aptitude")]
-[h:skillType=json.get(skill, "type")]
-[h:aptitudeScore=getProperty(skillAptitude)]
+[h:aptitudeScore=getProperty(characterSkillAptitude)]
 [h:totalRank=characterSkillRank + aptitudeScore]
 
 <tr class="skill">
@@ -25,20 +25,20 @@
 
   <td class="skill-name-column">
     [h:args=""]
-    [h:args=setStrProp(args, "skill", skillName)]
+    [h:args=setStrProp(args, "skill", strformat("%{characterSkillField}: %{characterSkillName}"))]
     [h:args=setStrProp(args, "value", totalRank)]
     [h:skillCheckRollLink=macroLinkText("RollSkillCheck@Lib:Character", "all", args, tokenId)]
     <a class="label" href="[r:skillCheckRollLink]">
-      [r:skillName]
+      [r:strformat("%{characterSkillField}: %{characterSkillName}")]
     </a>
   </td>
 
   <td class="skill-aptitude-column">
-    <span class="related-ability">[r:skillAptitude]</span>
+    <span class="related-ability">[r:characterSkillAptitude]</span>
   </td>
 
   <td class="skill-type-column">
-    <span>[r:skillType]</span>
+    <span>[r:characterSkillType]</span>
   </td>
 
   <td class="skill-rank-column">
@@ -49,16 +49,16 @@
   
   <td class="skill-action-column">
     [h:editSkillArgs=""]
-    [h:editSkillArgs=setStrProp(editSkillArgs, "skillId", skillName)]
+    [h:editSkillArgs=setStrProp(editSkillArgs, "skillId", skillId)]
     [h:editSkillArgs=setStrProp(editSkillArgs, "tokenId", tokenId)]
-    [h:editSkillArgs=setStrProp(editSkillArgs, "component", "SkillForm")]
+    [h:editSkillArgs=setStrProp(editSkillArgs, "component", "FieldSkillForm")]
     [h:editSkillLink=macroLinkText("SkillEditor@Lib:Character", "none", editSkillArgs, tokenId)]
     <a class="action edit-skill-action" href="[r:editSkillLink]">
       <i class="icon">[r:icons.edit()]</i>
     </a>
 
     [h:removeSkillArgs=""]
-    [h:removeSkillArgs=setStrProp(removeSkillArgs, "skillId", skillName)]
+    [h:removeSkillArgs=setStrProp(removeSkillArgs, "skillId", skillId)]
     [h:removeSkillArgs=setStrProp(removeSkillArgs, "tokenId", tokenId)]
     [h:removeSkillLink=macroLinkText("RemoveSkill@Lib:Character", "none", removeSkillArgs, tokenId)]
     <a class="action delete-skill-action" href="[r:removeSkillLink]">

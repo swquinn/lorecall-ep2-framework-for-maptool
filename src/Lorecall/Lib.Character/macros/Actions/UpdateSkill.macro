@@ -1,0 +1,62 @@
+[h:jsonData=macro.args]
+[h:skillId=json.get(jsonData, "skillId")]
+[h:tokenId=json.get(jsonData, "tokenId")]
+
+[h:skills=getProperty("Skills", tokenId)]
+[h:skillCount=json.length(skills)]
+[if(skillCount < 1), CODE: {
+  [h:skills='{}']
+  [h:setProperty("Skills", skills, tokenId)]
+};{}]
+
+[h:category=json.get(jsonData, "category")]
+
+[if(category=="CORE_SKILL"), CODE: {
+  [h:skillJson=jsonData]
+
+  [h:skillJson=json.remove(skillJson, "skillId")]
+  [h:skillJson=json.set(skillJson, "id", skillId)]
+
+  [h:skillRanks=json.get(skillJson, "ranks")]
+  [h:skillRanks=if(skillRanks < 0, 0, skillRanks)]
+  [h:skillJson=json.set(skillJson, "ranks", skillRanks)]
+
+  [h:skills=json.set(skills, skillId, skillJson)]
+  [h:setProperty("Skills", skills, tokenId)]
+};{}]
+
+[if(category=="FIELD_SKILL"), CODE: {
+  [h:skillJson=jsonData]
+
+  [h:skillField=json.get(jsonData, "field")]
+  [assert(skillField!="", "Skill MUST have a selected field.")]
+
+  [h:skillName=json.get(jsonData, "name")]
+  [assert(skillName!="", "Skill MUST have a name.")]
+
+  [if(skillId==""), CODE: {
+    [h:skillId=base64.encode(strformat("%{tokenId}:skills:" + (skillCount + 1) + ":%{skillName}"))]  
+  };{}]
+
+  [h:skillJson=json.remove(skillJson, "skillId")]
+  [h:skillJson=json.set(skillJson, "id", skillId)]
+
+  [if(skillField=="Exotic"), CODE: {
+    [h:skillJson=json.set(skillJson, "type", "Field")]
+  };{}]
+  [if(skillField=="Hardware"), CODE: {
+    [h:skillJson=json.set(skillJson, "type", "Field + Technical")]
+  };{}]
+  [if(skillField=="Know"), CODE: {
+    [h:skillJson=json.set(skillJson, "type", "Field")]
+  };{}]
+  [if(skillField=="Medicine"), CODE: {
+    [h:skillJson=json.set(skillJson, "type", "Field + Technical")]
+  };{}]
+  [if(skillField=="Pilot"), CODE: {
+    [h:skillJson=json.set(skillJson, "type", "Field + Vehicle")]
+  };{}]
+
+  [h:skills=json.set(skills, skillId, skillJson)]
+  [h:setProperty("Skills", skills, tokenId)]
+};{}]

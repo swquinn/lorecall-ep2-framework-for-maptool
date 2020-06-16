@@ -1,0 +1,61 @@
+[h:skillId=getStrProp(macro.args, "skillId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+[h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
+[h:submitAction=macroLinkText("UpdateSkill@Lib:Character", "none")]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
+
+[h:skill=character.getSkill(skillId)]
+[h:skillName=json.get(skill, 'name')]
+[h:skillAptitude=json.get(skill, 'aptitude')]
+[h:skillType=json.get(skill, 'type')]
+[h:skillRanks=json.get(skill, 'ranks')]
+<form action="[r:submitAction]">
+  <input type="hidden" name="skillId" value="[r:json.get(skill, 'id')]" />
+  <input type="hidden" name="tokenId" value="[r:tokenId]" />
+  <input type="hidden" name="category" value="CORE_SKILL" />
+  <input type="hidden" name="name" value="[r:skillName]" />
+  <input type="hidden" name="aptitude" value="[r:skillAptitude]" />
+  <input type="hidden" name="type" value="[r:skillType]" />
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label>Skill</label>
+        </td>
+        <td>
+          <span>[r:skillName]</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Aptitude</label>
+        </td>
+        <td>
+          <span>[r:skillAptitude]</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Type</label>
+        </td>
+        <td>
+          <span>[r:skillType]</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="skill-ranks">Ranks</label>
+        </td>
+        <td class="skill-field">
+          <input id="skill-ranks" name="ranks" type="number" placeholder="0" value="[r:skillRanks]"/>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <input type="submit" value="Save">
+  <a class="btn" href="[r:cancelAction]">Cancel</a>
+</form>
