@@ -1,6 +1,6 @@
 macro:
-  label: AddSkillEditor
-  group: Editors
+  label: AttackForm
+  group: Editors.Attack
   auto_execute: False
   min_width: 215
   options:

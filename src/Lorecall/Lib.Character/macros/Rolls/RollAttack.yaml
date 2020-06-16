@@ -1,7 +1,6 @@
 macro:
-  label: AddSkillEditor
-  group: Editors
+  label: RollAttack
+  group: Rolls
   auto_execute: False
-  min_width: 215
   options:
     allow_players_to_edit_macro: False

@@ -1,0 +1,29 @@
+[h:tokenId=currentToken()]
+[h:attackId=arg(0)]
+[h:characterAttacks=getProperty("Attacks")]
+
+[h:theAttack=json.set("{}",
+  "id", "",
+  "tokenId", tokenId,
+  "name", "",
+  "skill", "",
+  "range", "",
+  "ammo", "",
+  "type", "",
+  "damageType", "",
+  "damage", "",
+  "singleShot", "off",
+  "semiAutomatic", "off",
+  "burstFire", "off",
+  "fullAutomatic", "off",
+  "armorPiercing", "off",
+  "complexity", "Min",
+  "restricted", "off",
+  "gp", 0
+)]
+
+[if(json.length(characterAttacks)>0), CODE: {
+  [h:item=json.get(characterAttacks, attackId)]
+  [h:theAttack=if(json.isEmpty(item), theAttack, item)]
+};{}]
+[h:macro.return=theAttack]

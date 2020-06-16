@@ -1,0 +1,48 @@
+[h:attackId = getStrProp(macro.args, "attackId")]
+[h:color = "#1fa7d1"]
+
+[h:firstRoll = 1d10]
+[h:firstRoll=if(firstRoll==10, 0, firstRoll)]
+
+[h:secondRoll = 1d10]
+[h:secondRoll=if(secondRoll==10, 0, secondRoll)]
+
+[h:compositeRoll=number(strformat("%{firstRoll}%{secondRoll}"))]
+[h:compositeRoll=if(compositeRoll==0, 100, compositeRoll)]
+
+[h:attack=character.getAttack(attackId)]
+[h:attackName=json.get(attack, "name")]
+<table style="border:1px solid [r:string(color)]; width: 170px;">
+  <tr>
+    <td colspan="2" style="padding: 0px 2px; background-color:[r:string(color)]; color: #ffffff">
+      <strong>[r: attackName] Attack</strong>
+    </td>
+  </tr>
+  <tr style="vertical-align: middle;">
+    [h:rollColor=color]
+    [h:rollColor=if(compositeRoll==99, "#c93a48", rollColor)]
+    [h:rollColor=if(compositeRoll==100, "#18a537", rollColor)]
+    <td style="color: [r:string(rollColor)]; font-size: 24pt; text-align: center; vertical-align: middle;">
+      <span><strong>[r:firstRoll]</strong></span>
+      <span><strong>[r:secondRoll]</strong></span>
+      [if(firstRoll==secondRoll), code: {
+        <span>!</span>
+      };{}]
+    </td>
+    <td style="text-align: center;">
+      [h:superiorSuccesses=0]
+      [h:superiorSuccesses=superiorSuccesses + if(compositeRoll>=33, 1, 0)]
+      [h:superiorSuccesses=superiorSuccesses + if(compositeRoll>=66, 1, 0)]
+      <div style="color: #484848; font-size: 10pt;">
+        <span>[r:strformat("Success: +%{superiorSuccesses}")]</span>
+      </div>
+
+      [h:superiorFailures=0]
+      [h:superiorFailures=superiorFailures + if(compositeRoll<=66, 1, 0)]
+      [h:superiorFailures=superiorFailures + if(compositeRoll<=33, 1, 0)]
+      <div style="color: #484848; font-size: 10pt;">
+        <span>[r:strformat("Fail: -%{superiorFailures}")]</span>
+      </div>
+    </td>
+  </tr>
+</table>

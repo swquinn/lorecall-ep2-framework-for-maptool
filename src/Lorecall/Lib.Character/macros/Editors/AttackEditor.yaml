@@ -1,5 +1,5 @@
 macro:
-  label: AddSkillEditor
+  label: AttackEditor
   group: Editors
   auto_execute: False
   min_width: 215

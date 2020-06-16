@@ -1,6 +1,9 @@
-[h:skill=arg(0)]
+[h:skillId=arg(0)]
+[h:characterSkill=character.getSkill(skillId)]
 
-[h:skillRanks=0]
-[h:aptitudeScore=0]
+[h:skillAptitude=json.get(characterSkill, "aptitude")]
+[h:skillRanks=json.get(characterSkill, "ranks")]
+[h:aptitudeScore=getProperty(skillAptitude)]
+
 [h:skillCheck=(skillRanks + aptitudeScore)]
 [h:macro.return=skillCheck]

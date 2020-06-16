@@ -1,0 +1,7 @@
+[h:attackId=getStrProp(macro.args, "attackId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+
+[h:attacks=getProperty("Attacks", tokenId)]
+[h:attacks=json.remove(attacks, attackId)]
+[h:setProperty("Attacks", attacks)]
+[macro("Refresh@this"): tokenId]

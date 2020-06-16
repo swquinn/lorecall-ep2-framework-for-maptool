@@ -1,45 +1,10 @@
 [h:tokenId=currentToken()]
 [h:attacks=getProperty("Attacks")]
-[h:attacks='{
-  "NUNDNTAyMzVCOUZBNDlDRjg2NTY3MzdEMzA2OEYwNUE6MTpSYXBpZXI=": {
-    "id": "NUNDNTAyMzVCOUZBNDlDRjg2NTY3MzdEMzA2OEYwNUE6MTpSYXBpZXI=",
-    "name": "Med. Pistol",
-    "skill": "Guns",
-    "range": "30m",
-    "ammo": "15+1",
-    "type": "Ranged",
-    "damageType": "kinetic",
-    "damage": "2d10",
-    "singleShot": "off",
-    "semiAutomatic": "on",
-    "burstFire": "on",
-    "fullAutomatic": "on",
-    "armorPiercing": "off",
-    "complexity": "Min",
-    "restricted": "on",
-    "gp": 1
-  },
-  "NUNDNTAyMzVCOUZBNDlDRjg2NTY3MzdEMzA2OEYwNUE6MzpTbWFzaCBBdHRhY2s=": {
-    "id": "NUNDNTAyMzVCOUZBNDlDRjg2NTY3MzdEMzA2OEYwNUE6MzpTbWFzaCBBdHRhY2s=",
-    "name": "Monofilament Sword",
-    "skill": "Melee",
-    "range": "",
-    "ammo": "",
-    "type": "Melee",
-    "damageType": "kinetic",
-    "damage": "2d10+2",
-    "singleShot": "off",
-    "semiAutomatic": "off",
-    "burstFire": "off",
-    "fullAutomatic": "off",
-    "armorPiercing": "on",
-    "complexity": "Min",
-    "restricted": "on",
-    "gp": 1
-  }
-}']
 
-[h:addAttackLink=macroLinkText("AttacksEditor@this", "","",tokenId)]
+[h:addAttackArgs=""]
+[h:addAttackArgs=setStrProp(addAttackArgs, "tokenId", tokenId)]
+[h:addAttackArgs=setStrProp(addAttackArgs, "component", "AttackForm")]
+[h:addAttackLink=macroLinkText("AttackEditor@this", "", addAttackArgs, tokenId)]
 <section class="cs-attacks">
   <label class="section-header">
     ATTACKS
@@ -67,60 +32,7 @@
       </thead>
       <tbody>
       [foreach(attackId, attacks, "", ""), CODE: {
-        [h:attack=json.get(attacks, attackId)]
-        [h:attackName=json.get(attack, "name")]
-        [h:attackSkill=json.get(attack, "skill")]
-        [h:attackType=json.get(attack, "type")]
-        [h:attackDamage=json.get(attack, "damage")]
-        [h:attackAmmo=json.get(attack, "ammo")]
-
-        [h:attackArgs=""]
-        [h:attackArgs=setStrProp(attackArgs, "attackId", attackId)]
-        [h:attackArgs=setStrProp(attackArgs, "tokenId", tokenId)]
-        [h:attackAction=macroLinkText("RollAttack@Lib:Character", "all", attackArgs, tokenId)]
-
-        [h:editArgs=""]
-        [h:editArgs=setStrProp(editArgs, "attackId", attackId)]
-        [h:editArgs=setStrProp(editArgs, "attackName", json.get(attack, "name"))]
-        [h:editAction=macroLinkText("AttackEditor@this", "none", editArgs, tokenId)]
-        <tr>
-          <td class="name-column">
-            <a class="attack-label" title="[r:attackName]" href="[r:attackAction]">[r:attackName]</a>
-          </td>
-          <td class="attack-column">
-            [h:attackSkillCheck=character.getSkillCheck(attackSkill)]
-            <span>[r:strformat("%{attackSkill} %{attackSkillCheck}")]</span>
-          </td>
-          <td class="damage-column">
-            <span title='[r:strformat("%{attackDamage}")]'>
-              <span>[r:attackDamage]</span>
-              [if(attackType=="Ranged"), CODE: {
-                [h:attackSS=json.get(attack, "singleShot")]
-                [h:attackSA=json.get(attack, "semiAutomatic")]
-                [h:attackBF=json.get(attack, "burstFire")]
-                [h:attackFA=json.get(attack, "fullAutomatic")]
-
-                [h:attackModes=""]
-                [h:attackModes=if(attackSS=="on", listAppend(attackModes, "SS"), "")]
-                [h:attackModes=if(attackSA=="on", listAppend(attackModes, "SA"), "")]
-                [h:attackModes=if(attackBF=="on", listAppend(attackModes, "BF"), "")]
-                [h:attackModes=if(attackFA=="on", listAppend(attackModes, "FA"), "")]
-                <span>([r:stringToList(attackModes, ", ", "/")])</span>
-              }; {}]
-            </span>
-          </td>
-          <td class="ammo-column">
-            <span>[r:attackAmmo]</span>
-          </td>
-          <td class="action-column">
-            <a id="info-action" class="action" href="">
-              <i class="icon">[r:icons.eyeSolid()]</i>
-            </a>
-            <a id="edit-action" class="action" href="[r:editAction]">
-              <i class="icon">[r:icons.edit()]</i>
-            </a>
-          </td>
-        </tr>
+        [macro("Attack@Lib:Character"): attackId]
       }]
       </tbody>
     </table>
