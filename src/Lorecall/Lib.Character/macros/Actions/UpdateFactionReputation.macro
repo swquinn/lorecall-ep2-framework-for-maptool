@@ -1,0 +1,17 @@
+[h:jsonData=macro.args]
+[h:factionName=json.get(jsonData, "faction")]
+[h:tokenId=json.get(jsonData, "tokenId")]
+
+[h:reputation=getProperty("Reputation", tokenId)]
+
+[if(json.length(reputation) < 1), CODE: {
+  [h:reputation='{}']
+  [h:setProperty("Reputation", reputation, tokenId)]
+};{}]
+
+[h:factionRepJson=jsonData]
+[h:factionRepJson=json.remove(factionRepJson, "tokenId")]
+
+[h:reputation=json.set(reputation, factionName, factionRepJson)]
+[h:setProperty("Reputation", reputation, tokenId)]
+[macro("Refresh@this"): tokenId]

@@ -1,0 +1,20 @@
+[h:faction=arg(0)]
+[h:reputation=getProperty("Reputation")]
+[if(json.length(reputation)<=0), CODE: {
+  [h:reputation='{}']
+  [h:setProperty("Reputation", reputation)]
+};{}]
+
+[h:factionReputation=json.set("{}",
+  "faction", faction,
+  "reputation", 0,
+  "minorFavorsUsed", 0,
+  "moderateFavorsUsed", 0,
+  "majorFavorsUsed", 0
+)]
+
+[if(json.length(reputation)>0), CODE: {
+  [h:item=json.get(reputation, faction)]
+  [h:factionReputation=if(json.isEmpty(item), factionReputation, item)]
+};{}]
+[h:macro.return=factionReputation]

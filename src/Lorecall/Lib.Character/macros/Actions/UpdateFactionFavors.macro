@@ -1,0 +1,21 @@
+[h:tokenId=currentToken()]
+[h:props=macro.args]
+[h:factionName=getStrProp(props, "faction")]
+[h:favorType=getStrProp(props, "favorType")]
+[h:favorsUsed=getStrProp(props, "favorsUsed")]
+
+[h:factionReputation=character.getFactionReputation(factionName)]
+[if(favorType=="Minor"), CODE: {
+  [h:factionReputation=json.set(factionReputation, "minorFavorsUsed", favorsUsed)]
+};{}]
+[if(favorType=="Moderate"), CODE: {
+  [h:factionReputation=json.set(factionReputation, "moderateFavorsUsed", favorsUsed)]
+};{}]
+[if(favorType=="Major"), CODE: {
+  [h:factionReputation=json.set(factionReputation, "majorFavorsUsed", favorsUsed)]
+};{}]
+
+[h:reputation=getProperty("Reputation")]
+[h:reputation=json.set(reputation, factionName, factionReputation)]
+[h:setProperty("Reputation", reputation)]
+[macro("Refresh@this"): tokenId]

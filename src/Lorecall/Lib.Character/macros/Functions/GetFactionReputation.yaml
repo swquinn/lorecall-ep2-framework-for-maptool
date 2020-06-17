@@ -1,5 +1,5 @@
 macro:
-  label: GetReputation
+  label: GetFactionReputation
   group: Functions
   auto_execute: False
   options:

@@ -149,9 +149,9 @@ section.cs-body {
   grid-template-rows: auto;
   grid-template-areas: 
     "cs-ego         cs-combat"
-    "cs-morph       cs-combat"
-    "cs-skills      ."
-    "cs-reputation  .";
+    "cs-reputation  cs-attacks"
+    "cs-morph       cs-skills"
+    ".              .";
 }
 
 section.cs-aptitudes {
@@ -466,7 +466,6 @@ section.cs-name {
 
 section.cs-reputation {
   grid-area: cs-reputation;
-  border: 1px red dashed;
 }
 section.cs-reputation .layout {
   display: flex;
@@ -479,6 +478,10 @@ section.cs-reputation .layout {
 }
 section.cs-reputation .faction-reputation {
   min-width: 110px;
+}
+section.cs-reputation .faction-reputation .faction-name {
+  font-size: 0.75rem;
+  margin-top: 2px;
 }
 
 section.cs-skills {

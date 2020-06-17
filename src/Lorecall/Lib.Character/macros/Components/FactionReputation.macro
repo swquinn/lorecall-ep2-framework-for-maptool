@@ -1,28 +1,49 @@
 [h:tokenId=currentToken()]
 [h:factionName=macro.args]
 
-[h:characterRep=character.getReputation(factionName)]
-[h:minorFavors=1]
-[h:moderateFavors=1]
-[h:majorFavors=1]
+[h:factionRep=character.getFactionReputation(factionName)]
+[h:reputationScore=json.get(factionRep, "reputation")]
+[h:minorFavors=json.get(factionRep, "minorFavorsUsed")]
+[h:moderateFavors=json.get(factionRep, "moderateFavorsUsed")]
+[h:majorFavors=json.get(factionRep, "majorFavorsUsed")]
 
 <div class="faction-reputation">
-  <label>[r:factionName]</label>
+  <div>
+    <label>
+      [h:editFactionReputationLink=macroLinkText("FactionReputationEditor@Lib:Character", "none", factionName, tokenId)]
+      <a class="faction-name" href="[r:editFactionReputationLink]">
+        [r:factionName]
+      </a>
+    </label>
+    <span>[r:reputationScore]</span>
+  </div>
   <div>
     <span>∞</span>
     <span>&#91;</span>
     <span class="minor-favor-marks">
-      [h:link=macroLinkText("", "none", 0, tokenId)]
+      [h:linkArgs=""]
+      [h:linkArgs=setStrProp(linkArgs, "faction", factionName)]
+      [h:linkArgs=setStrProp(linkArgs, "favorType", "Minor")]
+      [h:linkArgs=setStrProp(linkArgs, "favorsUsed", 1)]
+      [h:link=macroLinkText("UpdateFactionFavors@Lib:Character", "none", linkArgs, tokenId)]
       <a href="[r:link]">
         <i class="icon">[r:if(minorFavors>0, icons.squareSolid(), icons.square())]</i>
       </a>
 
-      [h:link=macroLinkText("", "none", 0, tokenId)]
+      [h:linkArgs=""]
+      [h:linkArgs=setStrProp(linkArgs, "faction", factionName)]
+      [h:linkArgs=setStrProp(linkArgs, "favorType", "Minor")]
+      [h:linkArgs=setStrProp(linkArgs, "favorsUsed", 2)]
+      [h:link=macroLinkText("UpdateFactionFavors@Lib:Character", "none", linkArgs, tokenId)]
       <a href="[r:link]">
         <i class="icon">[r:if(minorFavors>1, icons.squareSolid(), icons.square())]</i>
       </a>
 
-      [h:link=macroLinkText("", "none", 0, tokenId)]
+      [h:linkArgs=""]
+      [h:linkArgs=setStrProp(linkArgs, "faction", factionName)]
+      [h:linkArgs=setStrProp(linkArgs, "favorType", "Minor")]
+      [h:linkArgs=setStrProp(linkArgs, "favorsUsed", 3)]
+      [h:link=macroLinkText("UpdateFactionFavors@Lib:Character", "none", linkArgs, tokenId)]
       <a href="[r:link]">
         <i class="icon">[r:if(minorFavors>2, icons.squareSolid(), icons.square())]</i>
       </a>
@@ -30,7 +51,11 @@
     <span>&#93;</span>
     <span>&#91;</span>
     <span class="moderate-favor-marks">
-      [h:link=macroLinkText("", "none", 0, tokenId)]
+      [h:linkArgs=""]
+      [h:linkArgs=setStrProp(linkArgs, "faction", factionName)]
+      [h:linkArgs=setStrProp(linkArgs, "favorType", "Moderate")]
+      [h:linkArgs=setStrProp(linkArgs, "favorsUsed", 1)]
+      [h:link=macroLinkText("UpdateFactionFavors@Lib:Character", "none", linkArgs, tokenId)]
       <a href="[r:link]">
         <i class="icon">[r:if(moderateFavors>0, icons.squareSolid(), icons.square())]</i>
       </a>
@@ -38,7 +63,11 @@
     <span>&#93;</span>
     <span>&#91;</span>
     <span class="major-favor-marks">
-      [h:link=macroLinkText("", "none", 0, tokenId)]
+      [h:linkArgs=""]
+      [h:linkArgs=setStrProp(linkArgs, "faction", factionName)]
+      [h:linkArgs=setStrProp(linkArgs, "favorType", "Major")]
+      [h:linkArgs=setStrProp(linkArgs, "favorsUsed", 1)]
+      [h:link=macroLinkText("UpdateFactionFavors@Lib:Character", "none", linkArgs, tokenId)]
       <a href="[r:link]">
         <i class="icon">[r:if(majorFavors>0, icons.squareSolid(), icons.square())]</i>
       </a>

@@ -1,0 +1,70 @@
+[h:tokenId=currentToken()]
+[h:factionName=macro.args]
+
+[h:factionReputation=character.getFactionReputation(factionName)]
+[h:log.info(factionReputation)]
+
+[h:title=strformat("Edit Faction Reputation - %{factionName} - %{token.name}")]
+[h:submitAction=macroLinkText("UpdateFactionReputation@Lib:Character", "none", "", tokenId)]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", title)]
+[dialog5(title, "width=450; height=500; temporary=1; input=1; closebutton=0; noframe=0"): {
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "ep2.css"]
+    [macro("Style@Lib:Module"): "form.css"]
+    <title>[r:title]</title>
+  </head>
+  <body class="attacks-editor property-editor">
+    <form action="[r:submitAction]">
+      <input type="hidden" name="faction" value="[r:factionName]">
+      <input type="hidden" name="tokenId" value="[r:tokenId]">
+
+      <div>
+        <label>Faction</label>
+        <span>[r:factionName]</span>
+      </div>
+
+      <div>
+        <label>Reputation</label>
+        <input id="faction-rep" name="reputation" class="editor-field" type="number" placeholder="0" value="[r:json.get(factionReputation, 'reputation')]"/>
+      </div>
+
+      <div>
+        <label for="faction-minor-favors-used">Minor Favors Used</label>
+        [h:minorFavorsUsed=json.get(factionReputation, "minorFavorsUsed")]
+        [r:minorFavorsUsed]
+        <select id="faction-minor-favors-used" name="minorFavorsUsed">
+          <option value="0" [r,if(minorFavorsUsed==0): "selected"]>0</option>
+          <option value="1" [r,if(minorFavorsUsed==1): "selected"]>1</option>
+          <option value="2" [r,if(minorFavorsUsed==2): "selected"]>2</option>
+          <option value="3" [r,if(minorFavorsUsed==3): "selected"]>3</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="faction-mod-favors-used">Moderate Favors Used</label>
+        [h:modFavorsUsed=json.get(factionReputation, "moderateFavorsUsed")]
+        <select id="faction-mod-favors-used" name="moderateFavorsUsed">
+          <option value="0" [r,if(modFavorsUsed==0): "selected"]>0</option>
+          <option value="1" [r,if(modFavorsUsed==1): "selected"]>1</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="faction-maj-favors-used">Major Favors Used</label>
+        [h:majFavorsUsed=json.get(factionReputation, "majorFavorsUsed")]
+        <select id="faction-maj-favors-used" name="majorFavorsUsed">
+          <option value="0" [r,if(majFavorsUsed==0): "selected"]>0</option>
+          <option value="1" [r,if(majFavorsUsed==1): "selected"]>1</option>
+        </select>
+      </div>
+
+      <hr/>
+
+      <input type="submit" value="Save">
+      <a class="btn" href="[r:cancelAction]">Cancel</a>
+    </form>
+  </body>
+</html>
+}]
