@@ -1,0 +1,23 @@
+[h:tokenId=currentToken()]
+[h:armorEnergy=getProperty("ArmorEnergy")]
+[h:armorKinetic=getProperty("ArmorKinetic")]
+
+[h:armorEnergyLabelField="armorEnergyLabel|Armor (Energy)|0|label|span=true"]
+[h:armorEnergyTextField=strformat("assignedArmorEnergy|%{armorEnergy}|0|text|span=true width=32")]
+
+[h:armorKineticLabelField="armorKineticLabel|Armor (Kinetic)|0|label|span=true"]
+[h:armorKineticTextField=strformat("assignedArmorKinetic|%{armorKinetic}|0|text|span=true width=32")]
+
+[h:abort(
+  input(
+    armorEnergyLabelField,
+    armorEnergyTextField,
+
+    armorKineticLabelField,
+    armorKineticTextField
+  )
+)]
+[h:setProperty("armorEnergy", assignedArmorEnergy, tokenId)]
+[h:setProperty("armorKinetic", assignedArmorKinetic, tokenId)]
+
+[macro("Refresh@this"): token.name]

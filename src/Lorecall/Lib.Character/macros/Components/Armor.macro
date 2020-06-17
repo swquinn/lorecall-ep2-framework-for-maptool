@@ -1,0 +1,15 @@
+[h:tokenId=currentToken()]
+[h:armorEnergy=character.getPropertyWithDefault("ArmorEnergy", 0)]
+[h:armorKinetic=character.getPropertyWithDefault("ArmorKinetic", 0)]
+
+[h:editLink=macroLinkText("ArmorEditor@this", "", "", tokenId)]
+<section class="cs-armor">
+  <div class="clearfix">
+    <a href="[r:editLink]" class="edit-action">
+      <i class="icon">[r:icons.edit()]</i>
+    </a>
+  </div>
+
+  <span class="token-property">[r:armorEnergy] / [r:armorKinetic]</span>
+  <label>ENERGY / KINETIC</label>
+</section>
