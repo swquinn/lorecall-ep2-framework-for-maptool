@@ -105,7 +105,6 @@ body.character-sheet nav .header-tab.active {
 }
 
 main {
-  border: 1px solid red;
   margin: 0px auto;
   min-width: 715px;
   max-width: 715px;
