@@ -3,6 +3,10 @@
 
 [h:initiative=ceil((intuitionScore + reflexScore) / 5)]
 <section class="cs-initiative">
+  <div class="clearfix">
+    <span class="edit-action"><i class="icon">[r:icons.userCircle()]</i></span>
+  </div>
+
   <span class="token-property">
     [r:if(initiative>=0, strformat("+%{initiative}"), initiative)]
   </span>

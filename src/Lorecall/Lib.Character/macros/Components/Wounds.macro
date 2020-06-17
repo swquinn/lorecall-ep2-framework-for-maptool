@@ -1,17 +1,14 @@
-[h:wounds=getProperty("Wounds")]
-[h:traumaThreshold=character.getTraumaThreshold()]
+[h:tokenId=currentToken()]
+[h:wounds=character.getPropertyWithDefault("Wounds", 0)]
 
-[h:editwounds=macroLinkText("SimplePropertyEditor@this", "", "Wounds", currentToken())]
-<section class="cs-trauma">
-
-  <div class="wounds">
-    <div class="clearfix">
-      <a href="[r:editWounds]" class="edit-trauma">
-        <i class="icon">[r:icons.edit()]</i>
-      </a>
-    </div>
-
-    <span class="token-property">[r:wounds] / [r:traumaThreshold]</span>
-    <label>WOUNDS</label>
+[h:editLink=macroLinkText("SimplePropertyEditor@this", "", "Wounds", tokenId)]
+<section class="cs-wounds">
+  <div class="clearfix">
+    <a href="[r:editLink]" class="edit-action">
+      <i class="icon">[r:icons.edit()]</i>
+    </a>
   </div>
+
+  <span class="token-property">[r:wounds]</span>
+  <label>WOUNDS</label>
 </section>

@@ -3,12 +3,16 @@
 <section class="cs-combat">
   <label class="section-header">COMBAT</label>
   <div class="layout ep2-border">
-    [macro("Initiative@Lib:Character"): tokenId]
-    [macro("Damage@Lib:Character"): tokenId]
-    [macro("Wounds@Lib:Character"): tokenId]
+    <div class="combat-row">
+      [macro("Initiative@Lib:Character"): tokenId]
+      [macro("Damage@Lib:Character"): tokenId]
+      [macro("Stress@Lib:Character"): tokenId]
+    </div>
 
-    [macro("Armor@Lib:Character"): tokenId]
-    [macro("Stress@Lib:Character"): tokenId]
-    [macro("Trauma@Lib:Character"): tokenId]
+    <div class="combat-row">
+      [macro("Armor@Lib:Character"): tokenId]
+      [macro("Wounds@Lib:Character"): tokenId]
+      [macro("Trauma@Lib:Character"): tokenId]
+    </div>
   </div>
 </section>
