@@ -12,4 +12,6 @@
 [h: defineFunction("icons.squareSolid", "SquareSolidIcon@Lib:Icons")]
 [h: defineFunction("icons.sync", "SyncIcon@Lib:Icons")]
 [h: defineFunction("icons.trash", "TrashIcon@Lib:Icons")]
+[h: defineFunction("icons.user", "UserIcon@Lib:Icons")]
+[h: defineFunction("icons.userCircle", "UserCircleIcon@Lib:Icons")]
 [h: defineFunction("icons.view", "ViewIcon@Lib:Icons")]
