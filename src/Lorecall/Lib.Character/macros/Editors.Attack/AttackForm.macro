@@ -1,7 +1,7 @@
 [h:attackId=getStrProp(macro.args, "attackId")]
 [h:tokenId=getStrProp(macro.args, "tokenId")]
 [h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
-[h:submitAction=macroLinkText("UpdateAttack@Lib:Character", "none")]
+[h:submitAction=macroLinkText("UpdateAttack@Lib:Character", "none", "", tokenId)]
 [h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
 
 [h:attack=character.getAttack(attackId)]

@@ -1,7 +1,7 @@
 [h:skillId=getStrProp(macro.args, "skillId")]
 [h:tokenId=getStrProp(macro.args, "tokenId")]
 [h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
-[h:submitAction=macroLinkText("UpdateSkill@Lib:Character", "none")]
+[h:submitAction=macroLinkText("UpdateSkill@Lib:Character", "none", "", tokenId)]
 [h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
 
 [h:skill=character.getSkill(skillId)]

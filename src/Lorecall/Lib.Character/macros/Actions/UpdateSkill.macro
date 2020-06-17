@@ -60,3 +60,4 @@
   [h:skills=json.set(skills, skillId, skillJson)]
   [h:setProperty("Skills", skills, tokenId)]
 };{}]
+[macro("Refresh@this"): tokenId]

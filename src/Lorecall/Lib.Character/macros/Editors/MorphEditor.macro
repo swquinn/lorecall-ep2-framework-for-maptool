@@ -2,7 +2,7 @@
 [h:morph=character.getMorph()]
 
 [h:title=strformat("Edit Morph - %{token.name}")]
-[h:submitAction=macroLinkText("UpdateMorph@Lib:Character", "none")]
+[h:submitAction=macroLinkText("UpdateMorph@Lib:Character", "none", "", tokenId)]
 [h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", title)]
 [dialog5(title, "width=450; height=500; temporary=1; input=1; closebutton=0; noframe=0"): {
 <html>

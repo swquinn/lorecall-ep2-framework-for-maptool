@@ -14,4 +14,4 @@
 
 [h:morphJson=jsonData]
 [h:setProperty("Morph", morphJson, tokenId)]
-[macro("Refresh@this"): token.name]
+[macro("Refresh@this"): tokenId]

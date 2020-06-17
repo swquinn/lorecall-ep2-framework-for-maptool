@@ -24,3 +24,4 @@
 [h:attackJson=json.set(attackJson, "id", attackId)]
 [h:attacks=json.set(attacks, attackId, attackJson)]
 [h:setProperty("Attacks", attacks, tokenId)]
+[macro("Refresh@this"): tokenId]
