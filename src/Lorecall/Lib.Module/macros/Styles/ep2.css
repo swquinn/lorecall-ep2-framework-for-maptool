@@ -179,8 +179,18 @@ section.cs-aptitudes .aptitude .aptitude-check {
   font-size: 1.5rem;
 }
 
-section.cs-attacks {}
-section.cs-attacks .layout {}
+section.cs-attacks {
+  grid-area: cs-attacks;
+  justify-self: stretch;
+  align-self: stretch;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+section.cs-attacks .layout {
+  flex: 1 0 auto;
+}
 section.cs-attacks table.attacks {
   table-layout: fixed;
   width: 100%;
