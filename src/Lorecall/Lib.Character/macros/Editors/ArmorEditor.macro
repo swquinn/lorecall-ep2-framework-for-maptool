@@ -17,7 +17,7 @@
     armorKineticTextField
   )
 )]
-[h:setProperty("armorEnergy", assignedArmorEnergy, tokenId)]
-[h:setProperty("armorKinetic", assignedArmorKinetic, tokenId)]
+[h:setProperty("ArmorEnergy", assignedArmorEnergy, tokenId)]
+[h:setProperty("ArmorKinetic", assignedArmorKinetic, tokenId)]
 
 [macro("Refresh@this"): token.name]
