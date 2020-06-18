@@ -3,7 +3,7 @@
 [h: defineFunction("character.getDurability", "GetDurability@Lib:Character")]
 [h: defineFunction("character.getDeathRating", "GetDeathRating@Lib:Character")]
 [h: defineFunction("character.getFactionReputation", "GetFactionReputation@Lib:Character")]
-[h: defineFunction("character.getFeatures", "GetFeatures@Lib:Character")]
+[h: defineFunction("character.getFeature", "GetFeature@Lib:Character")]
 [h: defineFunction("character.getFieldSkills", "GetFieldSkills@Lib:Character")]
 [h: defineFunction("character.getGear", "GetGear@Lib:Character")]
 [h: defineFunction("character.getInsanity", "GetInsanity@Lib:Character")]

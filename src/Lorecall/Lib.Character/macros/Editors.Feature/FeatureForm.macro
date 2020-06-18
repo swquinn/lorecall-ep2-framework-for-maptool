@@ -1,0 +1,38 @@
+[h:featureId=getStrProp(macro.args, "featureId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+[h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
+[h:submitAction=macroLinkText("UpdateFeature@Lib:Character", "none", "", tokenId)]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
+
+[h:feature=character.getFeature(featureId)]
+<form action="[r:submitAction]">
+  <input type="hidden" name="featureId" value="[r:json.get(feature, 'id')]" />
+  <input type="hidden" name="tokenId" value="[r:tokenId]" />
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label for="feature-name">Feature</label>
+        </td>
+        <td class="feature-field">
+          <input id="feature-name" name="name" class="feature-field" type="text" required="true" placeholder="Feature or trait, e.g. Edited Memories, Resources, etc." value="[r:json.get(feature, 'name')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="feature-description">Description</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="feature-field">
+          <textarea id="feature-description" name="description" placeholder="The description of the feature, and its mechanics.">[r:json.get(feature, "description")]</textarea>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <hr/>
+  <input type="submit" value="Save">
+  <a class="btn" href="[r:cancelAction]">Cancel</a>
+</form>

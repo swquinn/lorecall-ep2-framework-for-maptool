@@ -1,0 +1,18 @@
+[h:tokenId=currentToken()]
+[h:featureId=macro.args]
+[h:characterFeatures=getProperty("Features", tokenId)]
+
+[h:log.info(featureId)]
+[h:log.info(characterFeatures)]
+
+[h:theFeature=json.set("{}",
+  "id", "",
+  "name", "",
+  "description", ""
+)]
+
+[if(json.length(characterFeatures)>0), CODE: {
+  [h:item=json.get(characterFeatures, featureId)]
+  [h:theFeature=if(json.isEmpty(item), theFeature, item)]
+};{}]
+[h:macro.return=theFeature]

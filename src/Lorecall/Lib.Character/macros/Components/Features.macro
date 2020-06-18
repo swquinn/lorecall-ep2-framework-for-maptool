@@ -1,25 +1,42 @@
 [h:tokenId=currentToken()]
-[h:features=character.getFeatures(tokenId)]
+[h:features=getProperty("Features", tokenId)]
 
+[h:addFeatureArgs=""]
+[h:addFeatureArgs=setStrProp(addFeatureArgs, "tokenId", tokenId)]
+[h:addFeatureLink=macroLinkText("FeatureEditor@this", "", addFeatureArgs, tokenId)]
 <section class="cs-features">
-  <label>
-    [r:macroLink("FEATURES & EGO TRAITS", "FeaturesEditor@this", "","",tokenId)]
+  <label class="section-header">
+    FEATURES & EGO TRAITS
+    <a class="action" href="[r:addFeatureLink]">
+      <i class="icon">[r:icons.plusSquare()]</i>
+    </a>
   </label>
   <div class="layout ep2-border">
     <ul>
-      [foreach(feature, features, "", ","), CODE: {
-      [h:featureName=json.get(feature, "label")]
-      [h:featurePath=strformat("%{featureName}@TOKEN")]
+      [foreach(featureId, features, "", ","), CODE: {
+        [h:feature=character.getFeature(featureId)]
+        [h:announceAction=macroLinkText("", "all", "", tokenId)]
+        <li class="feature">
+          <a class="feature-label" href="[r:announceAction]">[r:json.get(feature, "name")]</a>
 
-      [h:announceAction=macroLinkText(featurePath, "all", "", tokenId)]
-      <li>
-          <div class="feature">
-          <a class="feature-label" href="[r:announceAction]">[r:featureName]</a>
-          <a class="edit-feature">
+          <span class="actions">
+            [h:editFeatureArgs=""]
+            [h:editFeatureArgs=setStrProp(editFeatureArgs, "featureId", featureId)]
+            [h:editFeatureArgs=setStrProp(editFeatureArgs, "tokenId", tokenId)]
+            [h:editFeatureLink=macroLinkText("FeatureEditor@this", "none", editFeatureArgs, tokenId)]
+            <a id="edit-feature-action" class="action" href="[r:editFeatureLink]">
               <i class="icon">[r:icons.edit()]</i>
-          </a>
-          </div>
-      </li>    
+            </a>
+
+            [h:removeFeatureArgs=""]
+            [h:removeFeatureArgs=setStrProp(removeFeatureArgs, "featureId", featureId)]
+            [h:removeFeatureArgs=setStrProp(removeFeatureArgs, "tokenId", tokenId)]
+            [h:removeFeatureLink=macroLinkText("RemoveFeature@this", "none", removeFeatureArgs, tokenId)]
+            <a id="remove-feature-action" class="action" href="[r:removeFeatureLink]">
+                <i class="icon">[r:icons.trash()]</i>
+            </a>
+          </span>
+        </li>    
       }]
     </ul>
   </div>

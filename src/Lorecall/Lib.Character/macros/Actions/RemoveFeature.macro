@@ -1,0 +1,7 @@
+[h:featureId=getStrProp(macro.args, "featureId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+
+[h:features=getProperty("Features", tokenId)]
+[h:features=json.remove(features, featureId)]
+[h:setProperty("Features", features)]
+[macro("Refresh@this"): tokenId]

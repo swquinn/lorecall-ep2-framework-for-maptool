@@ -4,5 +4,5 @@
 
 <section class="cs-morph-notes">
   <label>Notes</label>
-  <div class="morph-notes">[r:morphNotes]</span>
+  <div class="morph-notes">[r:morphNotes]</div>
 </section>

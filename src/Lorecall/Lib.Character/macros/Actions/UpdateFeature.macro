@@ -1,0 +1,27 @@
+[h:jsonData=macro.args]
+
+[h:featureId=json.get(jsonData, "featureId")]
+[h:featureName=json.get(jsonData, "name")]
+[assert(featureName!="", "Feature MUST have a name.")]
+
+[h:tokenId=json.get(jsonData, "tokenId")]
+[h:jsonData=json.remove(jsonData, "tokenId")]
+
+[h:features=getProperty("Features", tokenId)]
+[h:featureCount=json.length(features)]
+
+[if(featureCount < 1), CODE: {
+  [h:features='{}']
+  [h:setProperty("Features", features, tokenId)]
+};{}]
+
+[if(featureId==""), CODE: {
+  [h:featureId=base64.encode(strformat("%{tokenId}:" + (featureCount + 1) + ":%{featureName}"))]  
+};{}]
+
+[h:featureJson=jsonData]
+[h:featureJson=json.remove(featureJson, "featureId")]
+[h:featureJson=json.set(featureJson, "id", featureId)]
+[h:features=json.set(features, featureId, featureJson)]
+[h:setProperty("Features", features, tokenId)]
+[macro("Refresh@this"): tokenId]
