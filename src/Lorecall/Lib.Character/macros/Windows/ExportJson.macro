@@ -15,7 +15,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="lorecall.css@[r: getMacroLocation()]" type="text/css">
-    <link rel="stylesheet" href="dnd5e.css@[r: getMacroLocation()]" type="text/css">
+    <link rel="stylesheet" href="ep2.css@[r: getMacroLocation()]" type="text/css">
     <link rel="stylesheet" href="proptable.css@[r: getMacroLocation()]" type="text/css">
     <title>[r:title]</title>
   </head>
