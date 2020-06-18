@@ -2,6 +2,8 @@
 [h:tokenId=getStrProp(macro.args, "tokenId")]
 
 [h:skills=getProperty("Skills", tokenId)]
-[h:skills=json.remove(skills, skillId)]
-[h:setProperty("Skills", skills)]
+[if(json.length(skills)>0), CODE: {
+  [h:skills=json.remove(skills, skillId)]
+  [h:setProperty("Skills", skills)]
+};{}]
 [macro("Refresh@this"): tokenId]
