@@ -1,5 +1,5 @@
 [h:tokenId=currentToken()]
-[h:stress=character.getPropertyWithDefault("Stress", 0)]
+[h:stressTaken=character.getPropertyWithDefault("Stress", 0)]
 [h:lucidity=character.getLucidity()]
 
 [h:editLink=macroLinkText("SimplePropertyEditor@this", "", "Stress", tokenId)]
@@ -10,6 +10,6 @@
     </a>
   </div>
 
-  <span class="token-property">[r:stress] / [r:lucidity]</span>
+  <span class="token-property">[r:stressTaken] / [r:lucidity]</span>
   <label>STRESS</label>
 </section>

@@ -1,5 +1,5 @@
 [h:tokenId=currentToken()]
-[h:damage=character.getPropertyWithDefault("Damage", 0)]
+[h:damageTaken=character.getPropertyWithDefault("Damage", 0)]
 [h:durability=character.getDurability()]
 
 [h:editLink=macroLinkText("SimplePropertyEditor@this", "", "Damage", tokenId)]
@@ -10,6 +10,6 @@
     </a>
   </div>
 
-  <span class="token-property">[r:damage] / [r:durability]</span>
+  <span class="token-property">[r:damageTaken] / [r:durability]</span>
   <label>DAMAGE</label>
 </section>

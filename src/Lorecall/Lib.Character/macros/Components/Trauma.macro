@@ -1,5 +1,5 @@
 [h:tokenId=currentToken()]
-[h:traumas=character.getPropertyWithDefault("Traumas", 0)]
+[h:traumasTaken=character.getPropertyWithDefault("Traumas", 0)]
 
 [h:editLink=macroLinkText("SimplePropertyEditor@this", "", "Traumas", tokenId)]
 <section class="cs-trauma">
@@ -9,6 +9,6 @@
     </a>
   </div>
 
-  <span class="token-property">[r:traumas]</span>
+  <span class="token-property">[r:traumasTaken]</span>
   <label>TRAUMAS</label>
 </section>
