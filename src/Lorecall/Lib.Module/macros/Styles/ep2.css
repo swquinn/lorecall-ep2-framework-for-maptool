@@ -150,7 +150,7 @@ section.cs-body {
     "cs-ego         cs-combat"
     "cs-reputation  cs-attacks"
     "cs-morph       cs-skills"
-    ".              .";
+    "cs-features    cs-skills";
 }
 
 section.cs-aptitudes {
@@ -397,8 +397,30 @@ section.cs-ego-stability .token-property {
   text-align: center;
 }
 
+section.cs-features {
+  grid-area: cs-features;
+  align-self: stretch;
+  justify-self: stretch;
+
+  display: flex;
+  flex-direction: column;
+}
+section.cs-features .layout {
+  flex: 1 0 auto;
+}
+
 section.cs-morph {
   grid-area: cs-morph;
+  align-self: stretch;
+  justify-self: stretch;
+
+  display: flex;
+  flex-direction: column;
+}
+section.cs-morph .layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 section.cs-morph-durability {
@@ -479,6 +501,9 @@ section.cs-morph-name .morph-name {
 }
 
 section.cs-morph-notes {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   margin: 2px 2px 5px;
 }
 section.cs-morph-notes label {
@@ -487,10 +512,10 @@ section.cs-morph-notes label {
   margin-right: 5px;
 }
 section.cs-morph-notes .morph-notes {
+  flex-grow: 1;
   font-size: 0.65rem;
   padding: 2px 5px;
   background-color: #e6e6e6;
-  min-height: 50px;
 }
 
 section.cs-morph-pools {
