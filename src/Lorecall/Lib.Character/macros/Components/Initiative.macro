@@ -1,5 +1,5 @@
-[h:intuitionScore=getProperty("Intuition")]
-[h:reflexScore=getProperty("Reflex")]
+[h:intuitionScore=character.getPropertyWithDefault("Intuition", 0)]
+[h:reflexScore=character.getPropertyWithDefault("Reflex", 0)]
 
 [h:initiative=ceil((intuitionScore + reflexScore) / 5)]
 <section class="cs-initiative">
