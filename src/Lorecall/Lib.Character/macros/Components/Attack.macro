@@ -50,9 +50,10 @@
   <td class="action-column">
     [h:editArgs=""]
     [h:editArgs=setStrProp(editArgs, "attackId", attackId)]
-    [h:editArgs=setStrProp(editArgs, "attackName", json.get(attack, "name"))]
-    [h:editAction=macroLinkText("AttackEditor@this", "none", editArgs, tokenId)]
-    <a id="edit-action" class="action" href="[r:editAction]">
+    [h:editArgs=setStrProp(editArgs, "tokenId", tokenId)]
+    [h:editArgs=setStrProp(editArgs, "component", "AttackForm")]
+    [h:editAttackLink=macroLinkText("AttackEditor@this", "none", editArgs, tokenId)]
+    <a id="edit-action" class="action" href="[r:editAttackLink]">
         <i class="icon">[r:icons.edit()]</i>
     </a>
 

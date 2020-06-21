@@ -1,4 +1,5 @@
 [h:props=macro.args]
+[h:attackId=getStrProp(props, "attackId")]
 [h:tokenId=getStrProp(props, "tokenId")]
 [h:component=getStrProp(props, "component")]
 
@@ -14,6 +15,7 @@
   </head>
   <body class="attacks-editor property-editor">
     [h:formProps=""]
+    [h:formProps=setStrProp(formProps, "attackId", attackId)]
     [h:formProps=setStrProp(formProps, "tokenId", tokenId)]
     [h:formProps=setStrProp(formProps, "dialogTitle", title)]
     [macro(component+"@this"): formProps]
