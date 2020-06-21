@@ -1,9 +1,13 @@
 [h:skillId=arg(0)]
 [h:characterSkill=character.getSkill(skillId)]
 
+[h:skillName=json.get(characterSkill, "name")]
 [h:skillAptitude=json.get(characterSkill, "aptitude")]
 [h:skillRanks=json.get(characterSkill, "ranks")]
-[h:aptitudeScore=getProperty(skillAptitude)]
+[h:aptitudeScore=character.getPropertyWithDefault(skillAptitude, 0)]
+
+[h:aptitudeScore=if(skillName=="Fray", (aptitudeScore * 2), aptitudeScore)]
+[h:aptitudeScore=if(skillName=="Perceive", (aptitudeScore * 2), aptitudeScore)]
 
 [h:skillCheck=(skillRanks + aptitudeScore)]
 [h:macro.return=skillCheck]
