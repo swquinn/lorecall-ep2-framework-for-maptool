@@ -11,6 +11,8 @@
     [r:if(initiative>=0, strformat("+%{initiative}"), initiative)]
   </span>
   <label>
-    [r:macroLink("INIT", "RollInitiative@this", "all", initiative, currentToken())]
+    [h:initRollArgs=""]
+    [h:initRollArgs=setStrProp(initRollArgs, "value", initiative)]
+    [r:macroLink("INIT", "RollInitiative@this", "all", initRollArgs, currentToken())]
   </label>
 </section>
