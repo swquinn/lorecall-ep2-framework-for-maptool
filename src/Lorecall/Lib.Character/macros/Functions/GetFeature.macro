@@ -2,9 +2,6 @@
 [h:featureId=macro.args]
 [h:characterFeatures=getProperty("Features", tokenId)]
 
-[h:log.info(featureId)]
-[h:log.info(characterFeatures)]
-
 [h:theFeature=json.set("{}",
   "id", "",
   "name", "",

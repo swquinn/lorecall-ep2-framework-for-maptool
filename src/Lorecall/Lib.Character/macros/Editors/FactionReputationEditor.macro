@@ -2,7 +2,6 @@
 [h:factionName=macro.args]
 
 [h:factionReputation=character.getFactionReputation(factionName)]
-[h:log.info(factionReputation)]
 
 [h:title=strformat("Edit Faction Reputation - %{factionName} - %{token.name}")]
 [h:submitAction=macroLinkText("UpdateFactionReputation@Lib:Character", "none", "", tokenId)]
