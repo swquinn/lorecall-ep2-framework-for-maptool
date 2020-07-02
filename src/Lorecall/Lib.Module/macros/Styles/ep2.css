@@ -1,37 +1,9 @@
-label,
-label * {
+.character-sheet label,
+.character-sheet label * {
   font-size: 0.55rem;
   display: inline-block;
   margin: 0px;
   padding: 0px;
-}
-
-.clearfix:after {
-  content: "";
-  display: inline-block;
-  clear: both;
-}
-
-.btn-primary {
-  box-shadow:inset 0px 34px 0px -15px #b54b3a;
-  background-color:#a73f2d;
-  border:1px solid #241d13;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:12px;
-  font-weight:bold;
-  padding:9px 23px;
-  text-decoration:none;
-  text-shadow:0px -1px 0px #7a2a1d;
-}
-.btn-primary:hover {
-  background-color:#b34332;
-}
-.btn-primary:active {
-  position:relative;
-  top:1px;
 }
 
 .token-property-container {
@@ -57,10 +29,10 @@ a.icon-edit-property {
   top: -2px;
 }
 
-body.character-sheet {
+.character-sheet {
   background-color: #ffffff;
 }
-body.character-sheet header {
+.character-sheet header {
   background-color: #eee;
   margin-bottom: 10px;
   padding: 0px;
@@ -72,39 +44,39 @@ body.character-sheet header {
   justify-content: space-between;
   width: 100%;
 }
-body.character-sheet header .icon { width: 1rem; }
+.character-sheet header .icon { width: 1rem; }
 
-body.character-sheet h1 {
+.character-sheet h1 {
   font-size: 1.25rem;
   display: inline-block;
   padding: 5px;
 }
-body.character-sheet nav {
+.character-sheet nav {
   display: flex;
   line-height: 2rem;
 }
-body.character-sheet nav .header-tab {
+.character-sheet nav .header-tab {
   background-color:#a73f2d;
   cursor:pointer;
   color:#ffffff;
   line-height: 2rem;
   padding: 0 .25rem;
 }
-body.character-sheet nav .header-tab.hidden { display: none; }
-body.character-sheet nav .header-tab .icon {
+.character-sheet nav .header-tab.hidden { display: none; }
+.character-sheet nav .header-tab .icon {
   display: inline-block;
   margin: auto;
   line-height: 2rem;
   top: 7px;
 }
-body.character-sheet nav .header-tab:hover {
+.character-sheet nav .header-tab:hover {
   background-color:#b34332;
 }
-body.character-sheet nav .header-tab.active {
+.character-sheet nav .header-tab.active {
   background-color: #666;
 }
 
-main {
+.character-sheet main {
   margin: 0px auto;
   min-width: 715px;
   max-width: 715px;
@@ -627,7 +599,6 @@ section.cs-skills table.skills td.skill-action-column .edit-skill-action {
   position: relative;
   top: -2px;
 }
-
 
 .ep2-border {
   border: 1px solid #000;
