@@ -1,0 +1,79 @@
+[h:tokenId=macro.args]
+[h:submitCombatFlagsAction=macroLinkText("UpdateFlags@Lib:Character", "none", "", tokenId)]
+
+[h:tokenFlags=getProperty("Flags", tokenId)]
+[h:tokenFlags=if(json.isEmpty(tokenFlags), '{}', tokenFlags)]
+<form id="combat-flags" action="[r:submitCombatFlagsAction]">
+  <input type="hidden" name="tokenId" value="[r:tokenId]" />
+  <!--
+    Quick Aim
+    =========
+    A quick action that characters can take to get a +10 modifier on an
+    attack they make in the same turn that the quick aim action was taken.
+  -->
+  <div class="flag-option-group">
+    [h:flagQuickAim=json.get(tokenFlags, "COMBAT_AIM_QUICK")]
+    <div class="flag-option">
+      <input id="aim-quick" type="checkbox" name="COMBAT_AIM_QUICK" [r:if(flagQuickAim==1, "checked", "")]/>
+      <label for="aim-quick">Aim (Quick Action)</label>
+    </div>
+    <div class="flag-option-note">
+      <span>+10 Guns</span>
+    </div>
+  </div>
+
+  <!--
+    Full Aim
+    =========
+    A complex action that characters can take to get a +30 modifier on an
+    attack they make on their next turn.
+  -->
+  <div class="flag-option-group">
+    [h:flagFullAim=json.get(tokenFlags, "COMBAT_AIM")]
+    <div class="flag-option">
+      <input id="aim-complex" type="checkbox" name="COMBAT_AIM" [r:if(flagFullAim==1, "checked", "")]/>
+      <label for="aim-complex">Aim (Complex Action)</label>
+    </div>
+    <div class="flag-option-note">
+      <span>+30 Guns</span>
+    </div>
+  </div>
+
+  <div class="flag-option-group">
+    [h:flagRangeInMelee=json.get(tokenFlags, "COMBAT_RANGED_ATTACK_IN_MELEE")]
+    <div class="flag-option">
+      <input id="ranged-attack" type="checkbox" name="COMBAT_RANGED_ATTACK_IN_MELEE" [r:if(flagRangeInMelee==1, "checked", "")]/>
+      <label for="ranged-attack">Ranged Attack in Melee</label>
+    </div>
+    <div class="flag-option-note">
+      <span>-10 Guns / -30 Guns (Long)</span>
+    </div>
+  </div>
+
+  <div class="flag-option-group">
+    [h:flagTargetCovered=json.get(tokenFlags, "COMBAT_TARGET_BEHIND_COVER")]
+    <div class="flag-option">
+      <input id="target-behind-cover-checkbox" type="checkbox" [r:if(flagTargetCovered>0, "checked", "")] />
+      <select id="target-behind-cover" name="COMBAT_TARGET_BEHIND_COVER">
+        <option value="0" [r,if(flagTargetCovered==0): "selected"]>Target not behind cover</option>
+        <option value="1" [r,if(flagTargetCovered==1): "selected"]>Target behind minor cover</option>
+        <option value="2" [r,if(flagTargetCovered==2): "selected"]>Target behind moderate cover</option>
+        <option value="3" [r,if(flagTargetCovered==3): "selected"]>Target behind major cover</option>
+      </select>
+    </div>
+    <div class="flag-option-note">
+    <span>-10 min/-20 mod/-30 maj Guns</span>
+    </div>
+  </div>
+
+  <div class="flag-option-group">
+    [h:flagTargetProne=json.get(tokenFlags, "COMBAT_TARGET_PRONE")]
+    <div class="flag-option">
+      <input id="target-prone" type="checkbox" name="COMBAT_TARGET_PRONE" [r:if(flagTargetProne==1, "checked", "")] />
+      <label for="target-prone">Target Prone</label>
+    </div>
+    <div class="flag-option-note">
+      <span>+10 Guns</span>
+    </div>
+  </div>
+</form>

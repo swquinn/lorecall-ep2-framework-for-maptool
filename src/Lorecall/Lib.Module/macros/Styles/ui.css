@@ -1,0 +1,158 @@
+.tab-icon {
+  cursor: pointer;
+}
+.tab-icon svg {
+  width: 48px;
+}
+
+.overlay {
+  border: 2px solid #000;
+  border-top: 0px;
+}
+.overlay header {
+  background-color: #000000;
+  height: 24px;
+  margin: 4px 0px 20px;
+}
+
+.overlay header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.overlay header nav .nav-control {
+  color: #fff;
+  cursor: pointer;
+  flex: 0 1 auto;
+  margin: 0px 5px 7px;
+}
+
+.overlay header nav .nav-control.grip-control {
+  cursor: move;
+}
+
+.overlay header nav ol {
+  display: flex;
+  list-style: none;
+  padding: 0px;
+  margin: 0px 30px;
+  height: 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overlay header nav ol li .tab-icon:hover svg path.fa-primary {
+  fill: #ff0000 !important;
+}
+
+.overlay.expanded #collapse-button .icon.collapse {
+  display: none;
+}
+
+.overlay:not(.expanded) #collapse-button .icon.expand {
+  display: none;
+}
+
+.overlay:not(.expanded) #collapse-button .icon.collapse {
+  display: inline-block;
+}
+
+.overlay.expanded #collapse-button .icon.expand {
+  display: inline-block;
+}
+
+.overlay:not(.expanded) main {
+  display:none;
+}
+
+.overlay-center {
+  margin-top: -5px;
+}
+.overlay header nav ol .overlay-center svg {
+  width: 32px;
+}
+
+.overlay.roll-helper-overlay {
+  width: 450px;
+  background-color: #ffffff99;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.roll-helper-overlay .flag-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.roll-helper-overlay .flag-option-group {
+  display: inline-block;
+  margin: 5px;
+  flex: 1 0 auto;
+  width: 210px;
+}
+
+.roll-helper-overlay .flag-option input {
+  float: left;
+  margin-top: 0px;
+  margin-right: 7px;
+}
+
+.roll-helper-overlay .flag-option select {
+  width: 175px;
+}
+
+.roll-helper-overlay .flag-option-note {
+  margin-top: 2px;
+  margin-left: 23px;
+  color: #ababab;
+}
+.roll-helper-overlay .flag-option-note * {
+  font-size: 0.55rem;
+}
+
+.roll-helper-overlay footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: stretch;
+
+  background-color: #000;
+}
+
+.roll-helper-overlay footer div {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column-reverse;
+}
+
+.roll-helper-overlay footer div:first-child {
+  margin-right: 5px;
+}
+.roll-helper-overlay footer div:last-child{
+  margin-left: 5px;
+}
+
+.roll-helper-overlay footer div span {
+  flex: 1 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.roll-helper-overlay footer div span input {
+  flex-grow: 1;
+}
+
+.roll-helper-overlay footer label {
+  color: #fff;
+}

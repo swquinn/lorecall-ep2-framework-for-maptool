@@ -1,0 +1,52 @@
+[r:'
+function toggleCollapse(e) {
+  let target = document.querySelector("#roll-helper-overlay");
+  if (target.classList.contains(`expanded`)) {
+    target.classList.remove(`expanded`);
+  }
+  else {
+    target.classList.add(`expanded`);
+  }
+}
+
+function makeCollapsible() {
+  let collapseButton = document.querySelector("#collapse-button");
+  collapseButton.onclick = toggleCollapse;
+}
+
+function makeDraggable() {
+  let overlay = jQuery("#roll-helper-overlay")
+  overlay.draggable({
+    handle: "#drag-handle",
+    drag: function (event, ui) {
+      if (ui.position.top < 0) {
+        ui.position.top = 0;
+      }
+    }
+  });
+}
+
+function bindCombatFlagsFormEvents() {
+  let checkboxes = document.querySelectorAll("#combat-flags input[type=checkbox]");
+  checkboxes.forEach((checkbox, index) => {
+    checkbox.onclick = updateCombatFlags;
+  });
+
+  let selects = document.querySelectorAll("#combat-flags select");
+  selects.forEach((select, index) => {
+    select.onchange = updateCombatFlags;
+  });
+}
+
+function updateCombatFlags(e) {
+  const formElement = document.querySelector("#combat-flags");
+  
+  if (e.target.id == "target-behind-cover") {
+    document.querySelector("#target-behind-cover-checkbox").checked = e.target.value !== "0" ? true : false;
+  }
+  formElement.submit();
+}
+makeCollapsible();
+makeDraggable();
+bindCombatFlagsFormEvents();
+']

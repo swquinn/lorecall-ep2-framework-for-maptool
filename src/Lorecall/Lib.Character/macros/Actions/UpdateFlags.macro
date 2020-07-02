@@ -1,0 +1,34 @@
+[h:props=macro.args]
+[h:tokenId=json.get(props, "tokenId")]
+[h:props=json.remove(props, "tokenId")]
+
+[h:tokenPropertyType=getPropertyType(tokenId)]
+[if(tokenPropertyType != "Basic" && tokenPropertyType != "Mob"), CODE: {
+  [abort(0)]
+};{}]
+
+[h:updatedFlags=props]
+[r:assignedFlags='{
+  "COMBAT_AIM": 0,
+  "COMBAT_AIM_QUICK": 0,
+  "COMBAT_TARGET_BEHIND_COVER": 0,
+  "COMBAT_RANGED_ATTACK_IN_MELEE": 0,
+  "COMBAT_TARGET_PRONE": 0,
+  "COMBAT_ATTACKER_LEAVING_COVER": 0
+}']
+
+[foreach(flag, updatedFlags), CODE: {
+  [flagValue=json.get(updatedFlags, flag)]
+  [switch(flagValue), CODE:
+    case "on": {
+      [assignedFlags=json.set(assignedFlags, flag, 1)]
+    };
+    case "off": {
+      [assignedFlags=json.set(assignedFlags, flag, 0)]
+    };
+    default: {
+      [assignedFlags=json.set(assignedFlags, flag, flagValue)]
+    }
+  ]
+}]
+[h:setProperty("Flags", assignedFlags, tokenId)]
