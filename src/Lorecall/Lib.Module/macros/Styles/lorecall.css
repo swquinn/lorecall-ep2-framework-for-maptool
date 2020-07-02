@@ -3,6 +3,12 @@ html * {
   font-family: 'Open Sans', sans-serif;
 }
 
+.clearfix:after {
+  content: "";
+  display: inline-block;
+  clear: both;
+}
+
 .btn {
   background: linear-gradient(#eee, #e2e2e2);
   border: 1px solid #bcbcbb;
