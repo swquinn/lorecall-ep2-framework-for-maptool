@@ -1,0 +1,41 @@
+[h:tokenId=currentToken()]
+
+[h:submitFormAction=macroLinkText("UpdateCombatModifiers@Lib:Character", "none", "", "")]
+[h:overlayName="RollHelperOverlay"]
+[overlay("RollHelperOverlay"):{
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "ui.css"]
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js" crossorigin></script>
+    <script src="https://unpkg.com/jqueryui/jquery-ui.min.js" crossorigin></script>
+  </head>
+  <body>
+    <div id="roll-helper-overlay" class="overlay roll-helper-overlay expanded" style="--pointermap:block">
+      [macro("RollHelperOverlayHeader@Lib:Utils"): tokenId]
+      <main class="flag-options">
+        [macro("CombatHelperTab@Lib:Utils"): tokenId]
+      </main>
+      <footer>
+        <div>
+          <label>Negative Modifier</label>
+          <span>
+            <input type="number" min="-60" max="0" placeholder="0" />
+            <button>Save</button>
+          </span>
+        </div>
+        <div>
+          <label>Positive Modifier</label>
+          <span>
+            <input type="number" min="0" max="60" placeholder="0"/>
+            <button>Save</button>
+          </span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      [macro("RollHelper.js@Lib:Utils"): ""]
+    </script>
+  </body>
+</html>
+}]

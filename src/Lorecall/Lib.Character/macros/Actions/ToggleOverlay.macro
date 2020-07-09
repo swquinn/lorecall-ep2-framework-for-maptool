@@ -1,0 +1,8 @@
+[h:tokenId=currentToken()]
+
+[h:overlayOpen=isOverlayRegistered("RollHelperOverlay")]
+[if(overlayOpen==1), CODE: {
+  [h:closeOverlay("RollHelperOverlay")]
+}; {
+  [macro("RollHelperOverlay@lib:Character"): tokenId]	
+}]
