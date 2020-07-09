@@ -8,6 +8,7 @@
 [h: defineFunction("icons.crosshairs", "CrosshairsIcon@Lib:Icons")]
 [h: defineFunction("icons.edit", "EditIcon@Lib:Icons")]
 [h: defineFunction("icons.eyeSolid", "EyeSolidIcon@Lib:Icons")]
+[h: defineFunction("icons.fontSize", "FontSizeIcon@Lib:Icons")]
 [h: defineFunction("icons.info", "InfoIcon@Lib:Icons")]
 [h: defineFunction("icons.listAdd", "ListAddIcon@Lib:Icons")]
 [h: defineFunction("icons.overlayDiamond", "OverlayDiamondIcon@Lib:Icons")]
