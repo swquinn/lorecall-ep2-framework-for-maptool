@@ -2,7 +2,7 @@
 [h:refreshAction=macroLinkText("Character@TOKEN","","",tokenId)]
 
 [h:title=strformat("Character Sheet - %{token.name}")]
-[dialog5(title,"width=760; height=800; temporary=1; input=0; closebutton=0;"): {
+[dialog5(title,"width=800; height=800; temporary=1; input=0; closebutton=0;"): {
   <html>
     <head>
       [macro("Style@Lib:Module"): "lorecall.css"]
@@ -26,6 +26,9 @@
           [macro("Features@Lib:Character"): tokenId]
         </section>
       </main>
+      <script>
+        [macro("CharacterSheet.js@Lib:Character"): tokenId]
+      </script>
     </body>
   </html>
 } ]

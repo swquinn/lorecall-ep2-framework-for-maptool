@@ -1,0 +1,11 @@
+[r:'
+function toggleScale(e) {
+  let target = document.querySelector("body.character-sheet");
+  if (target.classList.contains("zoom-1")) {
+    target.classList.remove("zoom-1");
+  }
+  else {
+    target.classList.add("zoom-1");
+  }
+}
+']
