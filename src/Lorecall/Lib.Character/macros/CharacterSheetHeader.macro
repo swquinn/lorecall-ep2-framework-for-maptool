@@ -12,7 +12,9 @@
     ECLIPSE PHASE (SECOND EDITION)
   </h1>
   <nav>
-    <span class="header-tab active">FRONT</span>
+    <span class="toggle-scale" onclick="toggleScale()">
+      <i class="icon">[r:icons.fontSize()]</i>
+    </span>
     <span class="header-tab hidden">FRONT</span>
     <span class="header-tab hidden">DETAILS</span>
     <span class="header-tab hidden">SPELLS</span>
