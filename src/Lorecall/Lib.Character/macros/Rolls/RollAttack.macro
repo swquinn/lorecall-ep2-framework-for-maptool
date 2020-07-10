@@ -1,5 +1,4 @@
 [h:attackId = getStrProp(macro.args, "attackId")]
-[h:characterWounds = character.getPropertyWithDefault("Wounds", 0)]
 [h:color = "#1fa7d1"]
 
 [h:firstRoll = 1d10]
@@ -13,8 +12,20 @@
 
 [h:attack=character.getAttack(attackId)]
 [h:attackName=json.get(attack, "name")]
-[h:testDifficulty=character.getSkillCheck(json.get(attack, "skill"))]
-[h:testDifficulty=testDifficulty - (characterWounds * 10)]
+
+[h:testModifiers=character.getAttackModifiers()]
+[h:log.info(testModifiers)]
+[h:testBonus=json.get(testModifiers, "totalBonus")]
+[h:testBonus=if(testBonus>60, 60, testBonus)]
+[h:testPenalty=json.get(testModifiers, "totalPenalty")]
+[h:log.info(testPenalty)]
+[h:testPenalty=if(testPenalty<-60, -60, testPenalty)]
+
+[h:baseTestDifficulty=character.getSkillCheck(json.get(attack, "skill"))]
+[h:log.info("Test Diff = " + baseTestDifficulty + " Bonus? => " + testBonus + " Penalty? => " + testPenalty)]
+[h:testDifficulty=baseTestDifficulty + testBonus + testPenalty]
+[h:testDifficulty=if(testDifficulty<0, 0, testDifficulty)]
+[h:testDifficulty=if(testDifficulty>98, 98, testDifficulty)]
 <table style="border:1px solid [r:string(color)]; width: 170px;">
   <tr>
     <td colspan="2" style="padding: 0px 2px; background-color:[r:string(color)]; color: #ffffff">
@@ -47,6 +58,32 @@
       <div style="color: #484848; font-size: 10pt;">
         <span>[r:strformat("Failures: -%{superiorFailures}")]</span>
       </div>
+    </td>
+  </tr>
+  <tr style="font-size: 7px">
+    <td colspan="2">
+      <h5 style="margin: 5px 0px 0px;">Target Before Modifiers ([r:baseTestDifficulty]%)</h5>
+      <h5 style="margin: 5px 0px 0px;">Applied Bonuses ([r:testBonus]%)</h5>
+      [h:bonusModifiers=json.get(testModifiers, "bonuses")]
+      [foreach(item, bonusModifiers, "", ""), CODE: {
+        [h:bonusModifier=json.get(bonusModifiers, item)]
+        [h:text=json.get(bonusModifier, "text")]
+        [h:mod=json.get(bonusModifier, "modifier")]
+        [if(mod>0), CODE: {
+          <p style="margin-left: 5px;">[r:strformat("+%{mod}% %{text}")]</p>
+        };{}]
+      }]
+
+      <h5 style="margin: 5px 0px 0px;">Applied Penalties ([r:testPenalty]%)</h5>
+      [h:penaltyModifiers=json.get(testModifiers, "penalties")]
+      [foreach(item, penaltyModifiers, "", ""), CODE: {
+        [h:penaltyModifier=json.get(penaltyModifiers, item)]
+        [h:text=json.get(penaltyModifier, "text")]
+        [h:mod=json.get(penaltyModifier, "modifier")]
+        [if(mod<0), CODE: {
+          <p style="margin-left: 5px;">[r:strformat("%{mod}% %{text}")]</p>
+        };{}]
+      }]
     </td>
   </tr>
 </table>

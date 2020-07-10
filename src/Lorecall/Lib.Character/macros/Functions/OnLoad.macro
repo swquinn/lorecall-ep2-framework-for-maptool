@@ -1,5 +1,6 @@
 [h: defineFunction("character.getAptitudeCheck", "GetAptitudeCheck@Lib:Character")]
 [h: defineFunction("character.getAttack", "GetAttack@Lib:Character")]
+[h: defineFunction("character.getAttackModifiers", "GetAttackModifiers@Lib:Character")]
 [h: defineFunction("character.getDurability", "GetDurability@Lib:Character")]
 [h: defineFunction("character.getDeathRating", "GetDeathRating@Lib:Character")]
 [h: defineFunction("character.getFactionReputation", "GetFactionReputation@Lib:Character")]
