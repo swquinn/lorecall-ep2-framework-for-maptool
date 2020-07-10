@@ -164,3 +164,12 @@ body.property-editor textarea { min-height: 4rem; width: 100%;}
 }
 .accordion-content ul li.even { background-color: #dfdfdf; }
 .accordion-content ul li.odd { background-color: #ffffff; }
+
+.fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+.fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}

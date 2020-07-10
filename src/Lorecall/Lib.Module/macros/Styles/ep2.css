@@ -1,3 +1,7 @@
+.character-sheet {
+  background-color: #ffffff;
+}
+
 .character-sheet label,
 .character-sheet label * {
   font-size: 0.55rem;
@@ -29,9 +33,6 @@ a.icon-edit-property {
   top: -2px;
 }
 
-.character-sheet {
-  background-color: #ffffff;
-}
 .character-sheet header {
   background-color: #eee;
   margin-bottom: 10px;
@@ -53,7 +54,23 @@ a.icon-edit-property {
 }
 .character-sheet nav {
   display: flex;
+  align-items: stretch;
   line-height: 2rem;
+}
+.character-sheet nav span {
+  display: flex;
+  align-items: center;
+}
+.character-sheet nav .icon {
+  display: inline-block;
+  margin: auto;
+  line-height: 2rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  top: 0px;
+}
+.character-sheet nav .toggle-scale {
+  cursor: pointer;
 }
 .character-sheet nav .header-tab {
   background-color:#a73f2d;
@@ -62,13 +79,10 @@ a.icon-edit-property {
   line-height: 2rem;
   padding: 0 .25rem;
 }
-.character-sheet nav .header-tab.hidden { display: none; }
-.character-sheet nav .header-tab .icon {
-  display: inline-block;
-  margin: auto;
-  line-height: 2rem;
-  top: 7px;
+.character-sheet nav .header-tab a {
+  color: #ffffff;
 }
+.character-sheet nav .header-tab.hidden { display: none; }
 .character-sheet nav .header-tab:hover {
   background-color:#b34332;
 }

@@ -1,4 +1,5 @@
 [h:tokenId=currentToken()]
+[h:toggleCharacterOverlayLink=macroLinkText("ToggleOverlay@Lib:Character","","",tokenId)]
 [h:refreshAction=macroLinkText("Character@TOKEN","","",tokenId)]
 
 <header>
@@ -12,10 +13,18 @@
   </h1>
   <nav>
     <span class="header-tab active">FRONT</span>
+    <span class="header-tab hidden">FRONT</span>
     <span class="header-tab hidden">DETAILS</span>
     <span class="header-tab hidden">SPELLS</span>
+    <span class="header-tab">
+      <a href="[r:toggleCharacterOverlayLink]">
+        <i class="icon">[r:icons.window()]</i>
+      </a>
+    </span>
     <span class="header-tab hidden">
-      <i class="icon">[r:icons.cog()]</i>
+      <a href="">
+        <i class="icon">[r:icons.cog()]</i>
+      </a>
     </span>
   </nav>
 </header>

@@ -12,26 +12,28 @@
   </head>
   <body>
     <div id="roll-helper-overlay" class="overlay roll-helper-overlay expanded" style="--pointermap:block">
-      [macro("RollHelperOverlayHeader@Lib:Utils"): tokenId]
-      <main class="flag-options">
-        [macro("CombatHelperTab@Lib:Utils"): tokenId]
-      </main>
-      <footer>
-        <div>
-          <label>Negative Modifier</label>
-          <span>
-            <input type="number" min="-60" max="0" placeholder="0" />
-            <button>Save</button>
-          </span>
-        </div>
-        <div>
-          <label>Positive Modifier</label>
-          <span>
-            <input type="number" min="0" max="60" placeholder="0"/>
-            <button>Save</button>
-          </span>
-        </div>
-      </footer>
+      <div class="roll-helper-canvas">
+        [macro("RollHelperOverlayHeader@Lib:Utils"): tokenId]
+        <main class="flag-options">
+          [macro("CombatHelperTab@Lib:Utils"): tokenId]
+        </main>
+        <footer>
+          <div>
+            <label>Negative Modifier</label>
+            <span>
+              <input type="number" min="-60" max="0" placeholder="0" />
+              <button>Save</button>
+            </span>
+          </div>
+          <div>
+            <label>Positive Modifier</label>
+            <span>
+              <input type="number" min="0" max="60" placeholder="0"/>
+              <button>Save</button>
+            </span>
+          </div>
+        </footer>
+      </div>
     </div>
     <script>
       [macro("RollHelper.js@Lib:Utils"): ""]
