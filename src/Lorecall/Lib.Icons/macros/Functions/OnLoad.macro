@@ -6,6 +6,7 @@
 [h: defineFunction("icons.combatHelper", "CombatHelperIcon@Lib:Icons")]
 [h: defineFunction("icons.cross", "CrossIcon@Lib:Icons")]
 [h: defineFunction("icons.crosshairs", "CrosshairsIcon@Lib:Icons")]
+[h: defineFunction("icons.dice20", "Dice20Icon@Lib:Icons")]
 [h: defineFunction("icons.edit", "EditIcon@Lib:Icons")]
 [h: defineFunction("icons.eyeSolid", "EyeSolidIcon@Lib:Icons")]
 [h: defineFunction("icons.fontSize", "FontSizeIcon@Lib:Icons")]

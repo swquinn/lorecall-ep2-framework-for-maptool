@@ -2,7 +2,6 @@
 [h: defineFunction("mob.getAction", "GetAction@Lib:Mob")]
 [h: defineFunction("mob.getAttackModifiers", "GetAttackModifiers@Lib:Mob")]
 [h: defineFunction("mob.getFeature", "GetFeature@Lib:Mob")]
-[h: defineFunction("mob.getFieldSkills", "GetFieldSkills@Lib:Mob")]
 [h: defineFunction("mob.getGear", "GetGear@Lib:Mob")]
 [h: defineFunction("mob.getItem", "GetItem@Lib:Mob")]
 [h: defineFunction("mob.getPropertyWithDefault", "GetPropertyWithDefault@Lib:Mob")]

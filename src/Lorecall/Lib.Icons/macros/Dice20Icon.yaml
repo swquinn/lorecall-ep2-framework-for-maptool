@@ -1,0 +1,6 @@
+macro:
+  label: D20Icon
+  group: ~
+  auto_execute: False
+  options:
+    allow_players_to_edit_macro: False

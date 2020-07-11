@@ -4,8 +4,9 @@
 [h:mobName=token.name]
 [h:mobMorph=getProperty("Morph")]
 [h:mobTag=getProperty("Tag")]
+[h:mobInit=mob.getInitiative()]
 <header>
-  <div>
+  <div class="name-and-actions">
     <h1>
       [r:mobName]
       <span>
@@ -15,12 +16,20 @@
       </span>
     </h1>
     <nav>
+      <span class="">
+        [h:rollInitArgs=""]
+        [h:rollInitArgs=setStrProp(rollInitArgs, "value", mobInit)]
+        [h:rollInitLink=macroLinkText("RollInitiative@this", "all", rollInitArgs, currentToken())]
+        <a title="Roll Initiative (+[r:mobInit])" href="[r:rollInitLink]">
+          <i class="icon">[r:icons.dice20()]</i>
+        </a>
+      </span>
       <span class="header-tab hidden">
         <i class="icon">[r:icons.cog()]</i>
       </span>
     </nav>
   </div>
-  <div>
+  <div class="tags">
     <span>[r:mobMorph]</span>
     [if(mobTag!=""), CODE: {
       <span>([r:mobTag])</span>

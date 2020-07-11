@@ -1,0 +1,6 @@
+[h:tokenId=currentToken()]
+
+[h:intuitionScore=mob.getPropertyWithDefault("Intuition", 0)]
+[h:reflexScore=mob.getPropertyWithDefault("Reflex", 0)]
+[h:initiative=ceil((intuitionScore + reflexScore) / 5)]
+[h:macro.return=initiative]

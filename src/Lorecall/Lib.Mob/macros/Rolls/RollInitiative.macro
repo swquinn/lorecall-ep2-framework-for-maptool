@@ -1,0 +1,21 @@
+[h:tokenId = currentToken()]
+[h:value = getStrProp(macro.args, "value")]
+[h:color = "#339966"]
+
+[h:firstRoll = 1d6]
+[h:initiativeResult = firstRoll + value]
+[h:addToInitiative(0, initiativeResult, tokenId)]
+
+<table style="border:1px solid [r:string(color)]; width: 170px;">
+  <tr>
+    <td colspan="2" style="padding: 0px 2px; background-color:[r:string(color)]; color: #ffffff">
+      <strong>Initiative</strong>
+      <span>([r:firstRoll] + [r:value])
+    </td>
+  </tr>
+  <tr style="vertical-align: middle;">
+    <td colspan="2" style="color: [r:string(color)]; font-size: 24pt; text-align: center; vertical-align: middle;">
+      <span><strong>[r:initiativeResult]</strong></span>
+    </td>
+  </tr>
+</table>
