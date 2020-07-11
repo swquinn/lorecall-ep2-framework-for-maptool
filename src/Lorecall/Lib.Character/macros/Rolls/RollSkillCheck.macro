@@ -11,14 +11,27 @@
 [h:compositeRoll=number(strformat("%{firstRoll}%{secondRoll}"))]
 [h:compositeRoll=if(compositeRoll==0, 100, compositeRoll)]
 
+[h:testModifiers=character.getTestModifiers()]
+[h:testBonus=json.get(testModifiers, "totalBonus")]
+[h:testPenalty=json.get(testModifiers, "totalPenalty")]
+
+[h:testTotalModifier=testBonus + testPenalty]
+[h:testTotalModifier=if(testTotalModifier<-60, -60, testTotalModifier)]
+[h:testTotalModifier=if(testTotalModifier>60, 60, testTotalModifier)]
+
+[h:baseTestDifficulty=value]
+[h:testDifficulty=baseTestDifficulty + testTotalModifier]
+[h:testDifficulty=if(testDifficulty<0, 0, testDifficulty)]
+[h:testDifficulty=if(testDifficulty>98, 98, testDifficulty)]
 <table style="border:1px solid [r:string(color)]; width: 170px;">
   <tr>
     <td colspan="2" style="padding: 0px 2px; background-color:[r:string(color)]; color: #ffffff">
-      <strong>[r: skill] Check</strong>
+      <strong>[r: skill] Check ([r:testDifficulty]%)</strong>
     </td>
   </tr>
   <tr style="vertical-align: middle;">
     [h:rollColor=color]
+    [h:rollColor=if(compositeRoll>testDifficulty, "#ababab", rollColor)]
     [h:rollColor=if(compositeRoll==99, "#c93a48", rollColor)]
     [h:rollColor=if(compositeRoll==100, "#18a537", rollColor)]
     <td style="color: [r:string(rollColor)]; font-size: 24pt; text-align: center; vertical-align: middle;">
@@ -42,6 +55,32 @@
       <div style="color: #484848; font-size: 10pt;">
         <span>[r:strformat("Fail: -%{superiorFailures}")]</span>
       </div>
+    </td>
+  </tr>
+  <tr style="font-size: 7px">
+    <td colspan="2">
+      <h5 style="margin: 5px 0px 0px;">Target Before Modifiers ([r:baseTestDifficulty]%)</h5>
+      <h5 style="margin: 5px 0px 0px;">Applied Bonuses ([r:testBonus]%)</h5>
+      [h:bonusModifiers=json.get(testModifiers, "bonuses")]
+      [foreach(item, bonusModifiers, "", ""), CODE: {
+        [h:bonusModifier=json.get(bonusModifiers, item)]
+        [h:text=json.get(bonusModifier, "text")]
+        [h:mod=json.get(bonusModifier, "modifier")]
+        [if(mod>0), CODE: {
+          <p style="margin-left: 5px;">[r:strformat("+%{mod}% %{text}")]</p>
+        };{}]
+      }]
+
+      <h5 style="margin: 5px 0px 0px;">Applied Penalties ([r:testPenalty]%)</h5>
+      [h:penaltyModifiers=json.get(testModifiers, "penalties")]
+      [foreach(item, penaltyModifiers, "", ""), CODE: {
+        [h:penaltyModifier=json.get(penaltyModifiers, item)]
+        [h:text=json.get(penaltyModifier, "text")]
+        [h:mod=json.get(penaltyModifier, "modifier")]
+        [if(mod<0), CODE: {
+          <p style="margin-left: 5px;">[r:strformat("%{mod}% %{text}")]</p>
+        };{}]
+      }]
     </td>
   </tr>
 </table>
