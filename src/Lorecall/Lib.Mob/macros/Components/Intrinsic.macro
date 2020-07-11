@@ -1,0 +1,5 @@
+[h:tokenId=currentToken()]
+
+<section class="statblock-intrinsic">
+  [macro("Skills@Lib:Mob"): tokenId]
+</section>

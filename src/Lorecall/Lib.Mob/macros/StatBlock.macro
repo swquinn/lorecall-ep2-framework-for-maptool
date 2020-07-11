@@ -2,7 +2,7 @@
 [h:refreshAction=macroLinkText("Mob@TOKEN","","",tokenId)]
 
 [h:title=strformat("%{token.name}")]
-[dialog5(title,"width=760; height=600; temporary=1; input=0; closebutton=0;"): {
+[dialog5(title,"width=450; height=600; temporary=1; input=0; closebutton=0;"): {
   <html>
     <head>
       [macro("Style@Lib:Module"): "lorecall.css"]
@@ -14,8 +14,11 @@
       <hr class="section-divider">
       <main>
         [macro("Combat@Lib:Mob"): tokenId]
+        <hr class="section-divider">
         [macro("Aptitudes@Lib:Mob"): tokenId]
-        [macro("Skills@Lib:Mob"): tokenId]
+        <hr class="section-divider">
+        [macro("Intrinsic@Lib:Mob"): tokenId]
+        <hr class="section-divider">
         [macro("Qualities@Lib:Mob"): tokenId]
         [macro("Actions@Lib:Mob"): tokenId]
       </main>

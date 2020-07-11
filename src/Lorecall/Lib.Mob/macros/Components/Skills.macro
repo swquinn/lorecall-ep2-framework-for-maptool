@@ -1,0 +1,36 @@
+[h:tokenId=currentToken()]
+
+[h:editSkillsArgs=""]
+[h:editSkillsArgs=setStrProp(editSkillsArgs, "tokenId", tokenId)]
+[h:editSkillsLink=macroLinkText("SkillsEditor@this", "", editSkillsArgs, tokenId)]
+<div class="statblock-entry">
+  <label>
+    Skills
+    <a class="property-edit-link" href="[r:editSkillsLink]">
+      <i class="icon">[r:icons.edit()]</i>
+    </a>
+  </label>
+  <ul>
+    [h:mobSkills=mob.getSkills()]
+    [foreach(skillId, mobSkills, "", ""), CODE: {
+      [h:skill=json.get(mobSkills, skillId)]
+      [h:skillName=json.get(skill, "name")]
+      [h:skillCheck=mob.getSkillCheck(skillId)]
+
+      [h:args=""]
+      [h:args=setStrProp(args, "skill", skillName)]
+      [h:args=setStrProp(args, "value", skillCheck)]
+      [h:args=setStrProp(args, "tokenId", tokenId)]
+      [h:rollSkillCheckLink=macroLinkText("RollSkillCheck@this", "all", args, tokenId)]
+      <li><a href="[r:rollSkillCheckLink]">[r:skillName]</a> <span>[r:skillCheck]%</span></li>
+    }]
+  </ul>
+  <span>
+    [h:addSkillArgs=""]
+    [h:addSkillArgs=setStrProp(addSkillArgs, "tokenId", tokenId)]
+    [h:addSkillLink=macroLinkText("AddSkillEditor@this", "", addSkillArgs, tokenId)]
+    <a class="property-edit-link" href="[r:addSkillLink]">
+      <i class="icon">[r:icons.plusSquare()]</i>
+    </a>
+  </span>
+</div>

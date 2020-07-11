@@ -1,0 +1,28 @@
+[r:'
+function setupSkillAutocomplete() {
+  const availableSkills = [
+    "Athletics",
+    "Deceive",
+    "Fray",
+    "Free Fall",
+    "Guns",
+    "Infiltrate",
+    "Infosec",
+    "Interface",
+    "Kinesics",
+    "Melee",
+    "Perceive",
+    "Persuade",
+    "Program",
+    "Provoke",
+    "Psi",
+    "Research",
+    "Survival"
+  ];
+  let skillNameInput = jQuery("#skill-name");
+  skillNameInput.autocomplete({
+    source: availableSkills
+  })
+}
+setupSkillAutocomplete();
+']

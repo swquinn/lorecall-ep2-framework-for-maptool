@@ -1,0 +1,67 @@
+[h:props=macro.args]
+[h:tokenId=getStrProp(props, "tokenId")]
+[h:component=getStrProp(props, "component")]
+
+[h:dialogTitle=strformat("Edit Skills - %{token.name}")]
+[dialog5(dialogTitle, "width=450; height=450; temporary=1; input=1; closebutton=0; noframe=0"): {
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "ep2.css"]
+    [macro("Style@Lib:Module"): "form.css"]
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js" crossorigin></script>
+    <script src="https://unpkg.com/jqueryui/jquery-ui.min.js" crossorigin></script>
+    <title>[r:dialogTitle]</title>
+  </head>
+  <body class="skills-editor property-editor">
+    <form>
+      <ul>
+        [h:mobSkills=getProperty("Skills", tokenId)]
+        [foreach(skillId, mobSkills, "", ""), CODE: {
+          [h:skill=json.get(mobSkills, skillId)]
+
+          [h:skillName=json.get(skill, "name")]
+          [h:skillAptitude=json.get(skill, "aptitude")]
+          [h:skillRanks=json.get(skill, "ranks")]
+          <li>
+            [r:skillName]
+            <select id="skill-aptitude" name="aptitude">
+              <option
+                  value="Cognition"
+                  [r,if(skillAptitude=="Cognition"): "selected"]>
+                Cognition
+              </option>
+              <option
+                  value="Intuition"
+                  [r,if(skillAptitude=="Intuition"): "selected"]>
+                Intuition
+              </option>
+              <option
+                  value="Reflex"
+                  [r,if(skillAptitude=="Reflex"): "selected"]>
+                Reflex
+              </option>
+              <option
+                  value="Savvy"
+                  [r,if(skillAptitude=="Savvy"): "selected"]>
+                Savvy
+              </option>
+              <option
+                  value="Somatics"
+                  [r,if(skillAptitude=="Somatics"): "selected"]>
+                Somatics
+              </option>
+              <option
+                  value="Willpower"
+                  [r,if(skillAptitude=="Willpower"): "selected"]>
+                Willpower
+              </option>
+            </select>
+            <input name="ranks" value="[r:skillRanks]" />
+          </li>
+        }]
+      </ul>
+    </format>
+  </body>
+</html>
+}]

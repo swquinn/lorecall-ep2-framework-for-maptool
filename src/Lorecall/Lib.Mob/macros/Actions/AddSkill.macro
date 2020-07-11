@@ -1,0 +1,24 @@
+[h:jsonData=macro.args]
+[h:tokenId=json.get(jsonData, "tokenId")]
+[h:skillName=json.get(jsonData, "name")]
+
+[h:skillId=""]
+[if(skillId==""), CODE: {
+  [h:skillId=base64.encode(strformat("%{tokenId}:skills:%{skillName}"))]
+};{}]
+
+[h:mobSkills=getProperty("Skills", tokenId)]
+[h:skillCount=json.length(mobSkills)]
+[if(skillCount < 1), CODE: {
+  [h:mobSkills='{}']
+  [h:setProperty("Skills", mobSkills, tokenId)]
+};{}]
+
+[h:skill=mob.getSkill(skillName)]
+
+[h:skill=json.set(skill, "id", skillId)]
+[h:skill=json.set(skill, "name", skillName)]
+[h:skill=json.set(skill, "ranks", if(json.get(jsonData, "ranks")<0, 0, json.get(jsonData, "ranks")))]
+[h:mobSkills=json.set(mobSkills, skillName, skill)]
+[h:setProperty("Skills", mobSkills, tokenId)]
+[macro("Refresh@this"): tokenId]

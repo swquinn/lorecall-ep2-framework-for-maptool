@@ -1,0 +1,69 @@
+[h:props=macro.args]
+[h:tokenId=getStrProp(props, "tokenId")]
+
+[h:dialogTitle=strformat("Add Skill - %{token.name}")]
+[h:submitAction=macroLinkText("AddSkill@Lib:Mob", "none", "", tokenId)]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
+[dialog5(dialogTitle, "width=450; height=450; temporary=1; input=1; closebutton=0; noframe=0"): {
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "ep2.css"]
+    [macro("Style@Lib:Module"): "form.css"]
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js" crossorigin></script>
+    <script src="https://unpkg.com/jquery-migrate/dist/jquery-migrate.min.js" crossorigin></script>
+    <script src="https://unpkg.com/jqueryui/jquery-ui.min.js" crossorigin></script>
+    <title>[r:dialogTitle]</title>
+  </head>
+  <body class="add-skill-editor property-editor">
+    <form action="[r:submitAction]">
+      <input type="hidden" name="tokenId" value="[r:tokenId]" />
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label for="skill-name">Skill</label>
+            </td>
+            <td class="skill-field">
+              <div class="ui-widget">
+                <input id="skill-name" name="name" class="editor-field" type="text" required="true" placeholder="Skill name, e.g. Athletics, Fray, etc." />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="skill-aptitude">Aptitude</label>
+            </td>
+            <td class="skill-field">
+              <select id="skill-aptitude" name="aptitude">
+                <option value="Cognition">Cognition</option>
+                <option value="Intuition">Intuition</option>
+                <option value="Reflex">Reflex</option>
+                <option value="Savvy">Savvy</option>
+                <option value="Somatics">Somatics</option>
+                <option value="Willpower">Willpower</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="skill-ranks">Ranks</label>
+            </td>
+            <td class="skill-field">
+              <input id="skill-ranks" name="ranks" type="number" placeholder="0" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr/>
+      <input type="submit" value="Save">
+      <a class="btn" href="[r:cancelAction]">Cancel</a>
+    </form>
+  </body>
+  <script>
+    [macro("AddSkillEditor.js@Lib:Mob"): tokenId]
+  </script>
+</html>
+}]

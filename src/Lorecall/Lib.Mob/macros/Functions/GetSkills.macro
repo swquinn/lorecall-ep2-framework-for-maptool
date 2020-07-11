@@ -1,0 +1,8 @@
+[h:skills=getProperty("Skills")]
+
+[h:mobSkills='{}')]
+[foreach(skillId, skills, "", ""), CODE: {
+  [h:skill=json.get(skills, skillId)]
+  [h:mobSkills=json.set(mobSkills, skillId, skill)]
+}]
+[h:macro.return=mobSkills]
