@@ -1,5 +1,5 @@
 macro:
-  label: Action
+  label: Aptitudes
   group: Components
   auto_execute: False
   min_width: 100
