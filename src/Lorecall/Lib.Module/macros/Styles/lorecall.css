@@ -83,7 +83,7 @@ table {
 table tr, table th, table td { border: 0px solid #000; margin: 0px; padding: 0px; }
 
 /* lorecall */
-.icon { top: 2px; position: relative; }
+.icon { position: relative; }
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }

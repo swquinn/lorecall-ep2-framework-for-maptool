@@ -10,6 +10,14 @@
   font-size: 0.85rem;
 }
 
+.statblock header .name-and-actions {
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
 .statblock header h1 {
   display: inline-block;
   padding: 5px 0px;
@@ -38,8 +46,8 @@
 
 .statblock main {
   margin: 5px 0px;
-  min-width: 500px;
-  max-width: 500px;
+  min-width: 400px;
+  max-width: 400px;
 }
 
 .statblock-actions,
@@ -90,12 +98,31 @@
   display: flex;
   flex-direction: row;
 }
+.statblock-entry label {
+  flex: 1 0 auto;
+}
 
 .statblock-entry ul {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
+  margin-left: 2px;
 }
 .statblock-entry ul li {
   flex: 1 0 auto;
+}
+.statblock-entry ul li::after {
+  content: ",";
+  margin-right: 2px;
+}
+.statblock-entry ul li:last-child::after {
+  content: "";
+}
+
+.statblock-qualities ul.qualities {
+  list-style: none;
+}
+.statblock-qualities ul.qualities li.quality {
+  margin-bottom: 5px;
 }
