@@ -1,3 +1,4 @@
+[h:tokenId = getStrProp(macro.args, "tokenId")]
 [h:attackId = getStrProp(macro.args, "attackId")]
 [h:color = "#1fa7d1"]
 
@@ -83,6 +84,15 @@
           <p style="margin-left: 5px;">[r:strformat("%{mod}% %{text}")]</p>
         };{}]
       }]
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding: 0px 2px; background-color:[r:string(color)]; color: #ffffff; text-align: center;">
+      [h:rollDamageArgs=""]
+      [h:rollDamageArgs=setStrProp(rollDamageArgs, "attackId", attackId)]
+      [h:rollDamageArgs=setStrProp(rollDamageArgs, "tokenId", tokenId)]
+      [h:rollDamageLink=macroLinkText("RollDamage@Lib:Character", "all", rollDamageArgs, tokenId)]
+      <a style="color: #ffffff; text-decoration: none;" href="[r:rollDamageLink]">Roll Damage</a>
     </td>
   </tr>
 </table>

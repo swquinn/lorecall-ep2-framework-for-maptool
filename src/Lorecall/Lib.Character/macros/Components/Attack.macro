@@ -26,7 +26,11 @@
 
   <td class="damage-column">
     <span title='[r:strformat("%{attackDamage}")]'>
-      <span>[r:attackDamage]</span>
+      [h:rollDamageArgs=""]
+      [h:rollDamageArgs=setStrProp(rollDamageArgs, "attackId", attackId)]
+      [h:rollDamageArgs=setStrProp(rollDamageArgs, "tokenId", tokenId)]
+      [h:rollDamageLink=macroLinkText("RollDamage@Lib:Character", "all", rollDamageArgs, tokenId)]
+      <a class="damage-label" title="[r:attackDamage]" href="[r:rollDamageLink]">[r:attackDamage]</a>
       [if(attackType=="Ranged"), CODE: {
         [h:attackSS=json.get(attack, "singleShot")]
         [h:attackSA=json.get(attack, "semiAutomatic")]

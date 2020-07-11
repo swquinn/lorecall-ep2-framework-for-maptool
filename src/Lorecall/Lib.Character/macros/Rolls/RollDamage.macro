@@ -1,0 +1,24 @@
+[h:tokenId = getStrProp(macro.args, "tokenId")]
+[h:attackId = getStrProp(macro.args, "attackId")]
+[h:color = "#1fa7d1"]
+
+[h:attack=character.getAttack(attackId)]
+[h:log.info(attack)]
+[h:attackName=json.get(attack, "name")]
+[h:attackDamage=json.get(attack, "damage")]
+[h:log.info("Attack Damage Roll: " + attackDamage)]
+[h:damageRoll=eval(attackDamage)]
+
+<table style="border:1px solid [r:string(color)]; width: 170px;">
+  <tr>
+    <td colspan="2" style="padding: 0px 2px; background-color:[r:string(color)]; color: #ffffff">
+      <strong>[r: attackName] Damage ([r:attackDamage])</strong>
+    </td>
+  </tr>
+  <tr style="vertical-align: middle;">
+    [h:rollColor=color]
+    <td colspan="2" style="color: [r:string(rollColor)]; font-size: 24pt; text-align: center; vertical-align: middle;">
+      <span><strong>[r:damageRoll]</strong></span>
+    </td>
+  </tr>
+</table>
