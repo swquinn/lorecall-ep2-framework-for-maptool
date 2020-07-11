@@ -1,0 +1,34 @@
+[h:tokenId=macro.args]
+[h:tokenPropertyType=getPropertyType(tokenId)]
+
+[if(tokenPropertyType != "Basic" && tokenPropertyType != "Mob"), CODE: {
+  <span></span>
+};{
+  [h:submitModifierFlags=macroLinkText("UpdateFlags@Lib:Character", "none", "", tokenId)]
+
+  [h:tokenFlags=getProperty("Flags", tokenId)]
+  [h:tokenFlags=if(json.isEmpty(tokenFlags), '{}', tokenFlags)]
+  <footer>
+    <form id="modifier-flags" action="[r:submitModifierFlags]">
+      <input type="hidden" name="tokenId" value="[r:tokenId]" />
+      <section class="arbitrary-modifiers">
+        <div class="modifier-input col-6">
+          <label>Negative Modifier</label>
+          <span>
+            [h:penaltyModifier=json.get(tokenFlags, "MODIFIER_PENALTY")]
+            <input type="number" min="-60" max="0" step="5" placeholder="0" name="MODIFIER_PENALTY" value="[r:penaltyModifier]" />
+            <button>Save</button>
+          </span>
+        </div>
+        <div class="modifier-input col-6">
+          <label>Positive Modifier</label>
+          <span>
+            [h:bonusModifier=json.get(tokenFlags, "MODIFIER_BONUS")]
+            <input type="number" min="0" max="60" step="5" placeholder="0" name="MODIFIER_BONUS" value="[r:bonusModifier]" />
+            <button>Save</button>
+          </span>
+        </div>
+      </section>
+    </form>
+  </footer>
+}]

@@ -1,5 +1,5 @@
 macro:
-  label: RollHelperOverlay
+  label: RollHelperHeader
   group: Overlays
   auto_execute: False
   options:

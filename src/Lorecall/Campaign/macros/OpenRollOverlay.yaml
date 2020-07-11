@@ -1,6 +1,7 @@
 macro:
-  label: RollHelperOverlayHeader
-  group: Overlays
+  label: Open Roll Overlay
+  group: ~
   auto_execute: False
+  min_width: 100
   options:
     allow_players_to_edit_macro: False

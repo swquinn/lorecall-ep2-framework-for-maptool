@@ -123,7 +123,11 @@
   font-size: 0.55rem;
 }
 
-.roll-helper-overlay footer {
+.roll-helper-overlay footer form {
+  margin: 0px;
+}
+
+.roll-helper-overlay .arbitrary-modifiers {
   display: flex;
   flex-direction: row;
   justify-content: stretch;
@@ -134,20 +138,20 @@
   padding: 5px;
 }
 
-.roll-helper-overlay footer div {
+.roll-helper-overlay .arbitrary-modifiers .modifier-input {
   display: flex;
   flex: 1 0 auto;
   flex-direction: column-reverse;
 }
 
-.roll-helper-overlay footer div:first-child {
+.roll-helper-overlay .arbitrary-modifiers .modifier-input:first-child {
   margin-right: 5px;
 }
-.roll-helper-overlay footer div:last-child{
+.roll-helper-overlay .arbitrary-modifiers .modifier-input:last-child{
   margin-left: 5px;
 }
 
-.roll-helper-overlay footer div span {
+.roll-helper-overlay .arbitrary-modifiers .modifier-input span {
   flex: 1 0 auto;
 
   display: flex;
@@ -157,10 +161,10 @@
   align-content: stretch;
 }
 
-.roll-helper-overlay footer div span input {
+.roll-helper-overlay .arbitrary-modifiers .modifier-input span input {
   flex-grow: 1;
 }
 
-.roll-helper-overlay footer label {
+.roll-helper-overlay .arbitrary-modifiers label {
   color: #fff;
 }

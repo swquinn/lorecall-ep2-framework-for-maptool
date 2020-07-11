@@ -1,0 +1,35 @@
+[h:selectedTokens=getSelected()]
+
+[h:onChangeSelectionMacro=macroLinkText("UniversalRollHelperOverlay@GM", "none", "", "")]
+[h:overlayName="UniversalRollHelperOverlay"]
+[overlay("UniversalRollHelperOverlay"):{
+<html>
+  <head>
+    [macro("Style@Lib:Module"): "lorecall.css"]
+    [macro("Style@Lib:Module"): "ui.css"]
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js" crossorigin></script>
+    <script src="https://unpkg.com/jqueryui/jquery-ui.min.js" crossorigin></script>
+    <link rel="onChangeSelection" type="macro" href='[r:onChangeSelectionMacro]'>
+  </head>
+  <body>
+    <div id="roll-helper-overlay" class="overlay roll-helper-overlay expanded" style="--pointermap:block">
+      <div class="roll-helper-canvas">
+        [macro("RollHelperHeader@Lib:Utils"): selectedTokens]
+        [if(listCount(selectedTokens)!=1), CODE: {
+        <main>
+          <span>In order to change the combat settings of a token, please select one token.</span>
+        </main>
+        };{
+        <main class="flag-options">
+          [macro("CombatHelperTab@Lib:Utils"): selectedTokens]
+        </main>
+        [macro("RollHelperFooter@Lib:Utils"): selectedTokens]
+        }]
+      </div>
+    </div>
+    <script>
+      [macro("RollHelper.js@Lib:Utils"): selectedTokens]
+    </script>
+  </body>
+</html>
+}]
