@@ -1,0 +1,101 @@
+.statblock {
+  background-color: #ffffff;
+}
+.statblock h1 {
+  color: #000;
+  font-size: 0.95rem;
+}
+.statblock h2 {
+  color: #000;
+  font-size: 0.85rem;
+}
+
+.statblock header h1 {
+  display: inline-block;
+  padding: 5px 0px;
+}
+.statblock header nav {
+  display: flex;
+  align-items: stretch;
+  line-height: 2rem;
+}
+.statblock header nav span {
+  display: flex;
+  align-items: center;
+}
+.statblock header nav .icon {
+  display: inline-block;
+  margin: auto;
+  line-height: 2rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  top: 0px;
+}
+
+.statblock header nav .hidden {
+  display: none;
+}
+
+.statblock main {
+  margin: 5px 0px;
+  min-width: 500px;
+  max-width: 500px;
+}
+
+.statblock-actions,
+.statblock-qualities {
+  margin-top: 10px;
+}
+
+.statblock-action,
+.statblock-quality {
+  margin-bottom: 5px;
+}
+
+.statblock-action label,
+.statblock-entry label,
+.statblock-quality label {
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.statblock-aptitudes {
+  display: flex;
+  flex-direction: row;
+  break-inside: avoid;
+  break-after: column;
+}
+
+.statblock-aptitudes .aptitude {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  margin: 5px;
+  flex: 1 0 auto;
+  align-items: stretch;
+  text-align: center;
+}
+
+.statblock-aptitudes .aptitude .aptitude-header {
+  background-color: red;
+  color: #fff;
+}
+
+.statblock-aptitudes .aptitude .aptitude-check {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.statblock-entry {
+  display: flex;
+  flex-direction: row;
+}
+
+.statblock-entry ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.statblock-entry ul li {
+  flex: 1 0 auto;
+}
