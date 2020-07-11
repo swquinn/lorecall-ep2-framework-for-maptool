@@ -1,0 +1,13 @@
+[h:tokenFlags=getProperty("Flags")]
+[h:tokenFlags=if(json.isEmpty(tokenFlags), '{}', tokenFlags)]
+
+[h:flagsTemplate='{
+  "COMBAT_AIM": 0,
+  "COMBAT_AIM_QUICK": 0,
+  "COMBAT_TARGET_BEHIND_COVER": 0,
+  "COMBAT_RANGED_ATTACK_IN_MELEE": 0,
+  "COMBAT_TARGET_PRONE": 0,
+  "COMBAT_ATTACKER_LEAVING_COVER": 0,
+}']
+[h:tokenFlags=json.merge(flagsTemplate, tokenFlags)]
+[h:macro.return=tokenFlags]

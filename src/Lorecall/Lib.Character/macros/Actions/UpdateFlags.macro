@@ -8,27 +8,19 @@
 };{}]
 
 [h:updatedFlags=props]
-[r:assignedFlags='{
-  "COMBAT_AIM": 0,
-  "COMBAT_AIM_QUICK": 0,
-  "COMBAT_TARGET_BEHIND_COVER": 0,
-  "COMBAT_RANGED_ATTACK_IN_MELEE": 0,
-  "COMBAT_TARGET_PRONE": 0,
-  "COMBAT_ATTACKER_LEAVING_COVER": 0
-}']
-
+[h:tokenFlags=character.getFlags()]
 [foreach(flag, updatedFlags), CODE: {
   [flagValue=json.get(updatedFlags, flag)]
   [switch(flagValue), CODE:
     case "on": {
-      [assignedFlags=json.set(assignedFlags, flag, 1)]
+      [tokenFlags=json.set(tokenFlags, flag, 1)]
     };
     case "off": {
-      [assignedFlags=json.set(assignedFlags, flag, 0)]
+      [tokenFlags=json.set(tokenFlags, flag, 0)]
     };
     default: {
-      [assignedFlags=json.set(assignedFlags, flag, flagValue)]
+      [tokenFlags=json.set(tokenFlags, flag, flagValue)]
     }
   ]
 }]
-[h:setProperty("Flags", assignedFlags, tokenId)]
+[h:setProperty("Flags", tokenFlags, tokenId)]

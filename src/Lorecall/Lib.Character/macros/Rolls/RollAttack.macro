@@ -14,16 +14,15 @@
 [h:attackName=json.get(attack, "name")]
 
 [h:testModifiers=character.getAttackModifiers()]
-[h:log.info(testModifiers)]
 [h:testBonus=json.get(testModifiers, "totalBonus")]
-[h:testBonus=if(testBonus>60, 60, testBonus)]
 [h:testPenalty=json.get(testModifiers, "totalPenalty")]
-[h:log.info(testPenalty)]
-[h:testPenalty=if(testPenalty<-60, -60, testPenalty)]
+
+[h:testTotalModifier=testBonus + testPenalty]
+[h:testTotalModifier=if(testTotalModifier<-60, -60, testTotalModifier)]
+[h:testTotalModifier=if(testTotalModifier>60, 60, testTotalModifier)]
 
 [h:baseTestDifficulty=character.getSkillCheck(json.get(attack, "skill"))]
-[h:log.info("Test Diff = " + baseTestDifficulty + " Bonus? => " + testBonus + " Penalty? => " + testPenalty)]
-[h:testDifficulty=baseTestDifficulty + testBonus + testPenalty]
+[h:testDifficulty=baseTestDifficulty + testTotalModifier]
 [h:testDifficulty=if(testDifficulty<0, 0, testDifficulty)]
 [h:testDifficulty=if(testDifficulty>98, 98, testDifficulty)]
 <table style="border:1px solid [r:string(color)]; width: 170px;">

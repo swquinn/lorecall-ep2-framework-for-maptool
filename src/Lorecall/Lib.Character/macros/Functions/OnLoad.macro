@@ -6,6 +6,7 @@
 [h: defineFunction("character.getFactionReputation", "GetFactionReputation@Lib:Character")]
 [h: defineFunction("character.getFeature", "GetFeature@Lib:Character")]
 [h: defineFunction("character.getFieldSkills", "GetFieldSkills@Lib:Character")]
+[h: defineFunction("character.getFlags", "GetFlags@Lib:Character")]
 [h: defineFunction("character.getGear", "GetGear@Lib:Character")]
 [h: defineFunction("character.getInsanity", "GetInsanity@Lib:Character")]
 [h: defineFunction("character.getItem", "GetItem@Lib:Character")]
