@@ -1,0 +1,60 @@
+[h:tokenId=currentToken()]
+[h:tokenFlags=getProperty("Flags", tokenId)]
+
+[h:attackModifiersJson=json.set('{}',
+  "totalBonus", 0,
+  "totalPenalty", 0,
+  "bonuses", '{}',
+  "penalties", '{}'
+)]
+
+[h:totalBonusModifier=0]
+[h:totalPenaltyModifier=0]
+[h,foreach(flag, tokenFlags, "", ""), CODE: {
+  [h:flagValue=json.get(tokenFlags, flag)]
+  [switch(flag), CODE:
+    case "MODIFIER_BONUS": {
+      [h:modifier=if(flagValue>0, flagValue, 0)]
+      [h:totalBonusModifier=totalBonusModifier + modifier]
+
+      [h:modifierJson=json.set('{}',
+        "text", "Raw Modifier",
+        "modifier", modifier
+      )]
+      [h:attackBonuses=json.get(attackModifiersJson, "bonuses")]
+      [h:attackBonuses=json.set(attackBonuses, "MODIFIER_BONUS", modifierJson)]
+      [h:attackModifiersJson=json.set(attackModifiersJson, "bonuses", attackBonuses)]
+    };
+    case "MODIFIER_PENALTY": {
+      [h:modifier=if(flagValue<0, flagValue, 0)]
+      [h:totalPenaltyModifier=totalPenaltyModifier + modifier]
+
+      [h:modifierJson=json.set('{}',
+        "text", "Raw Modifier",
+        "modifier", modifier
+      )]
+      [h:attackPenalties=json.get(attackModifiersJson, "penalties")]
+      [h:attackPenalties=json.set(attackPenalties, "MODIFIER_PENALTY", modifierJson)]
+      [h:attackModifiersJson=json.set(attackModifiersJson, "penalties", attackPenalties)]
+    };
+    default: {}
+  ]
+}]
+
+[h:characterWounds = character.getPropertyWithDefault("Wounds", 0)]
+[h,if(characterWounds>0), CODE: {
+  [h:characterWoundPenalty=characterWounds * -10]
+  [h:totalPenaltyModifier=totalPenaltyModifier + characterWoundPenalty)]
+  
+  [h:modifierJson=json.set('{}',
+    "text", "Wounded",
+    "modifier", characterWoundPenalty
+  )]
+  [h:attackPenalties=json.get(attackModifiersJson, "penalties")]
+  [h:attackPenalties=json.set(attackPenalties, "CHARACTER_WOUNDS", modifierJson)]
+  [h:attackModifiersJson=json.set(attackModifiersJson, "penalties", attackPenalties)]
+};{}]
+
+[h:attackModifiersJson=json.set(attackModifiersJson, "totalBonus", totalBonusModifier)]
+[h:attackModifiersJson=json.set(attackModifiersJson, "totalPenalty", totalPenaltyModifier)]
+[h:macro.return=attackModifiersJson]

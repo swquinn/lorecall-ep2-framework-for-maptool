@@ -15,5 +15,6 @@
 [h: defineFunction("character.getPropertyWithDefault", "GetPropertyWithDefault@Lib:Character")]
 [h: defineFunction("character.getSkill", "GetSkill@Lib:Character")]
 [h: defineFunction("character.getSkillCheck", "GetSkillCheck@Lib:Character")]
+[h: defineFunction("character.getTestModifiers", "GetTestModifiers@Lib:Character")]
 [h: defineFunction("character.getTraumaThreshold", "GetTraumaThreshold@Lib:Character")]
 [h: defineFunction("character.getWoundThreshold", "GetWoundThreshold@Lib:Character")]
