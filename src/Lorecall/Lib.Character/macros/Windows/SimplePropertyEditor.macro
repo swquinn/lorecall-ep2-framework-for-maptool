@@ -8,4 +8,9 @@
 [h:abort(input(labelField, textField))]
 [h:setProperty(property, value, tokenId)]
 
+[if(property=="Damage"), CODE: {
+  [h:durability=character.getDurability()]
+  [h:setBar("Health", (durability - value)/durability)]
+}]
+
 [macro("Refresh@this"): token.name]
