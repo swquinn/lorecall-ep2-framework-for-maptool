@@ -5,6 +5,7 @@
 [h:actionName=strformat("Dodge %{dodgeSkill}")]
 [h:actionSkill=character.getSkill(skillName)]
 [h:actionSkillCheck=character.getSkillCheck(skillName)]
+[h:actionSkillCheck=if(dodgeSkill=="Guns", actionSkillCheck/2, actionSkillCheck)]
 
 [h:actionArgs=""]
 [h:actionArgs=setStrProp(actionArgs, "skill", skillName)]
@@ -20,7 +21,7 @@
     <span>[r:strformat("%{skillName} %{actionSkillCheck}")]</span>
   </td>
 
-  <td class="damage-column"></td>
-  <td class="ammo-column"></td>
+  <td class="damage-column">--</td>
+  <td class="ammo-column">--</td>
   <td class="action-column"></td>
 </tr>
