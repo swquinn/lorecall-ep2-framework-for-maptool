@@ -10,7 +10,9 @@
       [r:aptitudeScore]
     </span>
     <span class="aptitude-check">
-      <a href="">[r:aptitudeCheck]</a>
+      [h:aptitudeCheckArgs=strformat("skill=Cognition; value=%{aptitudeCheck}")]
+      [h:aptitudeCheckLink=macroLinkText("RollAptitudeCheck@Lib:Mob", "all", aptitudeCheckArgs, tokenId)]
+      <a href="[r:aptitudeCheckLink]">[r:aptitudeCheck]</a>
     </span>
   </div>
 
@@ -22,7 +24,9 @@
       [r:aptitudeScore]
     </span>
     <span class="aptitude-check">
-      <a href="">[r:aptitudeCheck]</a>
+      [h:aptitudeCheckArgs=strformat("skill=Intuition; value=%{aptitudeCheck}")]
+      [h:aptitudeCheckLink=macroLinkText("RollAptitudeCheck@Lib:Mob", "all", aptitudeCheckArgs, tokenId)]
+      <a href="[r:aptitudeCheckLink]">[r:aptitudeCheck]</a>
     </span>
   </div>
 
@@ -34,7 +38,9 @@
       [r:aptitudeScore]
     </span>
     <span class="aptitude-check">
-      <a href="">[r:aptitudeCheck]</a>
+      [h:aptitudeCheckArgs=strformat("skill=Reflex; value=%{aptitudeCheck}")]
+      [h:aptitudeCheckLink=macroLinkText("RollAptitudeCheck@Lib:Mob", "all", aptitudeCheckArgs, tokenId)]
+      <a href="[r:aptitudeCheckLink]">[r:aptitudeCheck]</a>
     </span>
   </div>
 
@@ -46,7 +52,9 @@
       [r:aptitudeScore]
     </span>
     <span class="aptitude-check">
-      <a href="">[r:aptitudeCheck]</a>
+      [h:aptitudeCheckArgs=strformat("skill=Savvy; value=%{aptitudeCheck}")]
+      [h:aptitudeCheckLink=macroLinkText("RollAptitudeCheck@Lib:Mob", "all", aptitudeCheckArgs, tokenId)]
+      <a href="[r:aptitudeCheckLink]">[r:aptitudeCheck]</a>
     </span>
   </div>
 
@@ -58,7 +66,9 @@
       [r:aptitudeScore]
     </span>
     <span class="aptitude-check">
-      <a href="">[r:aptitudeCheck]</a>
+      [h:aptitudeCheckArgs=strformat("skill=Somatics; value=%{aptitudeCheck}")]
+      [h:aptitudeCheckLink=macroLinkText("RollAptitudeCheck@Lib:Mob", "all", aptitudeCheckArgs, tokenId)]
+      <a href="[r:aptitudeCheckLink]">[r:aptitudeCheck]</a>
     </span>
   </div>
 
@@ -70,7 +80,9 @@
       [r:aptitudeScore]
     </span>
     <span class="aptitude-check">
-      <a href="">[r:aptitudeCheck]</a>
+      [h:aptitudeCheckArgs=strformat("skill=Willpower; value=%{aptitudeCheck}")]
+      [h:aptitudeCheckLink=macroLinkText("RollAptitudeCheck@Lib:Mob", "all", aptitudeCheckArgs, tokenId)]
+      <a href="[r:aptitudeCheckLink]">[r:aptitudeCheck]</a>
     </span>
   </div>
 </section>
