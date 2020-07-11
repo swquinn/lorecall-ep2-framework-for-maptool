@@ -7,7 +7,7 @@
 [h:addAttackLink=macroLinkText("AttackEditor@this", "", addAttackArgs, tokenId)]
 <section class="cs-attacks">
   <label class="section-header">
-    ATTACKS
+    ACTIONS
     <a class="action" href="[r:addAttackLink]">
       <i class="icon">[r:icons.plusSquare()]</i>
     </a>
@@ -34,6 +34,8 @@
       [foreach(attackId, attacks, "", ""), CODE: {
         [macro("Attack@Lib:Character"): attackId]
       }]
+      [macro("Dodge@Lib:Character"): "Guns"]
+      [macro("Dodge@Lib:Character"): "Melee"]
       </tbody>
     </table>
   </div>
