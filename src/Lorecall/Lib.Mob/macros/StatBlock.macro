@@ -6,19 +6,18 @@
   <html>
     <head>
       [macro("Style@Lib:Module"): "lorecall.css"]
-      [macro("Style@Lib:Module"): "ep2.css"]
+      [macro("Style@Lib:Module"): "statblock.css"]
       <title>[r:title]</title>
     </head>
-    <body class="mob-statblock">
+    <body class="statblock">
       [macro("StatBlockHeader@Lib:Mob"): tokenId]
+      <hr class="section-divider">
       <main>
-        <section class="mob-header">
-        </section>
-        <section class="mob-body">
-          [macro("Aptitudes@Lib:Mob"): tokenId]
-          [macro("Skills@Lib:Mob"): tokenId]
-          [macro("Actions@Lib:Mob"): tokenId]
-        </section>
+        [macro("Combat@Lib:Mob"): tokenId]
+        [macro("Aptitudes@Lib:Mob"): tokenId]
+        [macro("Skills@Lib:Mob"): tokenId]
+        [macro("Qualities@Lib:Mob"): tokenId]
+        [macro("Actions@Lib:Mob"): tokenId]
       </main>
     </body>
   </html>
