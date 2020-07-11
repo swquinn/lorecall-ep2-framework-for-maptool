@@ -1,0 +1,16 @@
+[h:tokenId=currentToken()]
+[h:qualityId=arg(0)]
+[h:mobQualities=getProperty("Qualities")]
+
+[h:theQuality=json.set("{}",
+  "id", "",
+  "tokenId", tokenId,
+  "name", "",
+  "description", ""
+)]
+
+[if(json.length(mobQualities)>0), CODE: {
+  [h:item=json.get(mobQualities, qualityId)]
+  [h:theQuality=if(json.isEmpty(item), theQuality, item)]
+};{}]
+[h:macro.return=theQuality]

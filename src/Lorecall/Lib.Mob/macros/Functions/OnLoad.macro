@@ -6,6 +6,7 @@
 [h: defineFunction("mob.getInitiative", "GetInitiative@Lib:Mob")]
 [h: defineFunction("mob.getItem", "GetItem@Lib:Mob")]
 [h: defineFunction("mob.getPropertyWithDefault", "GetPropertyWithDefault@Lib:Mob")]
+[h: defineFunction("mob.getQuality", "GetQuality@Lib:Mob")]
 [h: defineFunction("mob.getSkill", "GetSkill@Lib:Mob")]
 [h: defineFunction("mob.getSkills", "GetSkills@Lib:Mob")]
 [h: defineFunction("mob.getSkillCheck", "GetSkillCheck@Lib:Mob")]

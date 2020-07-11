@@ -1,0 +1,38 @@
+[h:qualityId=getStrProp(macro.args, "qualityId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+[h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
+
+[h:quality=mob.getQuality(qualityId)]
+[h:submitAction=macroLinkText("UpdateQuality@Lib:Mob", "none", "", tokenId)]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
+<form action="[r:submitAction]">
+  <input type="hidden" name="qualityId" value="[r:json.get(quality, 'id')]" />
+  <input type="hidden" name="tokenId" value="[r:tokenId]" />
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label for="quality-name">Quality</label>
+        </td>
+        <td class="quality-field">
+          <input id="quality-name" name="name" class="quality-field" type="text" required="true" placeholder="Quality name, e.g. Hardened Skeleton" value="[r:json.get(quality, 'name')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="quality-description">Description</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="quality-field">
+          <textarea id="quality-description" name="description" placeholder="The description of the feature, and its mechanics.">[r:json.get(quality, "description")]</textarea>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <hr/>
+  <input type="submit" value="Save">
+  <a class="btn" href="[r:cancelAction]">Cancel</a>
+</form>

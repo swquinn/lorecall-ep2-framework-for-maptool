@@ -1,0 +1,27 @@
+[h:jsonData=macro.args]
+
+[h:qualityId=json.get(jsonData, "qualityId")]
+[h:qualityName=json.get(jsonData, "name")]
+[assert(qualityName!="", "Quality trait MUST have a name.")]
+
+[h:tokenId=json.get(jsonData, "tokenId")]
+[h:jsonData=json.remove(jsonData, "tokenId")]
+
+[h:qualities=getProperty("Qualities", tokenId)]
+[h:qualitiesCount=json.length(qualities)]
+
+[if(qualitiesCount < 1), CODE: {
+  [h:qualities='{}']
+  [h:setProperty("Qualities", qualities, tokenId)]
+};{}]
+
+[if(qualityId==""), CODE: {
+  [h:qualityId=base64.encode(strformat("%{tokenId}:%{qualityName}"))]  
+};{}]
+
+[h:qualityJson=jsonData]
+[h:qualityJson=json.remove(qualityJson, "qualityId")]
+[h:qualityJson=json.set(qualityJson, "id", qualityId)]
+[h:qualities=json.set(qualities, qualityId, qualityJson)]
+[h:setProperty("Qualities", qualities, tokenId)]
+[macro("Refresh@this"): tokenId]

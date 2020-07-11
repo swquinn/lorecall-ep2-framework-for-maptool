@@ -1,0 +1,24 @@
+[h:tokenId=currentToken()]
+[h:qualities=getProperty("Qualities")]
+
+[h:addQualityArgs=""]
+[h:addQualityArgs=setStrProp(addQualityArgs, "tokenId", tokenId)]
+[h:addQualityArgs=setStrProp(addQualityArgs, "component", "QualityForm")]
+[h:addQualityLink=macroLinkText("QualityEditor@this", "", addQualityArgs, tokenId)]
+<section class="statblock-qualities">
+  <h2>
+    Qualities
+    <a class="add-quality" href="[r:addQualityLink]">
+      <i class="icon">[r:icons.plusSquare()]</i>
+    </a>
+  </h2>
+  <ul class="qualities">
+    [foreach(qualityId, qualities, "", ""), CODE: {
+      [h:quality=json.get(qualities, qualityId)]
+      <li class="quality">
+        <strong>[r:json.get(quality, "name")]</strong>
+        <span>[r:json.get(quality, "description")]</span>
+      </li>
+    }]
+  </ul>
+</section>
