@@ -1,0 +1,34 @@
+[h:tokenId=currentToken()]
+
+[h:mobArmorEnergy=getProperty("ArmorEnergy")]
+[h:mobArmorKinetic=getProperty("ArmorKinetic")]
+
+[h:mobDamage=getProperty("Damage")]
+[h:mobDurability=getProperty("Durability")]
+[h:mobDeathRating=getProperty("DeathRating")]
+[h:mobWounds=getProperty("Wounds")]
+
+[h:mobThreatPool=getProperty("ThreatPool")]
+
+<section class="statblock-combat">
+  <div class="statblock-entry">
+    <label>Armor</label>
+    <span>[r:mobArmorEnergy] (Energy) / [r:mobArmorKinetic] (Kinetic)</span>
+  </div>
+  <div class="statblock-entry">
+    <label>
+      [r:macroLink("Durability","SimplePropertyEditor@Lib:Mob", "", "Damage", tokenId)]
+    </label>
+    <span>[r:mobDamage] / [r:mobDurability] ([r:mobDeathRating] DR)</span>
+  </div>
+  <div class="statblock-entry">
+    <label>
+      [r:macroLink("Wounds","SimplePropertyEditor@Lib:Mob", "", "Wounds", tokenId)]
+    </label>
+    <span>[r:mobWounds] ([r:mobWounds * -10]%)</span>
+  </div>
+  <div class="statblock-entry">
+    <label>Movement</label>
+    <span>4/20 walker</span>
+  </div>
+</section>

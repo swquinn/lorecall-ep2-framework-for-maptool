@@ -1,0 +1,200 @@
+[h:actionId=getStrProp(macro.args, "actionId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+[h:dialogTitle=getStrProp(macro.args, "dialogTitle")]
+[h:submitAction=macroLinkText("UpdateAction@Lib:Mob", "none", "", tokenId)]
+[h:cancelAction=macroLinkText("CancelDialog@Lib:Module", "none", dialogTitle)]
+
+[h:action=mob.getAction(actionId)]
+<form action="[r:submitAction]">
+  <input type="hidden" name="actionId" value="[r:json.get(action, 'id')]" />
+  <input type="hidden" name="tokenId" value="[r:tokenId]" />
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <label for="action-name">Action</label>
+        </td>
+        <td class="action-field">
+          <input id="action-name" name="name" class="action-field" type="text" required="true" placeholder="Action, e.g. Medium Pistol" value="[r:json.get(action, 'name')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-type">Action Type</label>
+        </td>
+        <td class="action-field">
+          [h:actionType=json.get(action, "type")]
+          <select id="action-type" name="type">
+            <option
+                value="Melee Action"
+                [r,if(actionType=="Melee Action"): "selected"]>
+              Melee Action
+            </option>
+            <option
+                value="Ranged Action"
+                [r,if(actionType=="Ranged Action"): "selected"]>
+              Ranged Action
+            </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Complexity</label>
+        </td>
+        <td class="action-field">
+          [h:actionComplexity=json.get(action, "complexity")]
+          <select id="action-complexity" name="complexity">
+            <option
+                value="Min"
+                [r,if(actionComplexity=="Min"): "selected"]>
+              Min
+            </option>
+            <option
+                value="Mod"
+                [r,if(actionComplexity=="Mod"): "selected"]>
+              Mod
+            </option>
+            <option
+                value="Maj"
+                [r,if(actionComplexity=="Maj"): "selected"]>
+              Maj
+            </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-cost">Cost</label>
+        </td>
+        <td class="action-field">
+          <input id="action-cost" name="cost" class="action-field" type="number" placeholder="GP cost, e.g. 1" value="[r:json.get(action, 'cost')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Is Restricted?</label>
+        </td>
+        <td class="action-field">
+          [h:actionIsRestricted=json.get(action, "restricted")]
+          <input id="action-proficiency" name="restricted" type="checkbox" [r:if(actionIsRestricted=="on", "checked", "")]/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-skill">Action Skill</label>
+        </td>
+        <td class="action-field">
+          [h:actionSkill=json.get(action, "skill")]
+          <select id="action-skill" name="skill">
+            <option
+                value="Guns"
+                [r,if(actionSkill=="Guns"): "selected"]>
+              Guns
+            </option>
+            <option
+                value="Melee"
+                [r,if(actionSkill=="Melee"): "selected"]>
+              Melee
+            </option>
+            <option
+                value="Psi"
+                [r,if(actionSkill=="Psi"): "selected"]>
+              Psi
+            </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-range">Range</label>
+        </td>
+        <td class="action-field">
+          <input id="action-range" name="range" type="text" placeholder="30m" value="[r:json.get(action, 'range')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-ammo">Ammo</label>
+        </td>
+        <td class="action-field">
+          <input id="action-ammo" name="ammo" type="text" placeholder="15+1" value="[r:json.get(action, 'ammo')]"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Firing Modes</label>
+        </td>
+        <td class="action-field">
+          [h:actionIsSingleShot=json.get(action, "singleShot")]
+          <input id="action-proficiency" name="singleShot" type="checkbox" [r:if(actionIsSingleShot=="on", "checked", "")]/>
+
+          [h:actionIsSemiAutomatic=json.get(action, "semiAutomatic")]
+          <input id="action-proficiency" name="semiAutomatic" type="checkbox" [r:if(actionIsSemiAutomatic=="on", "checked", "")]/>
+
+          [h:actionIsBurstFire=json.get(action, "burstFire")]
+          <input id="action-proficiency" name="burstFire" type="checkbox" [r:if(actionIsBurstFire=="on", "checked", "")]/>
+
+          [h:actionIsFullAutomatic=json.get(action, "fullAutomatic")]
+          <input id="action-proficiency" name="fullAutomatic" type="checkbox" [r:if(actionIsFullAutomatic=="on", "checked", "")]/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-damage">Damage</label>
+        </td>
+        <td class="action-field">
+          [h:actionDamage=json.get(action, "damage")]
+          [h:actionDamageType=json.get(action, "damageType")]
+          <input id="action-damage" name="damage" class="dice-field" type="text" placeholder="1d6" value="[r:actionDamage]"/>
+          <select id="action-damage-type" name="damageType">
+            <option
+                value="Energy"
+                [r,if(actionDamageType=="Energy"): "selected"]>
+              Energy
+            </option>
+            <option
+                value="Kinetic"
+                [r,if(actionDamageType=="Kinetic"): "selected"]>
+              Kinetic
+            </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label>Armor Piercing?</label>
+        </td>
+        <td class="action-field">
+          [h:actionIsArmorPiercing=json.get(action, "armorPiercing")]
+          <input id="action-proficiency" name="armorPiercing" type="checkbox" [r:if(actionIsArmorPiercing=="on", "checked", "")]/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="action-description">Description</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="action-field">
+          <textarea id="action-description" name="description" placeholder="The description of the feature, and its mechanics.">[r:json.get(action, "description")]</textarea>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <hr/>
+  <input type="submit" value="Save">
+  <a class="btn" href="[r:cancelAction]">Cancel</a>
+</form>

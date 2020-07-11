@@ -1,0 +1,20 @@
+[h:tokenId=currentToken()]
+[h:actions=getProperty("Actions")]
+
+[h:addActionArgs=""]
+[h:addActionArgs=setStrProp(addActionArgs, "tokenId", tokenId)]
+[h:addActionArgs=setStrProp(addActionArgs, "component", "ActionForm")]
+[h:addActionLink=macroLinkText("ActionEditor@this", "", addActionArgs, tokenId)]
+<section class="statblock-actions">
+  <h2>
+    Actions
+    <a class="action" href="[r:addActionLink]">
+      <i class="icon">[r:icons.plusSquare()]</i>
+    </a>
+  </h2>
+  <ul>
+    [foreach(actionId, actions, "", ""), CODE: {
+      [macro("Action@Lib:Mob"): actionId]
+    }]
+  </ul>
+</section>

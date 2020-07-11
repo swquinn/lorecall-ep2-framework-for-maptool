@@ -1,0 +1,7 @@
+[h:actionId=getStrProp(macro.args, "actionId")]
+[h:tokenId=getStrProp(macro.args, "tokenId")]
+
+[h:actions=getProperty("Actions", tokenId)]
+[h:actions=json.remove(actions, actionId)]
+[h:setProperty("Actions", actions)]
+[macro("Refresh@this"): tokenId]

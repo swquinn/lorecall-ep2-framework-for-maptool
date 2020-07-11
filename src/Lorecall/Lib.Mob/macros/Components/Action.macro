@@ -1,0 +1,60 @@
+[h:tokenId=currentToken()]
+[h:actionId=macro.args]
+
+[h:actions=getProperty("Actions")]
+
+[h:action=json.get(actions, actionId)]
+[h:actionName=json.get(action, "name")]
+[h:actionSkill=json.get(action, "skill")]
+[h:actionType=json.get(action, "type")]
+[h:actionDamage=json.get(action, "damage")]
+[h:actionAmmo=json.get(action, "ammo")]
+
+[h:actionArgs=""]
+[h:actionArgs=setStrProp(actionArgs, "actionId", actionId)]
+[h:actionArgs=setStrProp(actionArgs, "tokenId", tokenId)]
+[h:performActionLink=macroLinkText("RollAction@Lib:Mob", "all", actionArgs, tokenId)]
+<li class="statblock-action">
+  <a class="action-label" title="[r:actionName]" href="[r:performActionLink]">
+    <strong><em>[r:actionName]</em></strong>
+  </a>
+
+  [h:actionSkillCheck=mob.getSkillCheck(actionSkill)]
+  <span>[r:strformat("%{actionSkill} %{actionSkillCheck}")]</span>
+
+  <span>On Hit:</span>
+  <span title='[r:strformat("%{actionDamage}")]'>
+    <span>[r:actionDamage]</span>
+    [if(actionType=="Ranged"), CODE: {
+      [h:actionSS=json.get(action, "singleShot")]
+      [h:actionSA=json.get(action, "semiAutomatic")]
+      [h:actionBF=json.get(action, "burstFire")]
+      [h:actionFA=json.get(action, "fullAutomatic")]
+
+      [h:actionModes=""]
+      [h:actionModes=if(actionSS=="on", listAppend(actionModes, "SS"), "")]
+      [h:actionModes=if(actionSA=="on", listAppend(actionModes, "SA"), "")]
+      [h:actionModes=if(actionBF=="on", listAppend(actionModes, "BF"), "")]
+      [h:actionModes=if(actionFA=="on", listAppend(actionModes, "FA"), "")]
+      <span>([r:stringToList(actionModes, ", ", "/")])</span>
+    };{}]
+  </span>
+
+  <span>
+    [h:editArgs=""]
+    [h:editArgs=setStrProp(editArgs, "actionId", actionId)]
+    [h:editArgs=setStrProp(editArgs, "actionName", json.get(action, "name"))]
+    [h:editActionLink=macroLinkText("ActionEditor@this", "none", editArgs, tokenId)]
+    <a id="edit-action" class="action" href="[r:editActionLink]">
+      <i class="icon">[r:icons.edit()]</i>
+    </a>
+
+    [h:removeActionArgs=""]
+    [h:removeActionArgs=setStrProp(removeActionArgs, "actionId", actionId)]
+    [h:removeActionArgs=setStrProp(removeActionArgs, "tokenId", tokenId)]
+    [h:removeActionLink=macroLinkText("RemoveAction@this", "none", removeActionArgs, tokenId)]
+    <a id="edit-action" class="action" href="[r:removeActionLink]">
+      <i class="icon">[r:icons.trash()]</i>
+    </a>
+  </span>
+</li>

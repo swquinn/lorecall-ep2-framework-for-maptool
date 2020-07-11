@@ -1,0 +1,33 @@
+[h:tokenId=currentToken()]
+[h:skillId=arg(0)]
+[h:mobSkills=getProperty("Skills")]
+
+[h:skillTemplate=data.findSkill(skillId)]
+
+[h:theSkill=json.set("{}",
+  "id", "",
+  "tokenId", tokenId,
+  "name", "",
+  "field", "",
+  "specializations", "",
+  "aptitude", "",
+  "type", "",
+  "category", "",
+  "ranks", 0
+)]
+
+[if(json.length(skillTemplate) > 0), CODE: {
+  [h:theSkill=json.set(theSkill,
+    "id", json.get(skillTemplate, "name"),
+    "name", json.get(skillTemplate, "name"),
+    "aptitude", json.get(skillTemplate, "aptitude"),
+    "type", json.get(skillTemplate, "type"),
+    "category", "CORE_SKILL"
+  )]
+};{}]
+
+[if(json.length(mobSkills)>0), CODE: {
+  [h:item=json.get(mobSkills, skillId)]
+  [h:theSkill=if(json.isEmpty(item), theSkill, item)]
+};{}]
+[h:macro.return=theSkill]

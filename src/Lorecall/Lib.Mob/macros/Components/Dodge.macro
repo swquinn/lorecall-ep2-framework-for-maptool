@@ -1,0 +1,21 @@
+[h:tokenId=currentToken()]
+[h:dodgeSkill=macro.args]
+
+[h:skillName="Fray"]
+[h:actionName=strformat("Dodge %{dodgeSkill}")]
+[h:actionSkill=mob.getSkill(skillName)]
+[h:actionSkillCheck=mob.getSkillCheck(skillName)]
+[h:actionSkillCheck=if(dodgeSkill=="Guns", actionSkillCheck/2, actionSkillCheck)]
+
+[h:actionArgs=""]
+[h:actionArgs=setStrProp(actionArgs, "skill", skillName)]
+[h:actionArgs=setStrProp(actionArgs, "value", actionSkillCheck)]
+[h:actionArgs=setStrProp(actionArgs, "tokenId", tokenId)]
+[h:actionLink=macroLinkText("RollSkillCheck@Lib:Mob", "all", actionArgs, tokenId)]
+<li class="statblock-action">
+  <a class="action-label" title="[r:actionName]" href="[r:actionLink]">
+    <strong><em>[r:actionName]</em></strong>
+  </a>
+
+  <span>[r:strformat("%{skillName} %{actionSkillCheck}")]</span>
+</li>

@@ -1,0 +1,27 @@
+[h:jsonData=macro.args]
+
+[h:actionId=json.get(jsonData, "actionId")]
+[h:actionName=json.get(jsonData, "name")]
+[assert(actionName!="", "Action MUST have a name.")]
+
+[h:tokenId=json.get(jsonData, "tokenId")]
+[h:jsonData=json.remove(jsonData, "tokenId")]
+
+[h:actions=getProperty("Actions", tokenId)]
+[h:actionCount=json.length(actions)]
+
+[if(actionCount < 1), CODE: {
+  [h:actions='{}']
+  [h:setProperty("Actions", actions, tokenId)]
+};{}]
+
+[if(actionId==""), CODE: {
+  [h:actionId=base64.encode(strformat("%{tokenId}:" + (actionCount + 1) + ":%{actionName}"))]  
+};{}]
+
+[h:actionJson=jsonData]
+[h:actionJson=json.remove(actionJson, "actionId")]
+[h:actionJson=json.set(actionJson, "id", actionId)]
+[h:actions=json.set(actions, actionId, actionJson)]
+[h:setProperty("Actions", actions, tokenId)]
+[macro("Refresh@this"): tokenId]

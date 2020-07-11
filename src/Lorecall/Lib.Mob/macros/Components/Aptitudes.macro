@@ -1,0 +1,76 @@
+[h:tokenId=currentToken()]
+
+<section class="statblock-aptitudes">
+
+  <div id="aptitude-cognition" class="aptitude">
+    [h:aptitudeScore=getProperty("Cognition")]
+    [h:aptitudeCheck=aptitudeScore * 3]
+    <div class="aptitude-header">COG</div>
+    <span class="aptitude-score">
+      [r:aptitudeScore]
+    </span>
+    <span class="aptitude-check">
+      <a href="">[r:aptitudeCheck]</a>
+    </span>
+  </div>
+
+  <div id="aptitude-intuition" class="aptitude">
+    [h:aptitudeScore=getProperty("Intuition")]
+    [h:aptitudeCheck=aptitudeScore * 3]
+    <div class="aptitude-header">INT</div>
+    <span class="aptitude-score">
+      [r:aptitudeScore]
+    </span>
+    <span class="aptitude-check">
+      <a href="">[r:aptitudeCheck]</a>
+    </span>
+  </div>
+
+  <div id="aptitude-reflex" class="aptitude">
+    [h:aptitudeScore=getProperty("Reflex")]
+    [h:aptitudeCheck=aptitudeScore * 3]
+    <div class="aptitude-header">REF</div>
+    <span class="aptitude-score">
+      [r:aptitudeScore]
+    </span>
+    <span class="aptitude-check">
+      <a href="">[r:aptitudeCheck]</a>
+    </span>
+  </div>
+
+  <div id="aptitude-savvy" class="aptitude">
+    [h:aptitudeScore=getProperty("Savvy")]
+    [h:aptitudeCheck=aptitudeScore * 3]
+    <div class="aptitude-header">SAV</div>
+    <span class="aptitude-score">
+      [r:aptitudeScore]
+    </span>
+    <span class="aptitude-check">
+      <a href="">[r:aptitudeCheck]</a>
+    </span>
+  </div>
+
+  <div id="aptitude-somatics" class="aptitude">
+    [h:aptitudeScore=getProperty("Somatics")]
+    [h:aptitudeCheck=aptitudeScore * 3]
+    <div class="aptitude-header">SOM</div>
+    <span class="aptitude-score">
+      [r:aptitudeScore]
+    </span>
+    <span class="aptitude-check">
+      <a href="">[r:aptitudeCheck]</a>
+    </span>
+  </div>
+
+  <div id="aptitude-willpower" class="aptitude">
+    [h:aptitudeScore=getProperty("Willpower")]
+    [h:aptitudeCheck=aptitudeScore * 3]
+    <div class="aptitude-header">WIL</div>
+    <span class="aptitude-score">
+      [r:aptitudeScore]
+    </span>
+    <span class="aptitude-check">
+      <a href="">[r:aptitudeCheck]</a>
+    </span>
+  </div>
+</section>

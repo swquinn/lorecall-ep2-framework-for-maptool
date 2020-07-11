@@ -1,0 +1,13 @@
+[h:skillId=arg(0)]
+[h:mobSkill=mob.getSkill(skillId)]
+
+[h:skillName=json.get(mobSkill, "name")]
+[h:skillAptitude=json.get(mobSkill, "aptitude")]
+[h:skillRanks=json.get(mobSkill, "ranks")]
+[h:aptitudeScore=mob.getPropertyWithDefault(skillAptitude, 0)]
+
+[h:aptitudeScore=if(skillName=="Fray", (aptitudeScore * 2), aptitudeScore)]
+[h:aptitudeScore=if(skillName=="Perceive", (aptitudeScore * 2), aptitudeScore)]
+
+[h:skillCheck=(skillRanks + aptitudeScore)]
+[h:macro.return=skillCheck]
